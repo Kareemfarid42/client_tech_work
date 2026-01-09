@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "OmniSEO® & Lead Generation", href: "#services" },
   { label: "Revenue Marketing & CRO", href: "#services" },
   { label: "UX & AI Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about", isRoute: true },
 ];
 
 export const Header = () => {
@@ -36,13 +37,23 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="px-3 py-2 text-sm text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
-              >
-                {item.label}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="px-3 py-2 text-sm text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="px-3 py-2 text-sm text-secondary-foreground/80 hover:text-secondary-foreground transition-colors"
+                >
+                  {item.label}
+                </a>
+              )
             ))}
           </nav>
 
@@ -76,14 +87,25 @@ export const Header = () => {
           >
             <nav className="container-max section-padding py-4 flex flex-col gap-2">
               {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="px-4 py-3 text-secondary-foreground/80 hover:text-secondary-foreground hover:bg-secondary-foreground/5 rounded-lg transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                item.isRoute ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="px-4 py-3 text-secondary-foreground/80 hover:text-secondary-foreground hover:bg-secondary-foreground/5 rounded-lg transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="px-4 py-3 text-secondary-foreground/80 hover:text-secondary-foreground hover:bg-secondary-foreground/5 rounded-lg transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
               <Button variant="hero" className="mt-4">Get a Proposal</Button>
             </nav>
