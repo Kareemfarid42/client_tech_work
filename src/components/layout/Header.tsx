@@ -8,6 +8,7 @@ const navItems = [
   { label: "OmniSEO® & Lead Generation", href: "#services" },
   { label: "Revenue Marketing & CRO", href: "#services" },
   { label: "UX & AI Services", href: "#services" },
+  { label: "Industry", href: "/industry", isRoute: true },
   { label: "About", href: "/about", isRoute: true },
 ];
 
