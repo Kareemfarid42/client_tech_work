@@ -3,10 +3,10 @@ import { ArrowRight, Check, Star, Zap, Target, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ColorPreview = () => {
-  // New color scheme: #1b17ff (electric blue), black, white
-  const newPrimary = "#1b17ff";
+  // New color scheme: #407ED6 (steel blue), black, white
+  const newPrimary = "#407ED6";
   const newSecondary = "#0a0a0a";
-  const newAccent = "#3d3aff";
+  const newAccent = "#5a94e0";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#fafafa" }}>
@@ -20,7 +20,7 @@ const ColorPreview = () => {
             Color Scheme Preview
           </h1>
           <p className="text-white/70 mb-8">
-            Comparing current teal (#19be9d) vs proposed electric blue (#1b17ff)
+            Comparing current teal (#19be9d) vs proposed steel blue (#407ED6)
           </p>
           
           <div className="grid grid-cols-2 gap-8">
@@ -43,7 +43,7 @@ const ColorPreview = () => {
                 <div className="w-16 h-16 rounded-lg" style={{ backgroundColor: newSecondary }} />
                 <div className="w-16 h-16 rounded-lg border border-white/20" style={{ backgroundColor: "#ffffff" }} />
               </div>
-              <p className="text-white/50 text-sm mt-2">#1b17ff • #0a0a0a • #ffffff</p>
+              <p className="text-white/50 text-sm mt-2">#407ED6 • #0a0a0a • #ffffff</p>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ const ColorPreview = () => {
       <div className="py-12 px-6 text-center" style={{ backgroundColor: newSecondary }}>
         <p className="text-white/70 mb-4">Like this color scheme?</p>
         <p className="text-white text-sm">
-          Let me know and I'll apply #1b17ff across the entire site!
+          Let me know and I'll apply #407ED6 across the entire site!
         </p>
       </div>
     </div>
