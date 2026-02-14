@@ -1,8 +1,8 @@
+/* Fonts are loaded in index.html for better performance */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap');
 
 /* WebFX-inspired Digital Agency Design System */
 
@@ -29,7 +29,7 @@
 
     /* Muted */
     --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 16% 40%;
 
     /* Accent - Bright teal */
     --accent: 168 85% 50%;
@@ -80,7 +80,7 @@
     --secondary-foreground: 210 40% 98%;
 
     --muted: 213 35% 16%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 215 20% 70%;
 
     --accent: 168 85% 55%;
     --accent-foreground: 213 45% 8%;
@@ -113,7 +113,12 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Sora', 'Inter', system-ui, sans-serif;
   }
 }
@@ -137,5 +142,27 @@
 
   .glow-effect {
     box-shadow: var(--glow-primary);
+  }
+
+  /* Responsive overflow fixes */
+  .overflow-safe {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal overflow on mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure images don't overflow containers */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }

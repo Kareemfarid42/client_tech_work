@@ -4,7 +4,8 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { MarketingSection } from "@/components/sections/MarketingSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { AwardsSection } from "@/components/sections/AwardsSection";
+import { StandardsSection } from "@/components/sections/StandardsSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { BlogsSection } from "@/components/sections/BlogsSection";
@@ -14,12 +15,13 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1} aria-label="Main content">
         <HeroSection />
         <MarketingSection />
         <ServicesSection />
         <IndustriesSection />
-        <AwardsSection />
+        <StandardsSection />
+        <TechStackSection />
         <PortfolioSection />
         <TestimonialsSection />
         <BlogsSection />

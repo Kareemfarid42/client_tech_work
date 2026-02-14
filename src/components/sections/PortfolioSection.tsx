@@ -47,14 +47,26 @@ export const PortfolioSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                className={`group relative rounded-2xl overflow-hidden bg-gradient-to-br ${item.color} p-6 min-h-[200px] flex flex-col justify-end card-hover cursor-pointer`}
+                className="group relative rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 card-hover cursor-pointer"
               >
-                <span className="absolute top-4 left-4 text-xs font-medium bg-card/80 backdrop-blur-sm px-3 py-1 rounded-full text-card-foreground">
-                  {item.type}
-                </span>
-                <h3 className="font-display font-bold text-foreground group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
+                {/* Image Placeholder */}
+                <div className={`h-48 bg-gradient-to-br ${item.color} flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-secondary/10 group-hover:bg-secondary/5 transition-colors" />
+                  <span className="text-xs font-medium bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-card-foreground absolute top-4 left-4 z-10">
+                    {item.type}
+                  </span>
+                  {/* Placeholder for actual image */}
+                  <div className="text-6xl opacity-20 group-hover:opacity-30 transition-opacity">
+                    {item.type === "Case Study" ? "📊" : "📝"}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-base text-foreground group-hover:text-primary transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1,23 +1,72 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { 
-  Plane, Building2, Radio, ShoppingCart, Droplet, Rocket, 
-  Stethoscope, Gamepad2, CreditCard, ShoppingBag 
+import {
+  Landmark,
+  Banknote,
+  HeartPulse,
+  ShoppingBag,
+  RadioTower,
+  Zap,
+  Plane,
+  ShoppingCart,
+  Rocket,
+  Gamepad2,
+  ArrowRight
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const industries = [
-  { icon: Plane, label: "Travel & Hospitality" },
-  { icon: Building2, label: "Public Sector" },
-  { icon: Radio, label: "Telecommunication" },
-  { icon: ShoppingBag, label: "Retail & CPG" },
-  { icon: Droplet, label: "Oil, Gas, and Energy" },
-  { icon: Rocket, label: "Startups" },
-  { icon: ShoppingCart, label: "E-commerce" },
-  { icon: CreditCard, label: "Banking & Fintech" },
-  { icon: Stethoscope, label: "Healthcare & Pharmaceuticals" },
-  { icon: Gamepad2, label: "Gaming" },
+  {
+    icon: Landmark,
+    title: "Public Sector",
+    description: "Supporting government and public organizations with secure, scalable, and compliant digital systems that improve service delivery and operational efficiency.",
+  },
+  {
+    icon: Banknote,
+    title: "Banking & Fintech",
+    description: "Enabling financial institutions and fintechs with robust digital foundations, intelligent automation, and systems built for security, compliance, and scale.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Healthcare & Life Sciences",
+    description: "Designing digital solutions that enhance patient experiences, streamline operations, and support data-driven decision-making within regulated environments.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Retail & Consumer Goods",
+    description: "Helping retailers and CPG brands modernize systems, connect data, and improve customer engagement across digital and physical channels.",
+  },
+  {
+    icon: RadioTower,
+    title: "Telecommunications",
+    description: "Supporting telecom providers with scalable platforms, system integration, and optimization to improve performance and customer experience.",
+  },
+  {
+    icon: Zap,
+    title: "Energy, Oil & Utilities",
+    description: "Delivering resilient digital systems and data-driven solutions that support complex operations, compliance, and long-term sustainability.",
+  },
+  {
+    icon: Plane,
+    title: "Travel & Hospitality",
+    description: "Enhancing digital experiences and operational platforms to improve customer journeys, efficiency, and service reliability.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce",
+    description: "Building and optimizing digital platforms that support growth, performance, and seamless customer experiences.",
+  },
+  {
+    icon: Rocket,
+    title: "Startups & Growth-Stage",
+    description: "Partnering with startups to establish strong digital foundations, accelerate execution, and scale responsibly.",
+  },
+  {
+    icon: Gamepad2,
+    title: "Media, Gaming & Digital Entertainment",
+    description: "Supporting digital-first businesses with scalable platforms, engaging user experiences, and performance-focused systems.",
+  },
 ];
 
 export const IndustriesSection = () => {
@@ -25,48 +74,55 @@ export const IndustriesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-background">
+    <section ref={ref} id="industries" className="py-20 lg:py-32 bg-background">
       <div className="container-max section-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-16 text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground">
-            Discover our Impact Across <span className="text-primary">Industries</span>
+          <p className="text-sm uppercase tracking-wider text-primary mb-3">Industries We Serve</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
+            Discover Our Impact Across Industries
           </h2>
+          <p className="text-muted-foreground text-lg">
+            ClienTech Solutions partners with organizations across industries to design, build, and transform digital capabilities adapting our approach to each sector’s unique challenges, regulations, and opportunities.
+          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto"
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {industries.map((industry, index) => (
             <motion.div
-              key={industry.label}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
-              className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary hover:bg-primary/5 transition-all duration-200 cursor-pointer group"
+              key={industry.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
+              className="group p-6 rounded-2xl bg-white border border-secondary/10 hover:bg-secondary hover:border-secondary hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <industry.icon className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-lg bg-primary/10 group-hover:bg-white/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <industry.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
               </div>
-              <span className="font-medium text-foreground">{industry.label}</span>
+              <h3 className="font-display font-bold text-lg text-foreground group-hover:text-white mb-3 transition-colors duration-300">{industry.title}</h3>
+              <p className="text-sm text-muted-foreground group-hover:text-white/80 leading-relaxed mb-4 transition-colors duration-300">
+                {industry.description}
+              </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="flex justify-center mt-12"
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-16 text-center bg-primary/5 rounded-2xl p-8 sm:p-12 border border-primary/10"
         >
-          <Button variant="hero" size="lg">Let's Talk Business</Button>
+          <h3 className="text-2xl font-display font-bold text-foreground mb-4">Do they understand my industry?</h3>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">We adapt our proven digital transformation frameworks to your specific sector requirements.</p>
+          <Button variant="default" size="lg" className="gap-2">
+            Talk to an Industry Expert
+            <ArrowRight className="w-4 h-4" />
+          </Button>
         </motion.div>
       </div>
     </section>
