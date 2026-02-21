@@ -110,16 +110,21 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Century Gothic", AppleGothic, sans-serif;
   }
 
   h1,
-  h2,
+  h2 {
+    font-family: "League Spartan", sans-serif;
+    @apply font-bold;
+  }
+
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Sora', 'Inter', system-ui, sans-serif;
+    font-family: "Poppins", sans-serif;
+    @apply font-semibold;
   }
 }
 

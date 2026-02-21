@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Century Gothic"', 'AppleGothic', 'sans-serif'],
+        display: ['"League Spartan"', 'sans-serif'],
+        subheading: ['Poppins', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

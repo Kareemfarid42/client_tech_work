@@ -18,32 +18,32 @@ import {
 
 const primaryServices = [
   {
-    icon: Server,
-    title: "Digital Foundations",
+    icon: Rocket,
+    title: "Digital Transformation",
     description: "Build secure, scalable, and future-ready digital infrastructure that enables growth, resilience, and long-term performance.",
   },
   {
-    icon: Code2,
-    title: "Digital Solutions Engineering",
+    icon: Palette,
+    title: "Digital Marketing",
     description: "Design and develop tailored digital solutions that solve real business challenges and integrate seamlessly with existing systems.",
   },
   {
     icon: Brain,
-    title: "AI, Data & Intelligent Systems",
+    title: "Marketing Automations",
     description: "Apply AI and data-driven intelligence to enhance decision-making, automate processes, and unlock smarter ways of working.",
   },
   {
-    icon: Rocket,
-    title: "Digital Transformation & Advisory",
+    icon: Network,
+    title: "Product Marketing",
     description: "Align strategy, technology, and execution to drive meaningful transformation with measurable, sustainable outcomes.",
   },
 ];
 
 const supportingServices = [
   {
-    icon: Cloud,
-    title: "Cloud & Infrastructure Services",
-    description: "Enable cloud readiness, modernization, and performance optimization across enterprise environments.",
+    icon: Server,
+    title: "Digital Foundations and GTM",
+    description: "Establish strong technical foundations combined with effective go-to-market strategies for sustainable growth.",
   },
   {
     icon: Building2,
@@ -51,7 +51,7 @@ const supportingServices = [
     description: "Implement and optimize enterprise platforms to improve visibility, efficiency, and operational control.",
   },
   {
-    icon: Palette,
+    icon: Code2,
     title: "UX, Product & Experience Design",
     description: "Create intuitive, user-centered digital experiences that balance usability, performance, and business goals.",
   },
@@ -91,7 +91,6 @@ export const ServicesSection = () => {
             Transform Your Business
           </h2>
         </motion.div>
-
         {/* Primary Services */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {primaryServices.map((service, index) => (
