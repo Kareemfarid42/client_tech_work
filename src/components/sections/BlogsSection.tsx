@@ -32,7 +32,7 @@ export const BlogsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-muted/50">
+    <section ref={ref} id="blogs" className="py-20 lg:py-32 bg-muted/50">
       <div className="container-max section-padding">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-v3.png";
 
 const navItems = [
@@ -10,12 +10,14 @@ const navItems = [
   { label: "What We Do", href: "#services" },
   { label: "Who We Serve", href: "#industries" },
   { label: "Performance Audits", href: "#" },
-  { label: "Latest Insights", href: "#" },
+  { label: "Latest Insights", href: "#blogs" },
 ];
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,26 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    const id = href.replace("#", "");
+    setMobileMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      // Navigate to home page with the hash — Index.tsx will handle scrolling
+      navigate("/" + href);
+    } else {
+      // Already on home page — just scroll
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <header
@@ -61,6 +83,7 @@ export const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="px-3 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors whitespace-nowrap"
                 >
                   {item.label}
@@ -131,7 +154,7 @@ export const Header = () => {
                     <a
                       href={item.href}
                       className="text-lg font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors block"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => handleSmoothScroll(e, item.href)}
                     >
                       {item.label}
                     </a>

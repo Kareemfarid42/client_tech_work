@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Target, Eye, Lightbulb, Shield, Users, Globe, 
-  Award, Trophy, Star, MapPin, Linkedin, Twitter 
+import {
+  Target, Eye, Lightbulb, Shield, Users, Globe,
+  Award, Trophy, Star, MapPin, Linkedin, Twitter
 } from "lucide-react";
 
 const values = [
@@ -51,7 +51,7 @@ const About = () => {
   const globalRef = useRef(null);
   const whyRef = useRef(null);
   const awardsRef = useRef(null);
-  
+
   const heroInView = useInView(heroRef, { once: true, margin: "-100px" });
   const missionInView = useInView(missionRef, { once: true, margin: "-100px" });
   const valuesInView = useInView(valuesRef, { once: true, margin: "-100px" });
@@ -87,36 +87,57 @@ const About = () => {
         {/* Mission & Vision Section */}
         <section ref={missionRef} className="py-20 lg:py-32 bg-background">
           <div className="container-max section-padding">
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+
+              {/* Mission Card */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={missionInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5 }}
-                className="p-8 lg:p-12 rounded-2xl bg-primary/5 border border-primary/20"
+                className="rounded-2xl overflow-hidden shadow-lg border border-primary/10"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <Target className="w-7 h-7 text-primary" />
+                {/* Coloured top bar */}
+                <div className="h-2 w-full bg-gradient-to-r from-primary to-emerald-400" />
+                <div className="p-8 lg:p-12 bg-primary/5">
+                  <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mb-6 shadow-sm">
+                    <Target className="w-7 h-7 text-primary" />
+                  </div>
+                  <h2 className="text-2xl lg:text-3xl font-display font-bold text-foreground mb-4">
+                    Our Mission
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed text-[15px]">
+                    To empower businesses of all sizes with data-driven digital marketing strategies that deliver measurable results, foster sustainable growth, and create lasting competitive advantages in an ever-evolving digital landscape.
+                  </p>
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-display font-bold text-foreground mb-4">Our Mission</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  To empower businesses of all sizes with data-driven digital marketing strategies that deliver measurable results, foster sustainable growth, and create lasting competitive advantages in an ever-evolving digital landscape.
-                </p>
               </motion.div>
-              
+
+              {/* Vision Card */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={missionInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="p-8 lg:p-12 rounded-2xl bg-secondary border border-border"
+                className="rounded-2xl overflow-hidden shadow-lg relative"
+                style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2a1e 100%)" }}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <Eye className="w-7 h-7 text-primary" />
+                {/* Decorative glow */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+                {/* Coloured top bar */}
+                <div className="h-2 w-full bg-gradient-to-r from-emerald-400 to-primary" />
+                <div className="p-8 lg:p-12 relative z-10">
+                  {/* Decorative quote mark */}
+                  <span className="absolute top-6 right-8 text-7xl font-serif text-white/5 select-none leading-none">"</span>
+                  <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 shadow-sm">
+                    <Eye className="w-7 h-7 text-primary" />
+                  </div>
+                  <h2 className="text-2xl lg:text-3xl font-display font-bold text-white mb-4">
+                    Our Vision
+                  </h2>
+                  <p className="text-white/75 leading-relaxed text-[15px]">
+                    To be the world's most trusted digital marketing partner, recognized for our innovation, integrity, and unwavering commitment to driving revenue growth for our clients across every industry and market.
+                  </p>
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-display font-bold text-foreground mb-4">Our Vision</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  To be the world's most trusted digital marketing partner, recognized for our innovation, integrity, and unwavering commitment to driving revenue growth for our clients across every industry and market.
-                </p>
               </motion.div>
+
             </div>
           </div>
         </section>
@@ -134,7 +155,7 @@ const About = () => {
                 We Believe in Providing <span className="text-primary">Values</span>
               </h2>
             </motion.div>
-            
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <motion.div
@@ -169,7 +190,7 @@ const About = () => {
                 The smart choice for profitable growth
               </h2>
             </motion.div>
-            
+
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
               {whyChooseUs.map((item, index) => (
                 <motion.div
@@ -187,7 +208,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -235,7 +256,7 @@ const About = () => {
                   </div>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={awardsInView ? { opacity: 1, x: 0 } : {}}
@@ -283,7 +304,7 @@ const About = () => {
                 Meet Our Global Leaders
               </h2>
             </motion.div>
-            
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {leaders.map((leader, index) => (
                 <motion.div
@@ -294,8 +315,8 @@ const About = () => {
                   className="group"
                 >
                   <div className="aspect-square rounded-2xl overflow-hidden mb-4 bg-muted">
-                    <img 
-                      src={leader.image} 
+                    <img
+                      src={leader.image}
                       alt={leader.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -335,7 +356,7 @@ const About = () => {
                 With offices across four continents, we deliver localized expertise with global scale.
               </p>
             </motion.div>
-            
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {locations.map((location, index) => (
                 <motion.div
