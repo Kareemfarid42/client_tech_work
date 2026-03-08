@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"Century Gothic"', 'AppleGothic', 'sans-serif'],
-        display: ['"League Spartan"', 'sans-serif'],
+        heading: ['"League Spartan"', 'sans-serif'],
         subheading: ['Poppins', 'sans-serif'],
       },
       colors: {

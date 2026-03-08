@@ -178,23 +178,24 @@ export const IndustriesSection = () => {
   return (
     <section
       ref={ref}
-      id="industries"
-      className="pt-12 pb-16 lg:pt-16 lg:pb-20 bg-background overflow-hidden relative"
+      className="py-20 md:py-24 bg-background overflow-hidden relative"
     >
       <div className="container-max section-padding relative z-10">
         {/* Header */}
         <motion.div
+          id="industries"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="mb-16 text-center max-w-3xl mx-auto"
+          style={{ scrollMarginTop: "80px" }}
         >
-          <p className="text-sm uppercase tracking-widest text-primary mb-4 font-black">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-3 leading-tight">
             Who We Serve
-          </p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6">
-            Impact Across Strategic Industries
           </h2>
+          <p className="text-sm font-subheading uppercase tracking-widest text-primary font-semibold whitespace-nowrap">
+            Impact Across Strategic Industries
+          </p>
         </motion.div>
 
         {/* Carousel */}
@@ -298,10 +299,10 @@ const IndustryCard = ({ item }: { item: any }) => {
 
       {/* White Bottom Section */}
       <div className="h-[55%] bg-white p-6 flex flex-col justify-center items-center text-center">
-        <h4 className="font-display font-bold text-lg text-foreground mb-3 transition-colors">
+        <h4 className="font-subheading font-bold text-xl text-foreground mb-3 transition-colors">
           {item.title}
         </h4>
-        <p className="text-[11px] text-gray-500 font-medium leading-relaxed uppercase tracking-tighter">
+        <p className="text-xs text-gray-500 font-medium leading-relaxed uppercase tracking-tighter">
           {item.description}
         </p>
       </div>

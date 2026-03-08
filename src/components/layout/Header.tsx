@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-v3.png";
@@ -34,10 +34,8 @@ export const Header = () => {
     setMobileMenuOpen(false);
 
     if (location.pathname !== "/") {
-      // Navigate to home page with the hash — Index.tsx will handle scrolling
       navigate("/" + href);
     } else {
-      // Already on home page — just scroll
       const el = document.getElementById(id);
       if (el) {
         const headerOffset = 80;
@@ -49,9 +47,9 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${isScrolled
-        ? "bg-secondary border-secondary-foreground/10 py-2"
-        : "bg-secondary border-transparent py-4"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "border-b border-white/10 py-2 bg-[#1b273d]/90 backdrop-blur-md shadow-lg"
+          : "border-b border-transparent py-4 bg-transparent"
         }`}
     >
       <div className="container-max section-padding">
@@ -70,12 +68,12 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-1">
-            {navItems.map((item) => (
+            {navItems.map((item) =>
               item.isRoute ? (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="px-3 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors whitespace-nowrap"
+                  className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -84,12 +82,12 @@ export const Header = () => {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="px-3 py-2 text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors whitespace-nowrap"
+                  className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.label}
                 </a>
               )
-            ))}
+            )}
           </nav>
 
           {/* CTA */}
@@ -97,18 +95,19 @@ export const Header = () => {
             <div className="hidden lg:flex flex-col items-center gap-0.5">
               <a
                 href="tel:+19168368687"
-                className="flex items-center gap-2 text-sm font-semibold text-secondary-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
+                className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-primary transition-colors whitespace-nowrap"
                 aria-label="Call us"
               >
                 <Phone className="w-4 h-4" />
                 <span>(916) 836-8687</span>
               </a>
-              <Button variant="hero" size="lg">
-                Get a Proposal
+              <Button variant="hero" size="lg" className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" />
+                Speak with an Expert
               </Button>
             </div>
             <button
-              className="xl:hidden p-2 text-secondary-foreground"
+              className="xl:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -125,10 +124,11 @@ export const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="xl:hidden bg-secondary border-t border-secondary-foreground/10 overflow-hidden"
+            className="xl:hidden border-t border-white/10 overflow-hidden"
+            style={{ backgroundColor: "#1b273d" }}
           >
             <nav className="container-max section-padding py-6 flex flex-col gap-4">
-              {navItems.map((item, index) => (
+              {navItems.map((item, index) =>
                 item.isRoute ? (
                   <motion.div
                     key={item.label}
@@ -138,7 +138,7 @@ export const Header = () => {
                   >
                     <Link
                       to={item.href}
-                      className="text-lg font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors block"
+                      className="text-sm font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors block"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -153,14 +153,14 @@ export const Header = () => {
                   >
                     <a
                       href={item.href}
-                      className="text-lg font-medium text-secondary-foreground/80 hover:text-secondary-foreground transition-colors block"
+                      className="text-sm font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors block"
                       onClick={(e) => handleSmoothScroll(e, item.href)}
                     >
                       {item.label}
                     </a>
                   </motion.div>
                 )
-              ))}
+              )}
               <motion.div
                 className="pt-4 flex flex-col gap-4"
                 initial={{ opacity: 0, y: 10 }}
@@ -169,13 +169,16 @@ export const Header = () => {
               >
                 <a
                   href="tel:+19168368687"
-                  className="flex items-center gap-2 text-secondary-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors"
                   aria-label="Call us"
                 >
                   <Phone className="w-4 h-4" />
                   <span>(916) 836-8687</span>
                 </a>
-                <Button variant="hero" className="w-full">Get a Proposal</Button>
+                <Button variant="hero" className="w-full flex items-center gap-2 justify-center">
+                  <MessageSquare className="w-4 h-4" />
+                  Speak with an Expert
+                </Button>
               </motion.div>
             </nav>
           </motion.div>
