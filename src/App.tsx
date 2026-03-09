@@ -16,8 +16,13 @@ import Index from "./pages/Index";
 const About = lazy(() => import("./pages/About"));
 const Industry = lazy(() => import("./pages/Industry"));
 const FranchiseLandingPage = lazy(() => import("./pages/FranchiseLandingPage"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Contact = lazy(() => import("./pages/Contact"));
+const PerformanceAudits = lazy(() => import("./pages/PerformanceAudits"));
 const ColorPreview = lazy(() => import("./pages/ColorPreview"));
 const ColorPreview2 = lazy(() => import("./pages/ColorPreview2"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ServerError = lazy(() => import("./pages/ServerError"));
 
@@ -51,8 +56,13 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/industry" element={<Industry />} />
               <Route path="/industry/franchises" element={<FranchiseLandingPage />} />
+              <Route path="/audits" element={<PerformanceAudits />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/color-preview" element={<ColorPreview />} />
               <Route path="/color-preview-2" element={<ColorPreview2 />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsConditions />} />
               <Route path="/500" element={<ServerError />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

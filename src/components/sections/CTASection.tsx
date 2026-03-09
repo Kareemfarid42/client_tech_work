@@ -9,7 +9,7 @@ export const CTASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-background">
+    <section ref={ref} className="py-10 md:py-16 bg-background">
       <div className="container-max section-padding">
         {/* First CTA removed (moved to Services section) */}
 
@@ -18,7 +18,7 @@ export const CTASection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 text-center"
+          className="text-center"
         >
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
             Your Revenue Growth Starts Here

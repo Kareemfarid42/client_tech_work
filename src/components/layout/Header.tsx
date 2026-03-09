@@ -5,12 +5,30 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-v3.png";
 
-const navItems = [
-  { label: "Who We Are", href: "/about", isRoute: true },
+import { ChevronDown } from "lucide-react";
+
+type NavItem = {
+  label: string;
+  href?: string;
+  isRoute?: boolean;
+  dropdownItems?: { label: string; href: string }[];
+};
+
+const navItems: NavItem[] = [
+  {
+    label: "Who We Are",
+    dropdownItems: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Team", href: "/team" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" }
+    ]
+  },
   { label: "What We Do", href: "#services" },
   { label: "Who We Serve", href: "#industries" },
-  { label: "Performance Audits", href: "#" },
-  { label: "Latest Insights", href: "#blogs" },
+  { label: "Performance Audits", href: "/audits", isRoute: true },
+  { label: "Latest Insights", href: "/blog", isRoute: true },
+  { label: "Contact Us", href: "/contact", isRoute: true },
 ];
 
 export const Header = () => {
@@ -48,8 +66,8 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "border-b border-white/10 py-2 bg-[#1b273d]/90 backdrop-blur-md shadow-lg"
-          : "border-b border-transparent py-4 bg-transparent"
+        ? "border-b border-white/10 py-2 bg-[#1b273d]/90 backdrop-blur-md shadow-lg"
+        : "border-b border-transparent py-4 bg-transparent"
         }`}
     >
       <div className="container-max section-padding">
@@ -68,11 +86,36 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-1">
-            {navItems.map((item) =>
-              item.isRoute ? (
+            {navItems.map((item) => {
+              if (item.dropdownItems) {
+                return (
+                  <div key={item.label} className="relative group">
+                    <button className="flex items-center gap-1 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap">
+                      {item.label}
+                      <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-200" />
+                    </button>
+                    {/* The Glassmorphism Dropdown */}
+                    <div className="absolute top-full left-0 mt-2 w-56 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+                      <div className="bg-[#0b101a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden py-2">
+                        {item.dropdownItems.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.href}
+                            className="block px-5 py-3 text-sm text-gray-300 hover:text-cyan-400 hover:bg-white/5 transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return item.isRoute ? (
                 <Link
                   key={item.label}
-                  to={item.href}
+                  to={item.href!}
                   className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.label}
@@ -80,14 +123,14 @@ export const Header = () => {
               ) : (
                 <a
                   key={item.label}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  href={item.href!}
+                  onClick={(e) => handleSmoothScroll(e, item.href!)}
                   className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap"
                 >
                   {item.label}
                 </a>
-              )
-            )}
+              );
+            })}
           </nav>
 
           {/* CTA */}
@@ -101,10 +144,12 @@ export const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>(916) 836-8687</span>
               </a>
-              <Button variant="hero" size="lg" className="flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
-                Speak with an Expert
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" size="lg" className="flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4" />
+                  Speak with an Expert
+                </Button>
+              </Link>
             </div>
             <button
               className="xl:hidden p-2 text-white"
@@ -128,8 +173,36 @@ export const Header = () => {
             style={{ backgroundColor: "#1b273d" }}
           >
             <nav className="container-max section-padding py-6 flex flex-col gap-4">
-              {navItems.map((item, index) =>
-                item.isRoute ? (
+              {navItems.map((item, index) => {
+                if (item.dropdownItems) {
+                  return (
+                    <motion.div
+                      key={item.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="flex flex-col gap-2"
+                    >
+                      <div className="text-sm font-semibold uppercase tracking-widest text-white/50 block">
+                        {item.label}
+                      </div>
+                      <div className="flex flex-col gap-3 pl-4 border-l border-white/10 ml-1">
+                        {item.dropdownItems.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.href}
+                            className="text-sm font-medium text-white/80 hover:text-cyan-400 transition-colors block"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                }
+
+                return item.isRoute ? (
                   <motion.div
                     key={item.label}
                     initial={{ opacity: 0, x: -20 }}
@@ -137,7 +210,7 @@ export const Header = () => {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <Link
-                      to={item.href}
+                      to={item.href!}
                       className="text-sm font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors block"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -152,15 +225,15 @@ export const Header = () => {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <a
-                      href={item.href}
+                      href={item.href!}
                       className="text-sm font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors block"
-                      onClick={(e) => handleSmoothScroll(e, item.href)}
+                      onClick={(e) => handleSmoothScroll(e, item.href!)}
                     >
                       {item.label}
                     </a>
                   </motion.div>
-                )
-              )}
+                );
+              })}
               <motion.div
                 className="pt-4 flex flex-col gap-4"
                 initial={{ opacity: 0, y: 10 }}
@@ -175,10 +248,12 @@ export const Header = () => {
                   <Phone className="w-4 h-4" />
                   <span>(916) 836-8687</span>
                 </a>
-                <Button variant="hero" className="w-full flex items-center gap-2 justify-center">
-                  <MessageSquare className="w-4 h-4" />
-                  Speak with an Expert
-                </Button>
+                <Link to="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="hero" className="w-full flex items-center gap-2 justify-center">
+                    <MessageSquare className="w-4 h-4" />
+                    Speak with an Expert
+                  </Button>
+                </Link>
               </motion.div>
             </nav>
           </motion.div>

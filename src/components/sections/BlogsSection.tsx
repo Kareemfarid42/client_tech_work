@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const blogs = [
   {
@@ -32,16 +33,21 @@ export const BlogsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} id="blogs" className="py-20 lg:py-32 bg-muted/50">
+    <section ref={ref} id="blogs" className="py-10 md:py-16 bg-muted/50">
       <div className="container-max section-padding">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl font-display font-bold text-foreground text-center mb-12"
+          className="text-center mb-12"
         >
-          Latest Insights
-        </motion.h2>
+          <Link to="/blog" className="inline-block group">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground group-hover:text-primary transition-colors flex items-center justify-center gap-3">
+              Latest Insights
+              <ArrowRight className="w-8 h-8 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+            </h2>
+          </Link>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {blogs.map((blog, index) => (
@@ -66,10 +72,10 @@ export const BlogsSection = () => {
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                   {blog.excerpt}
                 </p>
-                <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all">
+                <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all">
                   {blog.cta || "Read more"}
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </motion.article>
           ))}

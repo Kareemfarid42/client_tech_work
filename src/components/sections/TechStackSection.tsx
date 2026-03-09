@@ -23,7 +23,7 @@ export const TechStackSection = () => {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section ref={ref} className="py-20 md:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)" }}>
+        <section ref={ref} className="pt-20 md:pt-24 pb-10 overflow-hidden" style={{ background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)" }}>
             <div className="container-max section-padding text-center mb-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -31,12 +31,9 @@ export const TechStackSection = () => {
                     transition={{ duration: 0.5 }}
                     className="max-w-3xl mx-auto relative z-10"
                 >
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-4 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 leading-tight">
                         Technology Ecosystem Experience
                     </h2>
-                    <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                        ClienTech Solutions brings hands-on experience across leading enterprise and cloud technology platforms. Our teams design, implement, and optimize solutions within these ecosystems to meet diverse business and industry requirements.
-                    </p>
                 </motion.div>
             </div>
 
@@ -80,18 +77,20 @@ export const TechStackSection = () => {
                 </motion.div>
             </div>
 
-            <div className="container-max section-padding">
+            {/* Bottom Disclaimer row */}
+            <div className="container-max px-4">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="mt-16 pt-8 border-t border-slate-200/60 text-center"
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mt-6 pt-6 mb-0 border-t border-slate-200/60 text-center overflow-x-hidden"
                 >
-                    <p className="text-[10px] font-subheading text-slate-500 uppercase tracking-widest max-w-2xl mx-auto font-semibold">
+                    <p className="text-[9px] md:text-[10px] text-slate-500 uppercase tracking-widest font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
                         Platform logos represent technology experience and implementation expertise. ClienTech Solutions is not an official partner unless explicitly stated.
                     </p>
                 </motion.div>
             </div>
+
         </section>
     );
 };

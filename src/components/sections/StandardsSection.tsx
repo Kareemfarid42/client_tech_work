@@ -81,8 +81,6 @@ export const StandardsSection = () => {
                 {/* Timeline container */}
                 <div className="relative">
 
-
-
                     {/* ── Year columns ── */}
                     <div className="grid grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-4">
                         {timeline.map((item, i) => {
@@ -147,22 +145,24 @@ export const StandardsSection = () => {
                                     <motion.div
                                         className="relative z-10 flex flex-col items-center"
                                         style={{ order: 0 }}
+                                        initial={{ scale: 0, opacity: 0 }}
+                                        animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                                        transition={{ type: "spring", stiffness: 200, delay: 0.2 + i * 0.25 }}
                                     >
-                                        <motion.div
-                                            className="w-[36px] h-[36px] rounded-full border-2 flex items-center justify-center text-[11px] font-black transition-all duration-300"
+                                        <div
+                                            className="w-[36px] h-[36px] rounded-full border-2 flex items-center justify-center text-[11px] font-black transition-all duration-300 cursor-pointer"
                                             style={{
-                                                borderColor: isActive ? item.color : "rgba(255,255,255,0.2)",
-                                                backgroundColor: isActive ? item.color : "#1b273d",
-                                                color: isActive ? "#0d1b2a" : item.color,
-                                                boxShadow: isActive ? `0 0 18px ${item.color}66` : "none",
+                                                borderColor: isActive ? item.color : item.color,
+                                                backgroundColor: isActive ? item.color : "#0f172a", // Darker premium state
+                                                color: isActive ? "#ffffff" : item.color,
+                                                boxShadow: isActive ? `0 0 18px ${item.color}88` : `0 0 8px ${item.color}33`,
+                                                transform: isActive ? "scale(1.25)" : "scale(1)",
                                             }}
-                                            animate={{
-                                                scale: isActive ? 1.2 : 1,
-                                            }}
-                                            transition={{ duration: 0.25 }}
+                                            onMouseEnter={() => setActiveYear(i)}
+                                            onMouseLeave={() => setActiveYear(null)}
                                         >
                                             {item.year.slice(2)}
-                                        </motion.div>
+                                        </div>
                                     </motion.div>
 
                                     {/* Spacer card slot (desktop only — keeps alignment for alternating) */}

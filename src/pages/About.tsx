@@ -8,6 +8,7 @@ import {
   Target, Eye, Lightbulb, Shield, Users, Globe,
   Award, Trophy, Star, MapPin, Linkedin, Twitter
 } from "lucide-react";
+import { HistoryAwardsSection } from "@/components/sections/HistoryAwardsSection";
 
 const values = [
   { icon: Lightbulb, title: "Innovation", description: "We embrace cutting-edge technologies to deliver exceptional results." },
@@ -232,63 +233,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Awards Section */}
-        <section ref={awardsRef} className="py-20 lg:py-32 bg-secondary">
-          <div className="container-max section-padding">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={awardsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5 }}
-              >
-                <p className="text-sm uppercase tracking-wider text-primary mb-3">Our Awards</p>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-secondary-foreground mb-4">
-                  Celebrated by Industry Leaders
-                </h2>
-                <p className="text-muted-foreground mb-8">
-                  WebFX has received multiple accolades for our performance and innovation in the digital marketing sector. These awards validate our mission to deliver lasting value.
-                </p>
-                <div className="flex items-center gap-4">
-                  <Trophy className="w-10 h-10 text-primary" />
-                  <div>
-                    <div className="text-3xl font-display font-bold text-secondary-foreground">23+</div>
-                    <div className="text-sm text-muted-foreground">Total Achievements</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={awardsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="space-y-4"
-              >
-                {awards.map((award, index) => (
-                  <motion.div
-                    key={award.year}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={awardsInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                    className="flex gap-6 p-6 rounded-xl bg-card border border-border"
-                  >
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Award className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-primary font-bold">{award.year}</span>
-                        <span className="text-foreground font-display font-bold">{award.title}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground">{award.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* History & Awards Section (Custom Circuit Timeline) */}
+        <HistoryAwardsSection />
 
         {/* Leadership Section */}
         <section ref={leadershipRef} className="py-20 lg:py-32 bg-background">

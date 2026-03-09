@@ -37,9 +37,9 @@ export const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-white">
+    <section ref={ref} className="py-10 md:py-16 bg-white">
       <div className="container-max section-padding">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
