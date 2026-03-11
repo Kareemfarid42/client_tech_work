@@ -128,11 +128,11 @@ export const DigitalEngineAnimation = () => {
 
     return (
         <div
-            className="relative w-full max-w-7xl mx-auto px-4 sm:px-12 md:px-32 lg:px-48 overflow-visible flex justify-center items-center py-16 min-h-[600px] font-sans bg-transparent"
+            className="relative flex justify-center items-center w-full md:w-[800px] h-[400px] font-sans bg-transparent"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Main Interactive Wheel Container (Fixed at 400x400px, responsive scaling via Flex) */}
+            {/* Main Interactive Wheel Container (Fixed at 400x400px, responsive scaling via protective wrapper) */}
             <div className="relative flex-shrink-0" style={{ width: 400, height: 400 }}>
 
                 {/* 1. Underlying SVG Ring Geometry */}
@@ -232,7 +232,7 @@ export const DigitalEngineAnimation = () => {
                             <AnimatePresence key={`card-${seg.id}`}>
                                 {isActive && (
                                     <div
-                                        className={`absolute flex items-center ${seg.align === 'left' ? 'flex-row-reverse' : 'flex-row'}`}
+                                        className={`absolute hidden md:flex items-center z-50 ${seg.align === 'left' ? 'flex-row-reverse' : 'flex-row'}`}
                                         style={{
                                             [seg.align === 'left' ? 'right' : 'left']: seg.align === 'left' ? (400 - lineAnchor.x) : lineAnchor.x,
                                             top: lineAnchor.y,
@@ -301,7 +301,7 @@ export const DigitalEngineAnimation = () => {
                                                 damping: 20,
                                                 delay: delay
                                             }}
-                                            className="absolute w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.3)] text-slate-800"
+                                            className="absolute hidden md:flex w-10 h-10 bg-white rounded-full items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.3)] text-slate-800"
                                             style={{
                                                 left: hubPos.x + x,
                                                 top: hubPos.y + y,
