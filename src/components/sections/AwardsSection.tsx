@@ -19,7 +19,7 @@ export const AwardsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="bg-[#000000] py-24 lg:py-36 relative overflow-hidden">
+    <section ref={ref} className="bg-[#111D2C] py-24 lg:py-36 relative overflow-hidden">
       <div className="container-max px-4 md:px-8 relative">
         
         {/* Centered Heading with Custom Accent #179C83 */}
@@ -42,83 +42,108 @@ export const AwardsSection = () => {
           />
         </div>
 
-        {/* Matrix Grid Architecture */}
-        <div className="max-w-7xl mx-auto border-t border-l border-dashed" style={{ borderColor: 'rgba(23, 156, 131, 0.2)' }}>
+        {/* Open Matrix Grid Architecture with Custom Gradients */}
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-            {awardsList.map((award, index) => (
-              <motion.div
-                key={award.id}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.05 }}
-                className={cn(
-                  "relative group flex items-center justify-center p-8 md:p-14 min-h-[220px] md:min-h-[280px]",
-                  "border-r border-b border-dashed transition-all duration-700"
-                )}
-                style={{ 
-                  borderColor: 'rgba(23, 156, 131, 0.2)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(23, 156, 131, 0.02)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }}
-              >
-                {/* Subtle Radial Glow on Hover */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" 
-                  style={{ background: 'radial-gradient(circle at center, rgba(23, 156, 131, 0.08) 0%, transparent 70%)' }}
-                />
-                
-                <img 
-                  src={award.img} 
-                  alt={award.alt} 
-                  className="w-full h-auto max-w-[140px] md:max-w-[170px] object-contain transition-all duration-700 group-hover:scale-110"
+            {awardsList.map((award, index) => {
+              // Open Matrix Logic: Determine which lines to show based on breakpoint
+              const isRightEdgeMobile = index % 2 === 1;
+              const isRightEdgeTablet = index % 3 === 2;
+              const isRightEdgeDesktop = index % 5 === 4;
+
+              const isBottomRowMobile = index >= 6; // Last 2 items in 8-item 2-col grid
+              const isBottomRowTablet = index >= 6; // Last 3 items in 9-item (with filler) 3-col grid
+              const isBottomRowDesktop = index >= 5; // Last 5 items in 10-item (with fillers) 5-col grid
+
+              // Define the custom repeating linear gradients
+              const horizontalGradient = `repeating-linear-gradient(to right, rgba(6, 182, 212, 0.6) 0px, rgba(6, 182, 212, 0.6) 4px, transparent 4px, transparent 10px)`;
+              const verticalGradient = `repeating-linear-gradient(to bottom, rgba(6, 182, 212, 0.6) 0px, rgba(6, 182, 212, 0.6) 4px, transparent 4px, transparent 10px)`;
+
+              // Base string building for responsive background styles
+              return (
+                <motion.div
+                  key={award.id}
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.05 }}
+                  className={cn(
+                    "relative group flex items-center justify-center p-10 md:p-12 min-h-[220px] md:min-h-[280px]",
+                    "transition-all duration-700",
+                    // Hide horizontal lines on bottom rows responsively
+                    isBottomRowMobile ? "max-md:!bg-[length:0px_0px,1px_100%]" : "",
+                    isBottomRowTablet ? "md:max-lg:!bg-[length:0px_0px,1px_100%]" : "",
+                    isBottomRowDesktop ? "lg:!bg-[length:0px_0px,1px_100%]" : "",
+                    // Hide vertical lines on right edges responsively
+                    isRightEdgeMobile && !isBottomRowMobile ? "max-md:!bg-[length:100%_1px,0px_0px]" : "",
+                    isRightEdgeTablet && !isBottomRowTablet ? "md:max-lg:!bg-[length:100%_1px,0px_0px]" : "",
+                    isRightEdgeDesktop && !isBottomRowDesktop ? "lg:!bg-[length:100%_1px,0px_0px]" : "",
+                    // Hide BOTH if it's the bottom right corner
+                    isRightEdgeMobile && isBottomRowMobile ? "max-md:!bg-none" : "",
+                    isRightEdgeTablet && isBottomRowTablet ? "md:max-lg:!bg-none" : "",
+                    isRightEdgeDesktop && isBottomRowDesktop ? "lg:!bg-none" : ""
+                  )}
                   style={{
-                    filter: 'drop-shadow(0 0 20px rgba(23, 156, 131, 0.1))'
+                    backgroundImage: `${horizontalGradient}, ${verticalGradient}`,
+                    backgroundSize: '100% 1px, 1px 100%',
+                    backgroundPosition: 'bottom left, top right',
+                    backgroundRepeat: 'no-repeat, no-repeat',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'drop-shadow(0 0 30px rgba(23, 156, 131, 0.4))';
+                    e.currentTarget.style.backgroundColor = 'rgba(6, 182, 212, 0.03)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'drop-shadow(0 0 20px rgba(23, 156, 131, 0.1))';
+                    e.currentTarget.style.backgroundColor = 'transparent';
                   }}
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
+                >
+                  {/* Subtle Radial Glow on Hover */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" 
+                    style={{ background: 'radial-gradient(circle at center, rgba(6, 182, 212, 0.1) 0%, transparent 70%)' }}
+                  />
+                  
+                  <img 
+                    src={award.img} 
+                    alt={award.alt} 
+                    className="w-full h-auto max-w-[140px] md:max-w-[160px] object-contain transition-all duration-700 group-hover:scale-110"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.2))'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.filter = 'drop-shadow(0 0 35px rgba(6, 182, 212, 0.5))';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.filter = 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.2))';
+                    }}
+                    loading="lazy"
+                  />
+                </motion.div>
+              );
+            })}
             
-            {/* Filler Cells to complete the Matrix */}
+            {/* Desktop Fillers */}
             {[...Array(2)].map((_, i) => (
               <div 
-                key={`filler-${i}`}
-                className="hidden lg:flex border-r border-b border-dashed min-h-[280px]"
-                style={{ borderColor: 'rgba(23, 156, 131, 0.2)' }}
+                key={`filler-desktop-${i}`}
+                className={cn(
+                  "hidden lg:flex min-h-[280px]",
+                  // The last filler has no vertical line
+                  i === 1 ? "!bg-none" : ""
+                )}
+                style={{
+                  backgroundImage: `repeating-linear-gradient(to bottom, rgba(6, 182, 212, 0.6) 0px, rgba(6, 182, 212, 0.6) 4px, transparent 4px, transparent 10px)`,
+                  backgroundSize: '1px 100%',
+                  backgroundPosition: 'top right',
+                  backgroundRepeat: 'no-repeat',
+                }}
               />
             ))}
             
-            <div className="hidden md:flex lg:hidden border-r border-b border-dashed min-h-[280px]" style={{ borderColor: 'rgba(23, 156, 131, 0.2)' }} />
+            {/* Tablet Filler */}
+            <div 
+              className="hidden md:flex lg:hidden min-h-[280px] !bg-none" 
+            />
           </div>
         </div>
-      </div>
-
-      {/* Premium Side Tab */}
-      <div className="hidden xl:flex fixed right-0 top-1/2 -translate-y-1/2 z-[60]">
-        <motion.div 
-          initial={{ x: 100 }}
-          animate={isInView ? { x: 0 } : {}}
-          transition={{ type: "spring", damping: 25, stiffness: 120, delay: 0.5 }}
-          className="py-12 px-5 rounded-l-[2rem] border-y border-l border-white/20 backdrop-blur-md cursor-pointer group hover:pl-7 transition-all duration-500"
-          style={{ 
-            backgroundColor: '#179C83',
-            boxShadow: '0 0 50px rgba(23, 156, 131, 0.5)' 
-          }}
-        >
-          <span className="text-black font-black whitespace-nowrap [writing-mode:vertical-lr] tracking-[0.25em] text-[10px] md:text-xs uppercase flex items-center gap-3">
-            Let&apos;s Talk Business
-          </span>
-        </motion.div>
       </div>
     </section>
   );
