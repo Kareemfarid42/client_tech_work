@@ -13,17 +13,14 @@ const footerLinks = {
   ],
   company: [
     "About Us",
-    "Careers",
+    "What We Do",
     "Contact Us",
-    "Industries We Serve",
+    "Who We Serve",
+  ],
+  legal: [
     "Privacy Policy",
-  ],
-  resources: [
-    "Blog",
-    "Case Studies",
-    "Whitepapers",
-    "News & Updates",
-  ],
+    "Terms & Conditions"
+  ]
 };
 
 export const Footer = () => {
@@ -70,26 +67,37 @@ export const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-primary">Company</h4>
               <ul className="space-y-2">
-                {footerLinks.company.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {footerLinks.company.map((link) => {
+                  let href = "#";
+                  if (link === "About Us") href = "/about";
+                  if (link === "What We Do") href = "/#services";
+                  if (link === "Contact Us") href = "/contact";
+                  if (link === "Who We Serve") href = "/#industries";
+
+                  return (
+                    <li key={link}>
+                      <a href={href} className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-primary">Resources</h4>
+              <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-primary">Legal</h4>
               <ul className="space-y-2">
-                {footerLinks.resources.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {footerLinks.legal.map((link) => {
+                  const href = link === "Privacy Policy" ? "/privacy-policy" : link === "Terms & Conditions" ? "/terms-and-conditions" : "#";
+                  return (
+                    <li key={link}>
+                      <a href={href} className="text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

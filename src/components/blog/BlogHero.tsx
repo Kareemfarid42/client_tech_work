@@ -29,14 +29,14 @@ const BlogHero = ({ onReadClick }: BlogHeroProps) => {
             className="mb-16 group cursor-pointer"
             onClick={() => onReadClick(featuredPost)}
         >
-            <div className="relative overflow-hidden rounded-3xl border border-[#333333] bg-white/5 backdrop-blur-md transition-all duration-300 hover:scale-[1.01] hover:border-[#0ea5e9]/50 hover:shadow-[0_0_30px_rgba(14,165,233,0.15)] flex flex-col md:flex-row min-h-[400px]">
+            <div className="relative overflow-hidden rounded-3xl border border-[#333333] bg-white/5 backdrop-blur-md transition-all duration-300 hover:scale-[1.01] hover:border-[#17aa8c]/50 hover:shadow-[0_0_30px_rgba(23, 170, 140,0.15)] flex flex-col md:flex-row min-h-[400px]">
 
                 {/* Image Section */}
                 <div className="md:w-1/2 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 md:from-transparent to-transparent z-10" />
                     {/* Category Tag overlaid on Image */}
                     <div className="absolute top-6 left-6 z-20">
-                        <span className="bg-[#0ea5e9] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full">
+                        <span className="bg-[#17aa8c] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full">
                             Digital Strategy
                         </span>
                     </div>
@@ -60,7 +60,7 @@ const BlogHero = ({ onReadClick }: BlogHeroProps) => {
                         </div>
                     </div>
 
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-4 leading-tight group-hover:text-[#0ea5e9] transition-colors">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white mb-4 leading-tight group-hover:text-[#17aa8c] transition-colors">
                         Architecting the Future: How Modern Enterprise Stacks Drive 25% Efficiency Gains
                     </h2>
 
@@ -78,7 +78,7 @@ const BlogHero = ({ onReadClick }: BlogHeroProps) => {
                             <span className="text-sm font-medium text-white">Marcus Wayne</span>
                         </div>
 
-                        <div className="flex items-center text-[#0ea5e9] font-semibold text-sm gap-1 transition-transform group-hover:translate-x-1">
+                        <div className="flex items-center text-[#17aa8c] font-semibold text-sm gap-1 transition-transform group-hover:translate-x-1">
                             Read Article <ArrowRight className="w-4 h-4" />
                         </div>
                     </div>

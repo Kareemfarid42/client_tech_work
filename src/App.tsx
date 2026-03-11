@@ -19,6 +19,7 @@ const FranchiseLandingPage = lazy(() => import("./pages/FranchiseLandingPage"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contact = lazy(() => import("./pages/Contact"));
 const PerformanceAudits = lazy(() => import("./pages/PerformanceAudits"));
+const SampleReport = lazy(() => import("./pages/SampleReport"));
 const ColorPreview = lazy(() => import("./pages/ColorPreview"));
 const ColorPreview2 = lazy(() => import("./pages/ColorPreview2"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/industry" element={<Industry />} />
               <Route path="/industry/franchises" element={<FranchiseLandingPage />} />
               <Route path="/audits" element={<PerformanceAudits />} />
+              <Route path="/sample-report" element={<SampleReport />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/color-preview" element={<ColorPreview />} />

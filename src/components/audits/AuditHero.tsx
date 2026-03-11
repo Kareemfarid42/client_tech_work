@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation, useMotionValue, useTransform, animate } from "framer-motion";
 import { Activity } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AuditHeroProps {
     onOpenModal: () => void;
@@ -36,7 +37,7 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
     return (
         <section className="relative pt-32 pb-20 overflow-hidden border-b border-[#333333]">
             {/* Ambient Pulse Glow */}
-            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#0ea5e9]/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#17aa8c]/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container-max section-padding grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -47,30 +48,32 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col z-10"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0ea5e9]/30 bg-[#111111] text-[#0ea5e9] text-xs font-mono font-bold uppercase tracking-widest mb-8 w-fit shadow-[0_0_15px_rgba(14,165,233,0.15)]">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#17aa8c]/30 bg-[#111111] text-[#17aa8c] text-xs font-mono font-bold uppercase tracking-widest mb-8 w-fit shadow-[0_0_15px_rgba(23, 170, 140,0.15)]">
                         <Activity className="w-4 h-4" />
                         System Diagnostics
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight tracking-tight">
-                        Unleash Your Software's <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#888]">True Potential.</span>
+                        Uncover Your Software’s <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#888]">True Performance.</span>
                     </h1>
 
                     <p className="text-lg text-[#888888] leading-relaxed max-w-xl mb-10 font-sans">
-                        Stop hemorrhaging users due to structural latency and technical debt. Our deep-tech performance audits analyze architectural bottlenecks, security vectors, and algorithmic efficiency to forge a <span className="text-white font-mono bg-white/10 px-1 py-0.5 rounded">sub-second</span> digital experience.
+                        We review your systems to find performance issues and provide clear steps to make them faster, more reliable, and ready to scale.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
                         <button
                             onClick={onOpenModal}
-                            className="bg-[#0ea5e9] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-sm hover:bg-white transition-colors duration-300"
+                            className="bg-[#17aa8c] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-sm hover:bg-white transition-colors duration-300"
                         >
                             Start Your Audit
                         </button>
-                        <button className="bg-transparent border border-[#333333] text-white font-bold uppercase tracking-wider py-4 px-8 rounded-sm hover:border-white transition-colors duration-300">
-                            View Sample Report
-                        </button>
+                        <Link to="/sample-report" className="w-full sm:w-auto">
+                            <button className="bg-transparent w-full border border-[#333333] text-white font-bold uppercase tracking-wider py-4 px-8 rounded-sm hover:border-white transition-colors duration-300">
+                                View Sample Report
+                            </button>
+                        </Link>
                     </div>
                 </motion.div>
 
@@ -86,7 +89,7 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                         transition={{ duration: 1, ease: "easeOut" }}
                         className="relative flex items-center justify-center"
                     >
-                        <svg width="320" height="320" viewBox="0 0 320 320" className="transform -rotate-90 drop-shadow-[0_0_20px_rgba(14,165,233,0.4)]">
+                        <svg width="320" height="320" viewBox="0 0 320 320" className="transform -rotate-90 drop-shadow-[0_0_20px_rgba(23, 170, 140,0.4)]">
                             {/* Background Track Circle */}
                             <circle
                                 cx="160"
@@ -102,7 +105,7 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                                 cx="160"
                                 cy="160"
                                 r={radius}
-                                stroke="#0ea5e9"
+                                stroke="#17aa8c"
                                 strokeWidth="16"
                                 fill="transparent"
                                 strokeLinecap="round"
@@ -120,7 +123,7 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: score > 90 ? 1 : 0 }}
                                 transition={{ duration: 0.3 }}
-                                className="text-[#0ea5e9] text-xs font-mono mt-2 bg-[#0ea5e9]/10 px-3 py-1 rounded border border-[#0ea5e9]/20"
+                                className="text-[#17aa8c] text-xs font-mono mt-2 bg-[#17aa8c]/10 px-3 py-1 rounded border border-[#17aa8c]/20"
                             >
                                 OPTIMIZED
                             </motion.div>

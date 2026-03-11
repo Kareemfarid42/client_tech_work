@@ -18,7 +18,7 @@ const Blog = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-[#0ea5e9] selection:text-white flex flex-col font-sans">
+        <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-white flex flex-col font-sans">
             <Header />
 
             <main className="flex-grow pt-24 pb-16">
@@ -32,7 +32,7 @@ const Blog = () => {
                         className="mb-12 md:mb-16 text-center max-w-3xl mx-auto"
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
-                            Insights & <span className="text-[#0ea5e9]">Innovation</span>
+                            Insights & <span className="text-[#17aa8c]">Innovation</span>
                         </h1>
                         <p className="text-lg text-[#888888] font-subheading">
                             Expert perspectives on digital transformation, enterprise architecture, and the future of technology.

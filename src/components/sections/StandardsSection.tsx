@@ -24,7 +24,7 @@ const timeline = [
         year: "2021",
         color: "#A29BFE",
         awards: [
-            "ISO 9001:2015 Quality Alignment Achieved",
+            "Developed Custom Automation Framework",
             "50+ Successful Project Deliveries",
         ],
     },

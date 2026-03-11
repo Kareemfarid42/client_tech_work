@@ -15,7 +15,7 @@ export const MarketingSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-background">
+    <section ref={ref} className="pt-8 lg:pt-12 pb-20 lg:pb-32 bg-background">
       <div className="container-max section-padding">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,10 +27,7 @@ export const MarketingSection = () => {
             Move From Digital Effort to <span className="text-primary">Digital Impact</span>
           </h2>
           <p className="text-xl text-foreground font-medium mb-6">
-            We help organizations move beyond fragmented initiatives by aligning strategy, technology, and execution—turning digital investments into outcomes that matter.
-          </p>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Too many organizations invest in technology without a clear path to value. ClienTech Solutions replaces disconnected systems and siloed decision-making with integrated digital foundations, intelligent solutions, and continuous optimization—so progress is measurable, scalable, and sustainable.
+            We help organizations move beyond fragmented initiatives by aligning strategy, technology, and execution turning digital investments into outcomes that matter.
           </p>
         </motion.div>
 

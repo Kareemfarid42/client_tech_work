@@ -82,7 +82,7 @@ const BlogModal = ({ article, onClose }: BlogModalProps) => {
                         <div className="relative h-64 md:h-96 w-full">
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10" />
                             <div className="absolute top-6 left-6 z-20">
-                                <span className="bg-[#0ea5e9] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg">
+                                <span className="bg-[#17aa8c] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg">
                                     {article.category}
                                 </span>
                             </div>
@@ -98,12 +98,12 @@ const BlogModal = ({ article, onClose }: BlogModalProps) => {
                             {/* Meta */}
                             <div className="flex items-center gap-4 text-xs text-[#888888] font-medium mb-6 uppercase tracking-widest bg-[#111] inline-flex py-2 px-4 rounded-full border border-[#333]">
                                 <div className="flex items-center gap-1.5">
-                                    <Calendar className="w-3.5 h-3.5 text-[#0ea5e9]" />
+                                    <Calendar className="w-3.5 h-3.5 text-[#17aa8c]" />
                                     <span>{article.date}</span>
                                 </div>
                                 <div className="w-1 h-1 rounded-full bg-[#555]" />
                                 <div className="flex items-center gap-1.5">
-                                    <Clock className="w-3.5 h-3.5 text-[#0ea5e9]" />
+                                    <Clock className="w-3.5 h-3.5 text-[#17aa8c]" />
                                     <span>{article.readTime}</span>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ const BlogModal = ({ article, onClose }: BlogModalProps) => {
 
                             {/* Post Body */}
                             <div
-                                className="prose prose-invert prose-lg max-w-none text-[#cccccc] prose-headings:text-white prose-headings:font-heading prose-a:text-[#0ea5e9] prose-blockquote:border-[#0ea5e9] prose-blockquote:bg-white/5 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg prose-blockquote:text-white prose-blockquote:font-medium"
+                                className="prose prose-invert prose-lg max-w-none text-[#cccccc] prose-headings:text-white prose-headings:font-heading prose-a:text-[#17aa8c] prose-blockquote:border-[#17aa8c] prose-blockquote:bg-white/5 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg prose-blockquote:text-white prose-blockquote:font-medium"
                                 dangerouslySetInnerHTML={{ __html: fullContent }}
                             />
 
@@ -136,10 +136,10 @@ const BlogModal = ({ article, onClose }: BlogModalProps) => {
                             <div className="mt-16 pt-8 border-t border-[#333333] flex justify-between items-center">
                                 <div className="text-sm text-[#888888]">Share this article</div>
                                 <div className="flex gap-3">
-                                    <button className="w-10 h-10 rounded-full bg-[#111] border border-[#333] flex items-center justify-center hover:bg-[#0ea5e9] hover:border-[#0ea5e9] hover:text-white transition-colors text-[#888888]">
+                                    <button className="w-10 h-10 rounded-full bg-[#111] border border-[#333] flex items-center justify-center hover:bg-[#17aa8c] hover:border-[#17aa8c] hover:text-white transition-colors text-[#888888]">
                                         X
                                     </button>
-                                    <button className="w-10 h-10 rounded-full bg-[#111] border border-[#333] flex items-center justify-center hover:bg-[#0ea5e9] hover:border-[#0ea5e9] hover:text-white transition-colors text-[#888888]">
+                                    <button className="w-10 h-10 rounded-full bg-[#111] border border-[#333] flex items-center justify-center hover:bg-[#17aa8c] hover:border-[#17aa8c] hover:text-white transition-colors text-[#888888]">
                                         in
                                     </button>
                                 </div>

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "@/assets/logo-v3.png";
+import logo from "@/assets/logo-v4.png";
 
 import { ChevronDown } from "lucide-react";
 
@@ -17,12 +17,8 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Who We Are",
-    dropdownItems: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Team", href: "/team" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms & Conditions", href: "/terms-and-conditions" }
-    ]
+    href: "/about",
+    isRoute: true,
   },
   { label: "What We Do", href: "#services" },
   { label: "Who We Serve", href: "#industries" },
@@ -65,9 +61,9 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? "border-b border-white/10 py-2 bg-[#1b273d]/90 backdrop-blur-md shadow-lg"
-        : "border-b border-transparent py-4 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out ${isScrolled
+        ? "bg-neutral-950/80 backdrop-blur-lg border-b border-white/10 py-4 shadow-lg"
+        : "bg-transparent border-b border-transparent py-6"
         }`}
     >
       <div className="container-max section-padding">
@@ -95,13 +91,13 @@ export const Header = () => {
                       <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-200" />
                     </button>
                     {/* The Glassmorphism Dropdown */}
-                    <div className="absolute top-full left-0 mt-2 w-56 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-                      <div className="bg-[#0b101a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden py-2">
+                    <div className="absolute top-full left-0 pt-4 w-56 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300">
+                      <div className="bg-neutral-950/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2">
                         {item.dropdownItems.map((subItem) => (
                           <Link
                             key={subItem.label}
                             to={subItem.href}
-                            className="block px-5 py-3 text-sm text-gray-300 hover:text-cyan-400 hover:bg-white/5 transition-colors"
+                            className="block px-5 py-3 text-sm text-gray-300 hover:text-[#17aa8c] hover:bg-white/5 transition-colors"
                           >
                             {subItem.label}
                           </Link>
@@ -191,7 +187,7 @@ export const Header = () => {
                           <Link
                             key={subItem.label}
                             to={subItem.href}
-                            className="text-sm font-medium text-white/80 hover:text-cyan-400 transition-colors block"
+                            className="text-sm font-medium text-white/80 hover:text-[#17aa8c] transition-colors block"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {subItem.label}

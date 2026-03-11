@@ -85,8 +85,8 @@ export const TechStackSection = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mt-6 pt-6 mb-0 border-t border-slate-200/60 text-center overflow-x-hidden"
                 >
-                    <p className="text-[9px] md:text-[10px] text-slate-500 uppercase tracking-widest font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
-                        Platform logos represent technology experience and implementation expertise. ClienTech Solutions is not an official partner unless explicitly stated.
+                    <p className="text-[10px] md:text-xs text-slate-500 tracking-widest font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
+                        Platform Logos Represent Technology Experience And Implementation Expertise. ClienTech Solutions Is Not An Official Partner Unless Explicitly Stated.
                     </p>
                 </motion.div>
             </div>

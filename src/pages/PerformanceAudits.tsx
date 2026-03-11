@@ -17,7 +17,7 @@ const PerformanceAudits = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-[#0ea5e9] selection:text-black flex flex-col font-sans">
+        <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-black flex flex-col font-sans">
             <Header />
 
             <main className="flex-grow">

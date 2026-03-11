@@ -59,7 +59,7 @@ export const LegalLayout = ({ title, lastUpdated, sections, children }: LegalLay
     };
 
     return (
-        <div className="min-h-screen bg-[#000000] text-gray-300 selection:bg-cyan-500/30 selection:text-white">
+        <div className="min-h-screen bg-[#000000] text-gray-300 selection:bg-[#17aa8c]/30 selection:text-white">
             <Header />
 
             <main className="pt-32 pb-24 lg:pt-40 lg:pb-32 container-max section-padding">
@@ -102,7 +102,7 @@ export const LegalLayout = ({ title, lastUpdated, sections, children }: LegalLay
                                                 className={cn(
                                                     "block py-2 px-4 border-l-2 text-sm transition-all duration-300",
                                                     isActive
-                                                        ? "border-cyan-500 text-cyan-400 bg-cyan-500/10 font-medium"
+                                                        ? "border-[#17aa8c] text-[#17aa8c] bg-[#17aa8c]/10 font-medium"
                                                         : "border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/5"
                                                 )}
                                             >
@@ -118,7 +118,7 @@ export const LegalLayout = ({ title, lastUpdated, sections, children }: LegalLay
                     {/* TOP DROP-DOWN: Mobile Only "Jump To Section" */}
                     <div className="md:hidden sticky top-24 z-30 mb-8 bg-[#0a0a0a]/90 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg">
                         <select
-                            className="w-full bg-[#111111] text-white border border-white/20 rounded-lg p-3 text-sm focus:outline-none focus:border-cyan-500 cursor-pointer appearance-none"
+                            className="w-full bg-[#111111] text-white border border-white/20 rounded-lg p-3 text-sm focus:outline-none focus:border-[#17aa8c] cursor-pointer appearance-none"
                             value={activeSection}
                             onChange={(e) => {
                                 const id = e.target.value;
@@ -140,7 +140,7 @@ export const LegalLayout = ({ title, lastUpdated, sections, children }: LegalLay
 
                     {/* RIGHT COLUMN: The Document Content */}
                     <div className="md:col-span-9 lg:col-span-8">
-                        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:text-white prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:text-cyan-300 hover:prose-a:underline prose-strong:text-white/90">
+                        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:text-white prose-a:text-[#17aa8c] prose-a:no-underline hover:prose-a:text-cyan-300 hover:prose-a:underline prose-strong:text-white/90">
                             {children}
                         </div>
                     </div>

@@ -1,90 +1,152 @@
 import { LegalLayout, Section } from "@/components/layout/LegalLayout";
 
 const sections: Section[] = [
-    { id: "acceptance", title: "1. Acceptance of Terms" },
-    { id: "intellectual-property", title: "2. Intellectual Property" },
-    { id: "service-availability", title: "3. Service Availability" },
-    { id: "liability", title: "4. Liability Limitations" },
-    { id: "termination", title: "5. Termination" },
-    { id: "governing-law", title: "6. Governing Law" },
+    { id: "use-of-website", title: "Use of Our Website" },
+    { id: "intellectual-property", title: "Intellectual Property" },
+    { id: "services-information", title: "Services Information" },
+    { id: "user-submissions", title: "User Submissions" },
+    { id: "third-party-links", title: "Third-Party Links" },
+    { id: "limitation-of-liability", title: "Limitation of Liability" },
+    { id: "changes-to-terms", title: "Changes to These Terms" },
+    { id: "governing-law", title: "Governing Law" },
+    { id: "contact-information", title: "Contact Information" },
 ];
 
 const TermsConditions = () => {
     return (
         <LegalLayout
-            title="Terms & Conditions"
-            lastUpdated="November 02, 2025"
+            title="Terms and Conditions"
+            lastUpdated="03/11/2026"
             sections={sections}
         >
             <div className="mb-12 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <p className="text-gray-300 m-0">
-                    These Terms & Conditions constitute a legally binding agreement between you (the "Client") and ClienTech Solutions. By accessing our platform, utilizing our auditing tools, or engaging our engineering teams, you expressly acknowledge and agree to be bound by these operational parameters.
+                <p className="text-gray-300 m-0 mb-4">
+                    Welcome to the ClienTech Solutions website. These Terms and Conditions outline the rules and guidelines for using our website and services.
+                </p>
+                <p className="text-gray-300 m-0 font-medium text-white/90">
+                    By accessing or using our website, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website.
                 </p>
             </div>
 
-            <section id="acceptance" className="mb-16 scroll-mt-32">
+            <section id="use-of-website" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">01 //</span> Acceptance of Terms
+                    Use of Our Website
                 </h2>
-                <p>
-                    Accessing the ClienTech infrastructure obligates you to these terms. If you do not possess the organizational authority to bind your company to this contract, or if you fundamentally disagree with any clause outlined in this document, you must immediately sever connection to our domain map and cease using our services.
+                <p className="mb-4">
+                    The content provided on this website is for general informational purposes related to ClienTech Solutions and the digital services we offer.
+                </p>
+                <p className="mb-4">By using this website, you agree to:</p>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>Use the website only for lawful purposes</li>
+                    <li>Not attempt to disrupt or damage the website or its functionality</li>
+                    <li>Not misuse any information or content available on the website</li>
+                </ul>
+                <p className="font-medium text-white/90">
+                    ClienTech Solutions reserves the right to restrict or terminate access to the website if these terms are violated.
                 </p>
             </section>
 
             <section id="intellectual-property" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">02 //</span> Intellectual Property
+                    Intellectual Property
                 </h2>
-                <p>
-                    All proprietary algorithms, analytical methodologies, dashboard UIs, and backend architectural designs remain the exclusive intellectual property of ClienTech Solutions.
+                <p className="mb-4">
+                    All content on this website, including text, graphics, logos, designs, and other materials, is the property of ClienTech Solutions unless otherwise stated.
                 </p>
                 <p>
-                    Upon full execution of a Master Service Agreement (MSA) and cleared payment, the specific, customized deliverables (e.g., source code commits, finalized audit PDFs, campaign assets) naturally transfer ownership to the Client. However, ClienTech retains the right to reuse the foundational frameworks and non-customized codeblocks used to construct those deliverables.
+                    You may not copy, reproduce, distribute, or use website content for commercial purposes without written permission from ClienTech Solutions.
                 </p>
             </section>
 
-            <section id="service-availability" className="mb-16 scroll-mt-32">
+            <section id="services-information" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">03 //</span> Service Availability
+                    Services Information
                 </h2>
+                <p className="mb-4">
+                    ClienTech Solutions provides digital services including digital transformation support, technology solutions, and related consulting services.
+                </p>
                 <p>
-                    We architect our diagnostic dashboards for 99.9% uptime. However, ClienTech Solutions does not guarantee uninterrupted operational status. The platform may experience scheduled downtime during off-peak hours (Sunday 02:00-04:00 UTC) for critical cluster scaling and security patching. We are not liable for any secondary business revenue lost during these standard maintenance windows.
+                    Information about services presented on this website is provided for general guidance. Specific project details, timelines, and pricing may vary depending on client requirements and will be discussed directly during consultation.
                 </p>
             </section>
 
-            <section id="liability" className="mb-16 scroll-mt-32">
+            <section id="user-submissions" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">04 //</span> Liability Limitations
+                    User Submissions
+                </h2>
+                <p className="mb-4">
+                    If you submit information through forms on our website, such as contact forms or proposal requests, you agree that the information you provide is accurate and complete.
+                </p>
+                <p>
+                    ClienTech Solutions may use this information to respond to your inquiry or provide service-related communication.
+                </p>
+            </section>
+
+            <section id="third-party-links" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Third-Party Links
+                </h2>
+                <p className="mb-4">
+                    Our website may contain links to external websites. These links are provided for convenience and informational purposes.
+                </p>
+                <p>
+                    ClienTech Solutions does not control or take responsibility for the content, privacy practices, or policies of third-party websites.
+                </p>
+            </section>
+
+            <section id="limitation-of-liability" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Limitation of Liability
+                </h2>
+                <p className="mb-4">
+                    ClienTech Solutions strives to keep the information on this website accurate and up to date. However, we do not guarantee that all information is always complete, accurate, or current.
+                </p>
+                <p>
+                    ClienTech Solutions is not responsible for any direct or indirect damages that may result from the use of this website or reliance on its content.
+                </p>
+            </section>
+
+            <section id="changes-to-terms" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Changes to These Terms
+                </h2>
+                <p className="mb-4">
+                    ClienTech Solutions may update these Terms and Conditions from time to time. Updated versions will be posted on this page with the revised effective date.
+                </p>
+                <p>
+                    Continued use of the website after changes are made indicates acceptance of the updated terms.
+                </p>
+            </section>
+
+            <section id="governing-law" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Governing Law
                 </h2>
                 <p>
-                    To the maximum extent permitted by global law, ClienTech Solutions shall not be liable for any indirect, incidental, special, consequential, or punitive damages. This includes, without limitation, loss of profits, organizational data degradation, or intangible digital losses resulting from:
+                    These Terms and Conditions are governed by and interpreted in accordance with applicable laws in the jurisdiction where ClienTech Solutions operates.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 mt-4 text-gray-400">
-                    <li>Your inability to access or execute scripts on our platform.</li>
-                    <li>Any unverified third-party scripts executing malfeasance across our integration layer.</li>
-                    <li>Server-side compromises originating from zero-day vulnerabilities in upstream dependencies (e.g., Cloudflare, AWS).</li>
-                </ul>
-                <div className="mt-6 p-4 rounded-xl border-l-4 border-cyan-500 bg-[#111111]">
-                    <p className="text-sm text-gray-300 m-0">Our total liability, in any aggregated claim related to the service, shall remain strictly capped at the total financial amount explicitly paid by you to ClienTech Solutions over the preceding 12-month fiscal period.</p>
+            </section>
+
+            <section id="contact-information" className="scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Contact Information
+                </h2>
+                <p className="mb-4">
+                    If you have questions about these Terms and Conditions, please contact us.
+                </p>
+                <div className="mt-8 p-6 rounded-2xl bg-[#17aa8c]/10 border border-[#17aa8c]/20">
+                    <h3 className="text-xl font-bold text-white mb-2">ClienTech Solutions</h3>
+                    <ul className="space-y-4">
+                        <li>
+                            <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Email</span>
+                            <a href="mailto:info@clientechsolutions.com" className="text-[#17aa8c] font-bold hover:underline">info@clientechsolutions.com</a>
+                        </li>
+                        <li>
+                            <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Website</span>
+                            <a href="https://www.clientech-solutions.com" target="_blank" rel="noopener noreferrer" className="text-[#17aa8c] font-bold hover:underline">www.clientech-solutions.com</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
-
-            <section id="termination" className="mb-16 scroll-mt-32">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">05 //</span> Termination
-                </h2>
-                <p>
-                    We reserve the sovereign right to suspend or instantly terminate your access to the ClienTech network environment if we detect malicious activity, hostile reverse-engineering attempts, or blatant violation of our Acceptable Use Policies. Upon termination, backend access tokens will be immediately revoked and your ability to interact with the API will cease.
-                </p>
-            </section>
-
-            <section id="governing-law" className="scroll-mt-32">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">06 //</span> Governing Law
-                </h2>
-                <p>
-                    These Terms shall be interpreted and enforced strictly in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions. Any legal action or dispute resolution arising out of these terms shall be settled exclusively in the state or federal courts located within San Francisco County.
-                </p>
             </section>
 
         </LegalLayout>

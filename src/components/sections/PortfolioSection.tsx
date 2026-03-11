@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const items = [
   { type: "Case Study", title: "US Fashion Resale Platform Scales to 100K Monthly Transactions", color: "from-rose-500/20 to-orange-500/20" },
-  { type: "Blogs", title: "Custom Web Application Development: Everything You Need to Know", color: "from-blue-500/20 to-cyan-500/20" },
+  { type: "Blogs", title: "Custom Web Application Development: Everything You Need to Know", color: "from-[#17aa8c]/20 to-[#17aa8c]/20" },
   { type: "Case Study", title: "Hospitality AI Platform Reconciles $300M+ in OTA Commissions", color: "from-emerald-500/20 to-teal-500/20" },
   { type: "Blogs", title: "How Cloud Computing Can Transform Small Businesses", color: "from-violet-500/20 to-purple-500/20" },
   { type: "Blogs", title: "Trends of Mobile Design: What's Next for Your Business?", color: "from-amber-500/20 to-yellow-500/20" },

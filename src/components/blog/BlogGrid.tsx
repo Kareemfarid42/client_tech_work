@@ -132,7 +132,7 @@ const BlogGrid = ({ activeCategory, onReadClick }: BlogGridProps) => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-                        className="group flex flex-col bg-white/5 backdrop-blur-sm border border-[#333333] rounded-3xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:border-[#0ea5e9]/50 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] cursor-pointer"
+                        className="group flex flex-col bg-white/5 backdrop-blur-sm border border-[#333333] rounded-3xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:border-[#17aa8c]/50 hover:shadow-[0_0_20px_rgba(23, 170, 140,0.1)] cursor-pointer"
                     >
                         {/* Thumbnail */}
                         <div className="relative h-56 overflow-hidden">
@@ -163,7 +163,7 @@ const BlogGrid = ({ activeCategory, onReadClick }: BlogGridProps) => {
                                 </div>
                             </div>
 
-                            <h3 className="text-xl font-heading font-bold text-white mb-3 leading-snug group-hover:text-[#0ea5e9] transition-colors line-clamp-2">
+                            <h3 className="text-xl font-heading font-bold text-white mb-3 leading-snug group-hover:text-[#17aa8c] transition-colors line-clamp-2">
                                 {post.title}
                             </h3>
 
@@ -181,7 +181,7 @@ const BlogGrid = ({ activeCategory, onReadClick }: BlogGridProps) => {
                                     <span className="text-xs font-medium text-gray-300">{post.author.name}</span>
                                 </div>
 
-                                <ArrowRight className="w-4 h-4 text-[#888888] group-hover:text-[#0ea5e9] group-hover:translate-x-1 transition-all" />
+                                <ArrowRight className="w-4 h-4 text-[#888888] group-hover:text-[#17aa8c] group-hover:translate-x-1 transition-all" />
                             </div>
                         </div>
                     </motion.div>
@@ -198,7 +198,7 @@ const BlogGrid = ({ activeCategory, onReadClick }: BlogGridProps) => {
                 >
                     <button
                         onClick={handleLoadMore}
-                        className="flex items-center gap-2 px-8 py-3 rounded-full border border-[#333333] bg-white/5 text-white font-medium transition-all hover:bg-[#0ea5e9] hover:border-[#0ea5e9] hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] group"
+                        className="flex items-center gap-2 px-8 py-3 rounded-full border border-[#333333] bg-white/5 text-white font-medium transition-all hover:bg-[#17aa8c] hover:border-[#17aa8c] hover:shadow-[0_0_20px_rgba(23, 170, 140,0.3)] group"
                     >
                         Load More Insights
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

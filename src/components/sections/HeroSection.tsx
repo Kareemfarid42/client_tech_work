@@ -12,7 +12,7 @@ const credibilityItems = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-secondary overflow-hidden pt-24 lg:pt-32 pb-20 md:pb-24">
+    <section className="relative min-h-screen bg-secondary overflow-hidden pt-24 lg:pt-32 pb-0 md:pb-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-secondary/95" />
 
@@ -21,7 +21,7 @@ export const HeroSection = () => {
         style={{ background: "radial-gradient(circle, #1DD1A1 0%, transparent 70%)" }} />
 
       <div className="relative container-max section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-4 items-center min-h-[70vh]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center min-h-[70vh]">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -31,21 +31,17 @@ export const HeroSection = () => {
           >
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-secondary-foreground leading-tight">
-                Transforming Challenges Into <span className="text-gradient">Intelligent Digital Solutions</span>
+                Build Smarter Systems. <span className="text-gradient">Automate Growth.</span> <br className="hidden sm:block" />Scale Your Digital Business.
               </h1>
 
               <h2 className="text-xl sm:text-2xl font-subheading font-medium text-secondary-foreground/80 max-w-4xl leading-relaxed">
-                Digital foundations, smart solutions, and transformation—designed to help organizations move forward with clarity and confidence.
+                We design automation, AI systems, and digital infrastructure that help modern businesses scale faster and operate smarter.
               </h2>
             </div>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              ClienTech Solutions partners with organizations to build resilient digital foundations, implement scalable solutions, and drive meaningful transformation. We solve for today's challenges while illuminating the path forward—through strategy-led execution and technology that delivers real outcomes.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="pt-6">
               <Button variant="hero" size="xl" className="group">
-                Get a Proposal
+                Book Strategy Call
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -56,8 +52,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative hidden lg:flex items-center justify-center"
-            style={{ minHeight: 420 }}
+            className="relative flex items-center justify-center mt-6 lg:mt-0 min-h-[300px] lg:min-h-[420px]"
           >
             <DigitalEngineAnimation />
           </motion.div>
@@ -65,10 +60,10 @@ export const HeroSection = () => {
 
         {/* Credibility Strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="py-12 mt-8 border-t border-secondary-foreground/10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="py-12 mt-4 lg:mt-0 border-t border-secondary-foreground/10"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {credibilityItems.map((item, index) => (

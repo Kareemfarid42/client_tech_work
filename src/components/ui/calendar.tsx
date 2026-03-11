@@ -71,7 +71,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
                     <SelectItem
                       key={`${option.props.value}-${id}`}
                       value={option.props.value?.toString() ?? ""}
-                      className="cursor-pointer hover:bg-white/10 focus:bg-[#0ea5e9]/20 focus:text-white transition-colors"
+                      className="cursor-pointer hover:bg-white/10 focus:bg-[#17aa8c]/20 focus:text-white transition-colors"
                     >
                       {option.props.children}
                     </SelectItem>

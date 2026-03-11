@@ -63,7 +63,7 @@ const industries = [
     icon: Palmtree,
     title: "Tourism & Hospitality",
     description: "Engaging guest experiences and streamlined booking platforms.",
-    color: "#0EA5E9",
+    color: "#17aa8c",
   },
   {
     icon: HardHat,

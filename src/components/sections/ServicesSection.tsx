@@ -20,22 +20,22 @@ const primaryServices = [
   {
     icon: Rocket,
     title: "Digital Transformation",
-    description: "Build secure, scalable, and future-ready digital infrastructure that enables growth, resilience, and long-term performance.",
+    description: "Build secure, scalable digital infrastructure that enables long-term growth.",
   },
   {
     icon: Palette,
     title: "Digital Marketing",
-    description: "Design and develop tailored digital solutions that solve real business challenges and integrate seamlessly with existing systems.",
+    description: "Design tailored digital solutions that solve real business challenges.",
   },
   {
     icon: Brain,
     title: "Marketing Automations",
-    description: "Apply AI and data-driven intelligence to enhance decision-making, automate processes, and unlock smarter ways of working.",
+    description: "Apply data-driven AI to automate processes and unlock smarter workflows.",
   },
   {
     icon: Network,
     title: "Product Marketing",
-    description: "Align strategy, technology, and execution to drive meaningful transformation with measurable, sustainable outcomes.",
+    description: "Align strategy and technology to drive sustainable, measurable outcomes.",
   },
 ];
 
@@ -47,7 +47,7 @@ const supportingServices = [
   },
   {
     icon: Globe,
-    title: "Website Redesign",
+    title: "Website Development",
     description: "Modernize your online presence with a high-performance, conversion-focused website built for today's digital landscape.",
   },
   {
@@ -112,8 +112,8 @@ export const ServicesSection = () => {
               <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                 <service.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <div className="p-6">
-                <h3 className="font-subheading font-bold text-xl text-card-foreground mb-3">{service.title}</h3>
+              <div className="p-5 xl:p-6">
+                <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">{service.title}</h3>
                 <p className="text-base text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
             </motion.div>
@@ -122,8 +122,8 @@ export const ServicesSection = () => {
 
         {/* Supporting Services */}
         <div className="mb-12">
-          <h3 className="text-2xl font-subheading font-semibold text-secondary-foreground mb-8">Supporting Capabilities</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h3 className="text-2xl font-subheading font-semibold text-secondary-foreground mb-8 text-center sm:text-left">Supporting Capabilities</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
             <AnimatePresence initial={false}>
               {visibleServices.map((service, index) => (
                 <motion.div

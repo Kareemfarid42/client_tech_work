@@ -12,12 +12,12 @@ const Contact = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-[#0ea5e9] selection:text-white flex flex-col font-sans">
+        <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-white flex flex-col font-sans">
             <Header />
 
             <main className="flex-grow pt-32 pb-24 relative overflow-hidden">
                 {/* Background ambient glow effect */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0ea5e9]/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#17aa8c]/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
                 <div className="container-max section-padding relative z-10 w-full max-w-7xl mx-auto">
 

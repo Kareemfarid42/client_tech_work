@@ -1,105 +1,196 @@
 import { LegalLayout, Section } from "@/components/layout/LegalLayout";
 
 const sections: Section[] = [
-    { id: "data-collection", title: "1. Data Collection" },
-    { id: "usage-policies", title: "2. Usage Policies" },
-    { id: "cookie-tracking", title: "3. Cookie Tracking" },
-    { id: "third-party", title: "4. Third-Party Sharing" },
-    { id: "data-security", title: "5. Data Security" },
-    { id: "user-rights", title: "6. Your Rights" },
+    { id: "information-we-collect", title: "Information We Collect" },
+    { id: "how-we-use-your-information", title: "How We Use Your Information" },
+    { id: "cookies-and-tracking", title: "Cookies and Tracking Technologies" },
+    { id: "data-security", title: "Data Security" },
+    { id: "third-party", title: "Third-Party Services" },
+    { id: "external-links", title: "External Links" },
+    { id: "your-privacy-rights", title: "Your Privacy Rights" },
+    { id: "updates", title: "Updates to This Privacy Policy" },
+    { id: "contact-us", title: "Contact Us" },
 ];
 
 const PrivacyPolicy = () => {
     return (
         <LegalLayout
             title="Privacy Policy"
-            lastUpdated="October 15, 2025"
+            lastUpdated="03/11/2026"
             sections={sections}
         >
             <div className="mb-12 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <p className="text-gray-300 m-0">
-                    At ClienTech Solutions, transparency and data integrity are the core of our operations. This Privacy Policy details the exact mechanisms by which we collect, safeguard, and utilize your information when you interact with our digital properties and services.
+                <p className="text-gray-300 m-0 mb-4">
+                    ClienTech Solutions respects your privacy and is committed to protecting the information you share with us. This Privacy Policy explains how we collect, use, and protect your information when you visit our website, interact with our digital platforms, or communicate with our team.
+                </p>
+                <p className="text-gray-300 m-0 mb-4">
+                    ClienTech Solutions provides digital services including technology solutions, digital transformation support, and related consulting services. We are committed to responsible data handling and protecting the privacy of individuals and organizations that interact with our services.
+                </p>
+                <p className="text-gray-300 m-0 font-medium text-white/90">
+                    By using our website, you agree to the practices described in this Privacy Policy.
                 </p>
             </div>
 
-            <section id="data-collection" className="mb-16 scroll-mt-32">
+            <section id="information-we-collect" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">01 //</span> Data Collection
+                    Information We Collect
                 </h2>
                 <p>
-                    We employ strict data minimization principles. We only collect data that is fundamentally necessary to execute our services, process your audits, and communicate effectively regarding project statuses.
+                    We may collect certain information when you interact with our website or communicate with us.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 mt-4 text-gray-400">
-                    <li><strong className="text-white font-medium">Identity Data:</strong> Name, professional title, and organizational affiliation.</li>
-                    <li><strong className="text-white font-medium">Contact Data:</strong> Official corporate email addresses and direct phone numbers.</li>
-                    <li><strong className="text-white font-medium">Technical Data:</strong> IP addresses, browser specifications, and timestamp metrics collected during your session on our platform.</li>
-                    <li><strong className="text-white font-medium">Project Data:</strong> Internal documents, codebase access credentials, and strategic briefs provided explicitly by you during the onboarding phase.</li>
+                
+                <h3 className="text-xl font-semibold text-white mt-8 mb-4">Personal Information</h3>
+                <p className="mb-4">
+                    When you submit a contact form, request a proposal, or communicate with our team, we may collect information such as:
+                </p>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>Name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Company or organization name</li>
+                    <li>Any message or information you provide</li>
                 </ul>
-            </section>
+                <p className="italic text-gray-400">This information is only collected when you voluntarily provide it.</p>
 
-            <section id="usage-policies" className="mb-16 scroll-mt-32">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">02 //</span> Usage Policies
-                </h2>
-                <p>
-                    Your data is never monetized. We utilize your provided information exclusively for the following operational protocols:
+                <h3 className="text-xl font-semibold text-white mt-8 mb-4">Usage Information</h3>
+                <p className="mb-4">
+                    When you visit our website, certain technical information may be collected automatically. This may include:
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4 mt-6">
-                    <div className="p-4 rounded-xl bg-[#111111] border border-white/5">
-                        <h4 className="text-white font-bold mb-2">Service Execution</h4>
-                        <p className="text-sm text-gray-400 m-0">To deliver our performance audits, digital marketing campaigns, and technical consulting parameters.</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-[#111111] border border-white/5">
-                        <h4 className="text-white font-bold mb-2">Platform Security</h4>
-                        <p className="text-sm text-gray-400 m-0">To actively monitor our infrastructure for anomalous behavior, preventing DDoS attacks and unauthorized intrusions.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="cookie-tracking" className="mb-16 scroll-mt-32">
-                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">03 //</span> Cookie Tracking
-                </h2>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>IP address</li>
+                    <li>Browser type</li>
+                    <li>Device type</li>
+                    <li>Pages visited on our website</li>
+                    <li>Time spent on pages</li>
+                </ul>
                 <p>
-                    Our web architecture utilizes localized cookies to maintain user sessions and aggregate high-level performance metrics. We employ standard <code className="text-cyan-400 bg-cyan-400/10 px-1 rounded">localStorage</code> and session markers. You reserve the right to configure your browser to reject these tracking modules, though it may degrade certain interactive components of the Transparency Center.
+                    This information helps us understand how visitors interact with our website and allows us to improve our digital services and user experience.
                 </p>
             </section>
 
-            <section id="third-party" className="mb-16 scroll-mt-32">
+            <section id="how-we-use-your-information" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">04 //</span> Third-Party Sharing
+                    How We Use Your Information
                 </h2>
+                <p className="mb-4">
+                    ClienTech Solutions may use the information we collect to:
+                </p>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>Respond to inquiries and communication requests</li>
+                    <li>Provide information about our services</li>
+                    <li>Process consultation or proposal requests</li>
+                    <li>Improve our website and digital platforms</li>
+                    <li>Maintain website performance and security</li>
+                    <li>Communicate important updates related to our services</li>
+                </ul>
+                <p className="font-medium text-white/90">
+                    We do not sell, rent, or trade personal information to third parties.
+                </p>
+            </section>
+
+            <section id="cookies-and-tracking" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Cookies and Tracking Technologies
+                </h2>
+                <p className="mb-4">
+                    Our website may use cookies or similar technologies to improve website functionality and understand how visitors use our website.
+                </p>
+                <p className="mb-4">Cookies may help us:</p>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>Analyze website traffic</li>
+                    <li>Improve website performance</li>
+                    <li>Remember visitor preferences</li>
+                </ul>
                 <p>
-                    We do not sell our database. We only transmit operational data to verified, SOC2-compliant sub-processors mathematically necessary to host our infrastructure (e.g., AWS, Vercel) or process secure payments (e.g., Stripe).
+                    You may choose to disable cookies through your browser settings if you prefer.
                 </p>
             </section>
 
             <section id="data-security" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">05 //</span> Data Security
+                    Data Security
                 </h2>
+                <p className="mb-4">
+                    ClienTech Solutions takes reasonable technical and organizational measures to protect personal information from unauthorized access, misuse, or disclosure.
+                </p>
                 <p>
-                    ClienTech Solutions deploys enterprise-grade cryptography. All data in transit is secured via TLS 1.3 encryption. At rest, databases are protected using AES-256 standard encryption. Access to production environments requires multi-factor authentication (MFA) and is strictly granted on a zero-trust, rotating basis to cleared engineering personnel.
+                    While we work to maintain secure systems, no internet transmission or electronic storage method can be guaranteed to be completely secure.
                 </p>
             </section>
 
-            <section id="user-rights" className="scroll-mt-32">
+            <section id="third-party" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
-                    <span className="text-cyan-500 font-mono text-xl">06 //</span> Your Rights
+                    Third-Party Services
                 </h2>
-                <p>
-                    Under GDPR, CCPA, and global privacy frameworks, you retain absolute sovereignty over your data.
+                <p className="mb-4">
+                    Our website may use trusted third-party services such as website hosting, analytics tools, or communication platforms to support our digital services.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 mt-4 text-gray-400">
-                    <li><strong>Right to Access:</strong> You may request a complete JSON export of your profile at any time.</li>
-                    <li><strong>Right to Erasure:</strong> You can invoke the 'Right to be Forgotten.' We will purge your identifiers from our active clusters within 72 hours.</li>
-                    <li><strong>Right to Rectification:</strong> If your organizational data is stale, you may demand immediate updates to our records.</li>
+                <p>
+                    These providers may collect limited technical information necessary to operate their services and follow their own privacy policies.
+                </p>
+            </section>
+
+            <section id="external-links" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    External Links
+                </h2>
+                <p className="mb-4">
+                    Our website may contain links to external websites for informational purposes. ClienTech Solutions is not responsible for the privacy practices or content of external websites.
+                </p>
+                <p>
+                    We encourage visitors to review the privacy policies of any third-party websites they visit.
+                </p>
+            </section>
+
+            <section id="your-privacy-rights" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Your Privacy Rights
+                </h2>
+                <p className="mb-4">
+                    Depending on your location, you may have the right to:
+                </p>
+                <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-400">
+                    <li>Request access to the personal information we hold about you</li>
+                    <li>Request corrections to inaccurate information</li>
+                    <li>Request deletion of your personal data</li>
+                    <li>Withdraw consent for certain communications</li>
                 </ul>
-                <div className="mt-8 p-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-center">
-                    <p className="text-cyan-50 font-medium m-0">
-                        To execute any of these data rights, immediately contact our Data Protection Officer at <br />
-                        <a href="mailto:privacy@clientech.io" className="text-cyan-400 font-bold hover:underline">privacy@clientech.io</a>.
-                    </p>
+                <p>
+                    To make a request regarding your information, please contact us using the details below.
+                </p>
+            </section>
+
+            <section id="updates" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Updates to This Privacy Policy
+                </h2>
+                <p className="mb-4">
+                    ClienTech Solutions may update this Privacy Policy from time to time. Any updates will be posted on this page along with the updated effective date.
+                </p>
+                <p>
+                    We encourage visitors to review this page periodically to stay informed.
+                </p>
+            </section>
+
+            <section id="contact-us" className="scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    Contact Us
+                </h2>
+                <p className="mb-4">
+                    If you have questions about this Privacy Policy or how your information is handled, please contact us.
+                </p>
+                <div className="mt-8 p-6 rounded-2xl bg-[#17aa8c]/10 border border-[#17aa8c]/20">
+                    <h3 className="text-xl font-bold text-white mb-2">ClienTech Solutions</h3>
+                    <ul className="space-y-4">
+                        <li>
+                            <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Email</span>
+                            <a href="mailto:info@clientechsolutions.com" className="text-[#17aa8c] font-bold hover:underline">info@clientechsolutions.com</a>
+                        </li>
+                        <li>
+                            <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Website</span>
+                            <a href="https://www.clientech-solutions.com" target="_blank" rel="noopener noreferrer" className="text-[#17aa8c] font-bold hover:underline">www.clientech-solutions.com</a>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </LegalLayout>

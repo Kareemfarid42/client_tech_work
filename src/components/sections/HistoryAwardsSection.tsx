@@ -18,19 +18,19 @@ const HexagonNode = ({ year, isCurrent = false }: { year: string; isCurrent?: bo
                 viewBox="0 0 100 115"
                 className={cn(
                     "absolute inset-0 w-full h-full",
-                    isCurrent ? "drop-shadow-[0_0_12px_rgba(6,182,212,0.8)]" : "drop-shadow-none"
+                    isCurrent ? "drop-shadow-[0_0_12px_rgba(23,156,131,0.8)]" : "drop-shadow-none"
                 )}
             >
                 <polygon
                     points="50,2.5 97.5,30 97.5,85 50,112.5 2.5,85 2.5,30"
                     fill="#000000"
-                    stroke={isCurrent ? "#06B6D4" : "#1e293b"}
+                    stroke={isCurrent ? "#179C83" : "#1e293b"}
                     strokeWidth="3"
                 />
             </svg>
             <span className={cn(
                 "relative z-10 font-mono font-bold text-lg md:text-xl",
-                isCurrent ? "text-cyan-500" : "text-white"
+                isCurrent ? "text-[#179C83]" : "text-white"
             )}>
                 {year}
             </span>
@@ -58,7 +58,7 @@ export const HistoryAwardsSection = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-cyan-500 font-mono tracking-widest uppercase text-sm sm:text-base"
+                        className="text-[#179C83] font-mono tracking-widest uppercase text-sm sm:text-base"
                     >
                         The Circuit of Achievement
                     </motion.p>
@@ -77,7 +77,7 @@ export const HistoryAwardsSection = () => {
                             whileInView={{ scaleY: 1 }}
                             viewport={{ once: true, margin: "-20%" }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
-                            className="w-full h-full bg-cyan-500 origin-top shadow-[0_0_15px_rgba(6,182,212,0.6)]"
+                            className="w-full h-full bg-[#179C83] origin-top shadow-[0_0_15px_rgba(23,156,131,0.6)]"
                         />
                     </div>
 
@@ -109,7 +109,7 @@ export const HistoryAwardsSection = () => {
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true, margin: "-20%" }}
                                             transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                                            className="relative w-full bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:border-cyan-500/50 transition-colors duration-500 shadow-xl"
+                                            className="relative w-full bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:border-[#179C83]/50 transition-colors duration-500 shadow-xl"
                                         >
 
                                             {/* Trace Line Connector connecting card to center line (Desktop) */}
@@ -119,7 +119,7 @@ export const HistoryAwardsSection = () => {
                                                 viewport={{ once: true, margin: "-20%" }}
                                                 transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
                                                 className={cn(
-                                                    "absolute top-1/2 h-[2px] bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)] z-[-1]",
+                                                    "absolute top-1/2 h-[2px] bg-[#179C83] shadow-[0_0_8px_rgba(23,156,131,0.5)] z-[-1]",
                                                     "md:w-[4rem]", // width exactly covers gap
                                                     isEven
                                                         ? "hidden md:block right-0 translate-x-full origin-left"
@@ -133,14 +133,14 @@ export const HistoryAwardsSection = () => {
                                                 whileInView={{ scaleX: 1 }}
                                                 viewport={{ once: true, margin: "-20%" }}
                                                 transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
-                                                className="md:hidden absolute top-12 left-0 w-4 h-[2px] bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.5)] -translate-x-full origin-right z-[-1]"
+                                                className="md:hidden absolute top-12 left-0 w-4 h-[2px] bg-[#179C83] shadow-[0_0_8px_rgba(23,156,131,0.5)] -translate-x-full origin-right z-[-1]"
                                             />
 
                                             <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2">
                                                 {item.title}
                                             </h3>
                                             <div className="flex items-center gap-3">
-                                                <Check className="w-5 h-5 text-cyan-500 shrink-0" strokeWidth={3} />
+                                                <Check className="w-5 h-5 text-[#179C83] shrink-0" strokeWidth={3} />
                                                 <span className="text-sm md:text-base text-gray-400 font-medium">{item.subtitle}</span>
                                             </div>
 

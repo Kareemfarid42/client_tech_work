@@ -166,9 +166,9 @@ export const CustomDatePicker = ({
                                             className={cn(
                                                 "h-8 sm:h-9 w-full rounded-md text-xs sm:text-sm transition-all flex items-center justify-center",
                                                 isSelected
-                                                    ? "bg-[#0ea5e9] text-black font-bold shadow-[0_0_10px_rgba(14,165,233,0.5)]"
+                                                    ? "bg-[#17aa8c] text-black font-bold shadow-[0_0_10px_rgba(23, 170, 140,0.5)]"
                                                     : "text-white hover:bg-white/10",
-                                                !isSelected && isToday && "border border-[#0ea5e9]/50 text-[#0ea5e9]"
+                                                !isSelected && isToday && "border border-[#17aa8c]/50 text-[#17aa8c]"
                                             )}
                                         >
                                             {date.getDate()}
@@ -206,7 +206,7 @@ export const CustomDatePicker = ({
                                             className={cn(
                                                 "py-3 sm:py-4 rounded-md text-xs sm:text-sm transition-all text-center border",
                                                 isSelectedMonth
-                                                    ? "bg-[#0ea5e9] text-black font-bold shadow-[0_0_10px_rgba(14,165,233,0.5)] border-transparent"
+                                                    ? "bg-[#17aa8c] text-black font-bold shadow-[0_0_10px_rgba(23, 170, 140,0.5)] border-transparent"
                                                     : "text-white hover:bg-white/10 bg-[#111111]/50 border-white/5"
                                             )}
                                         >
@@ -243,7 +243,7 @@ export const CustomDatePicker = ({
                                             className={cn(
                                                 "py-3 sm:py-4 rounded-md text-xs sm:text-sm transition-all text-center border",
                                                 isSelectedYear
-                                                    ? "bg-[#0ea5e9] text-black font-bold shadow-[0_0_10px_rgba(14,165,233,0.5)] border-transparent"
+                                                    ? "bg-[#17aa8c] text-black font-bold shadow-[0_0_10px_rgba(23, 170, 140,0.5)] border-transparent"
                                                     : "text-white hover:bg-white/10 bg-[#111111]/50 border-white/5"
                                             )}
                                         >

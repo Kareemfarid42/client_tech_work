@@ -7,11 +7,11 @@ interface AuditReportProps {
 
 const AuditReport = ({ onOpenModal }: AuditReportProps) => {
     const deliverables = [
-        "Executive Summary & Business Impact",
-        "Line-by-Line Code Remediation Guide",
-        "Security Vulnerability Patch List",
-        "Infrastructure Cost Optimization Roadmap",
-        "SEO Structural Blueprint"
+        "Executive Summary and Business Impact",
+        "Code-Level Improvement Guidance",
+        "Security Risk Review",
+        "Infrastructure Optimization Plan",
+        "Technical SEO Review"
     ];
 
     return (
@@ -36,7 +36,7 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                         {/* Report Cover Stylings */}
                         <div className="p-8 h-full flex flex-col justify-between relative z-10">
                             <div>
-                                <div className="text-[#0ea5e9] text-xs font-mono mb-2 uppercase tracking-widest bg-[#0ea5e9]/10 inline-block px-2 py-1 rounded">Confidential</div>
+                                <div className="text-[#17aa8c] text-xs font-mono mb-2 uppercase tracking-widest bg-[#17aa8c]/10 inline-block px-2 py-1 rounded">Confidential</div>
                                 <h3 className="text-2xl font-heading font-bold text-white mb-2 leading-tight">Performance<br />Diagnostic<br />Report</h3>
                                 <div className="text-[#555] text-[10px] font-mono border-t border-[#333333] pt-2 mt-4 inline-block">
                                     ID: CHK-2024-X9<br />
@@ -47,7 +47,7 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                             {/* Faux graph on cover */}
                             <div className="flex items-end h-24 gap-1 opacity-50">
                                 {[40, 70, 45, 90, 65, 100, 80].map((h, i) => (
-                                    <div key={i} className="flex-1 bg-[#0ea5e9]/40 rounded-t-sm" style={{ height: `${h}%` }}></div>
+                                    <div key={i} className="flex-1 bg-[#17aa8c]/40 rounded-t-sm" style={{ height: `${h}%` }}></div>
                                 ))}
                             </div>
 
@@ -71,11 +71,11 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
-                        The Blueprint to <span className="text-[#0ea5e9]">Perfection.</span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
+                        Your Performance Improvement <span className="text-[#17aa8c]">Blueprint</span>
                     </h2>
-                    <p className="text-[#888888] text-lg leading-relaxed mb-8 font-sans">
-                        You don't just get a score. You get a comprehensive, architectural roadmap to achieving a zero-latency system state. Every vulnerability and bottleneck is documented with the exact code required to fix it.
+                    <p className="text-[#888888] text-lg leading-relaxed mb-8 font-sans text-center">
+                        Receive a detailed technical report identifying system bottlenecks, security risks, and optimization opportunities. Each finding includes clear engineering recommendations to improve system performance.
                     </p>
 
                     <div className="space-y-4 mb-10">
@@ -88,7 +88,7 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                                 transition={{ duration: 0.4, delay: index * 0.1 }}
                                 className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-xl"
                             >
-                                <CheckCircle2 className="w-5 h-5 text-[#0ea5e9] flex-shrink-0" />
+                                <CheckCircle2 className="w-5 h-5 text-[#17aa8c] flex-shrink-0" />
                                 <span className="text-white font-medium">{item}</span>
                             </motion.div>
                         ))}
@@ -96,14 +96,14 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
 
                     <button
                         onClick={onOpenModal}
-                        className="w-full relative overflow-hidden group border border-[#0ea5e9] text-[#0ea5e9] font-bold py-5 rounded-sm bg-transparent transition-all duration-300 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]"
+                        className="w-full relative overflow-hidden group border border-[#17aa8c] text-[#17aa8c] font-bold py-5 rounded-sm bg-transparent transition-all duration-300 hover:shadow-[0_0_30px_rgba(23, 170, 140,0.3)]"
                     >
-                        <span className="absolute inset-0 w-full h-full bg-[#0ea5e9] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0"></span>
+                        <span className="absolute inset-0 w-full h-full bg-[#17aa8c] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0"></span>
                         <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300 text-lg">
-                            Schedule Your Audit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            schedule Your Audit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </button>
-                    <p className="text-[#555] text-xs font-mono text-center mt-4 uppercase tracking-widest">Limited to 5 audits per month.</p>
+                    <p className="text-[#555] text-xs font-mono text-center mt-4 tracking-widest">limited Audit Availability Each Month.</p>
 
                 </motion.div>
 
