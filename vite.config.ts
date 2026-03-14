@@ -33,6 +33,10 @@ export default defineConfig(({ mode }) => ({
 
     // Manual chunk splitting for better caching
     rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        mlo: path.resolve(__dirname, 'mlo.html'),
+      },
       output: {
         manualChunks: {
           // React core

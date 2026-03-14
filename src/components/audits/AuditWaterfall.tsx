@@ -14,23 +14,24 @@ const AuditWaterfall = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
-                            Eliminate <span className="text-red-500">Render-Blocking</span> Delays
+                            Remove <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500">Digital</span> <span className="text-red-500">Bottlenecks</span>
                         </h2>
                         <p className="text-[#888888] text-lg leading-relaxed mb-6 font-sans">
-                            Fast loading times are not achieved by compressing images alone. They require optimizing how your application loads scripts, styles, and other resources that affect the page rendering process.
+                            Slow websites, disconnected marketing tools, and inefficient workflows can reduce customer engagement and limit growth.
+                            Improving performance requires understanding how your systems, marketing, and automation work together.
                         </p>
                         <p className="text-[#888888] text-lg leading-relaxed mb-8 font-sans">
-                            Our performance audit identifies where delays occur in your request chain and highlights the exact scripts, dependencies, or third-party resources that slow down your application.
+                            ClienTech identifies where digital friction occurs across your platforms and marketing systems and provides clear recommendations to improve performance, efficiency, and scalability.
                         </p>
 
                         <div className="grid grid-cols-2 gap-6 border-t border-[#333333] pt-8">
                             <div>
-                                <div className="text-[#555] text-xs font-mono uppercase tracking-widest mb-1">Average Industry TTFB</div>
+                                <div className="text-[#555] text-xs font-mono uppercase tracking-widest mb-1">Average Website Load Time</div>
                                 <div className="text-white text-3xl font-mono">1.2<span className="text-sm text-[#888]">s</span></div>
                             </div>
                             <div>
                                 <div className="text-[#555] text-xs font-mono uppercase tracking-widest mb-1">Optimized Target</div>
-                                <div className="text-[#17aa8c] text-3xl font-mono">0.1<span className="text-sm text-[#888]">s</span></div>
+                                <div className="text-[#17aa8c] text-3xl font-mono">0.5<span className="text-sm text-[#888]">s</span></div>
                             </div>
                         </div>
                     </motion.div>

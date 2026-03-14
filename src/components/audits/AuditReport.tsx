@@ -8,10 +8,10 @@ interface AuditReportProps {
 const AuditReport = ({ onOpenModal }: AuditReportProps) => {
     const deliverables = [
         "Executive Summary and Business Impact",
-        "Code-Level Improvement Guidance",
-        "Security Risk Review",
-        "Infrastructure Optimization Plan",
-        "Technical SEO Review"
+        "Marketing & Funnel Analysis",
+        "Automation & Lead Nurture Review",
+        "Digital Infrastructure Optimization",
+        "Analytics & Reporting Review"
     ];
 
     return (
@@ -72,10 +72,11 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
-                        Your Performance Improvement <span className="text-[#17aa8c]">Blueprint</span>
+                        Your Digital Performance <span className="text-[#17aa8c]">Blueprint</span>
                     </h2>
                     <p className="text-[#888888] text-lg leading-relaxed mb-8 font-sans text-center">
-                        Receive a detailed technical report identifying system bottlenecks, security risks, and optimization opportunities. Each finding includes clear engineering recommendations to improve system performance.
+                        Our audit provides a clear overview of how your digital systems, marketing channels, and automation workflows are performing.
+                        You receive practical insights and recommendations that help improve lead generation, customer engagement, and operational efficiency.
                     </p>
 
                     <div className="space-y-4 mb-10">

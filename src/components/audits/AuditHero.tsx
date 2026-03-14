@@ -50,16 +50,20 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#17aa8c]/30 bg-[#111111] text-[#17aa8c] text-xs font-mono font-bold uppercase tracking-widest mb-8 w-fit shadow-[0_0_15px_rgba(23, 170, 140,0.15)]">
                         <Activity className="w-4 h-4" />
-                        System Diagnostics
+                        DIGITAL PERFORMANCE AUDIT
+
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight tracking-tight">
-                        Uncover Your Software’s <br />
+                        Understand and Improve Your Digital Performance
+                        <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#888]">True Performance.</span>
                     </h1>
 
                     <p className="text-lg text-[#888888] leading-relaxed max-w-xl mb-10 font-sans">
-                        We review your systems to find performance issues and provide clear steps to make them faster, more reliable, and ready to scale.
+                        Many businesses invest in digital tools, marketing, and platforms without fully understanding what is working and what needs improvement.
+                        ClienTech audits your digital systems, marketing performance, and automation workflows to identify gaps and provide clear steps to improve efficiency, growth, and customer engagement.
+
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
