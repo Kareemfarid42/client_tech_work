@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
-import logo from "@/assets/logo-v3.png";
+import logo from "@/assets/logo-v4.png";
 
 const footerLinks = {
   services: [
