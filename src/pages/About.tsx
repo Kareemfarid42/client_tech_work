@@ -21,11 +21,12 @@ const values = [
 ];
 
 const leaders = [
-  { name: "Waleed", role: "CEO & Co-founder", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face" },
-  { name: "Nate", role: "Co-founder & CMO", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face" },
-  { name: "Kareem", role: "Chief Technology Officer", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop&crop=face" },
-  { name: "Ali", role: "Principal Marketer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" },
-  { name: "Rahmat", role: "Visual Consultant", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face" },
+  { name: "Waleed B", role: "CEO & Co-founder", image: "/team/waleed-b.jpeg" },
+  { name: "Nate", role: "Co-founder & CMO", image: "/team/nate.jpeg" },
+  { name: "Kareem Farid", role: "Head of Technology & Automation", image: "/team/kareem-farid.jpeg" },
+  { name: "Ali Ahmad", role: "Head of Marketing", image: "/team/ali-ahmad.png" },
+  { name: "Rahmat Ullah", role: "Creative Director", image: "/team/rahmat-ullah.jpeg" },
+  { name: "Tehmina Younis", role: "Strategic Partnerships & Growth Manager", image: "/team/tehmina-younis.jpeg" },
 ];
 
 const whyChooseUs = [
@@ -272,21 +273,13 @@ const About = () => {
                     {/* Gradient Overlay for Text Polish */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    {/* Social Hover Elements */}
-                    <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10">
-                      <a href="#" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-primary text-white transition-colors">
-                        <Linkedin className="w-5 h-5" />
-                      </a>
-                      <a href="#" className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-primary text-white transition-colors">
-                        <Twitter className="w-5 h-5" />
-                      </a>
-                    </div>
+
                   </div>
 
                   {/* Content Container */}
-                  <div className="p-5 text-center bg-card flex-1 flex flex-col justify-center relative z-20 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)]">
+                  <div className="py-5 px-1 sm:px-2 text-center bg-card flex-1 flex flex-col justify-center relative z-20 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)]">
                     <h3 className="font-display font-bold text-lg text-foreground mb-1 group-hover:text-primary transition-colors">{leader.name}</h3>
-                    <p className="text-[11px] font-semibold uppercase tracking-widest text-primary/80">{leader.role}</p>
+                    <p className="text-[7px] sm:text-[7.5px] md:text-[8px] lg:text-[8.5px] xl:text-[9px] font-bold uppercase text-primary/80 whitespace-nowrap tracking-tight">{leader.role}</p>
                   </div>
                 </motion.div>
               ))}
