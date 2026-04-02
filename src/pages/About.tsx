@@ -247,14 +247,14 @@ const About = () => {
               </h2>
             </motion.div>
 
-            <div className="flex flex-wrap justify-center gap-8 max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1100px] mx-auto">
               {leaders.map((leader, index) => (
                 <motion.div
                   key={leader.name}
                   initial={{ opacity: 0, scale: 0.95, y: 30 }}
                   animate={leadershipInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                  className="group relative w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(20%-1.6rem)] rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(45,178,152,0.15)] hover:border-primary/50 transition-all duration-300 flex flex-col"
+                  className="group relative w-full rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(45,178,152,0.15)] hover:border-primary/50 transition-all duration-300 flex flex-col"
                 >
                   {/* Image Wrapper */}
                   <div className="aspect-[4/5] relative overflow-hidden bg-muted">
