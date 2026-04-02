@@ -16,6 +16,7 @@ import {
   Cloud,
   Banknote,
   Gamepad2,
+  Landmark,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -51,6 +52,14 @@ const industries = [
     description: "Multi-location management and unified digital ecosystems.",
     color: "#DC2626",
     link: "/industry/franchises",
+    externalLink: true,
+  },
+  {
+    icon: Landmark,
+    title: "Mortgage & Lending",
+    description: "Digital systems for mortgage loan officers to generate qualified leads and automate pipelines.",
+    color: "#0D9488",
+    link: "/industry/mlo",
     externalLink: true,
   },
   {

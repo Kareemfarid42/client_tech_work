@@ -76,12 +76,12 @@ export const CleansyHeader = () => {
                     <div className="flex items-center gap-4">
                         <div className="hidden lg:flex flex-col items-center gap-0.5">
                             <a
-                                href="tel:+18002874769"
+                                href="tel:+19168368687"
                                 className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-primary transition-colors whitespace-nowrap"
                                 aria-label="Call us"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>+1 (800) CTS-GROW</span>
+                                <span>(916) 836-8687</span>
                             </a>
                             <a
                                 href="#contact"
@@ -140,12 +140,12 @@ export const CleansyHeader = () => {
                                 transition={{ duration: 0.3, delay: navigation.length * 0.05 }}
                             >
                                 <a
-                                    href="tel:+18002874769"
+                                    href="tel:+19168368687"
                                     className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors"
                                     aria-label="Call us"
                                 >
                                     <Phone className="w-4 h-4" />
-                                    <span>+1 (800) CTS-GROW</span>
+                                    <span>(916) 836-8687</span>
                                 </a>
                                 <a
                                     href="#contact"
