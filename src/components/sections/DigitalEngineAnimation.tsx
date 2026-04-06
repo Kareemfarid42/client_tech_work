@@ -321,8 +321,8 @@ export const DigitalEngineAnimation = () => {
 
                 {/* 4. Center Identity Hole ("Hollow Donut" Aesthetic) */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[224px] h-[224px] bg-[#1b273d] rounded-full border-4 border-[#1b273d] shadow-[inset_0_0_20px_rgba(0,0,0,0.5),0_0_15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center z-20 pointer-events-none">
-                    <div className="text-6xl font-black text-white tracking-tighter mb-0 line-clamp-1 select-none drop-shadow-md">CT</div>
-                    <div className="text-xl font-bold text-white leading-none select-none drop-shadow-sm">Client Tech</div>
+                    <div className="text-6xl font-black text-white tracking-tighter mb-0 line-clamp-1 select-none drop-shadow-md">CS</div>
+                    <div className="text-xl font-bold text-white leading-none select-none drop-shadow-sm">ClienTech</div>
                     <div className="text-[9px] font-bold text-slate-300 mt-2 uppercase tracking-widest select-none">25% Efficiency Gain</div>
 
                     {/* Floating Blue Play Button resting exactly at bottom edge */}

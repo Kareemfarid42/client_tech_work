@@ -54,7 +54,7 @@ const industries = [
 
 const testimonials = [
   {
-    quote: "WebFX transformed our digital presence and increased our qualified leads by 340% in just 6 months.",
+    quote: "ClienTech Solutions transformed our digital presence and increased our qualified leads by 340% in just 6 months.",
     author: "Sarah Chen",
     role: "CEO, TechVenture Capital",
     industry: "Private Equity"

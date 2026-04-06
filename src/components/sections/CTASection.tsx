@@ -1,12 +1,31 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ContactModal } from "@/components/contact/ContactModal";
+import { Loader2 } from "lucide-react";
 
 export const CTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [website, setWebsite] = useState("");
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleStartAnalysis = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!website) {
+      setModalOpen(true); // Open anyway if empty
+      return;
+    }
+
+    setIsAnalyzing(true);
+    // Simulate a professional analysis sequence
+    setTimeout(() => {
+      setIsAnalyzing(false);
+      setModalOpen(true);
+    }, 1500);
+  };
 
   return (
     <section ref={ref} className="py-20 md:py-24 bg-background">
@@ -30,11 +49,33 @@ export const CTASection = () => {
             <Input
               type="url"
               placeholder="Enter your website"
-              className="h-12"
+              className="h-12 bg-white/50 border-gray-200"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
             />
-            <Button variant="hero" size="xl">
-              Get My Free Proposal
-            </Button>
+            <ContactModal
+              open={modalOpen}
+              onOpenChange={setModalOpen}
+              website={website}
+              defaultService="Performance Audit"
+            >
+              <Button
+                variant="hero"
+                size="xl"
+                onClick={handleStartAnalysis}
+                disabled={isAnalyzing}
+                className="min-w-[200px]"
+              >
+                {isAnalyzing ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Analyzing...
+                  </>
+                ) : (
+                  "Kick off your project"
+                )}
+              </Button>
+            </ContactModal>
           </div>
         </motion.div>
       </div>

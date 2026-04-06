@@ -26,7 +26,8 @@ import {
   Star,
   Handshake,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Play
 } from "lucide-react";
 
 const MloApp = () => {
@@ -85,9 +86,24 @@ const MloApp = () => {
               transition={{ duration: 1 }}
               className="relative lg:ml-10"
             >
-              <div className="relative z-10 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Dashboard" className="rounded-xl w-full" />
-              </div>
+              <MloDemoModal>
+                <div className="relative z-10 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl group cursor-pointer overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Dashboard" className="rounded-xl w-full transition-transform duration-700 group-hover:scale-105" />
+                  
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-full bg-[#17AA8C] flex items-center justify-center shadow-[0_0_30px_rgba(23,170,140,0.4)] group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-white fill-current translate-x-1" />
+                    </div>
+                  </div>
+                  
+                  {/* Glass Label */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white font-bold text-sm">ClienTech MLO System Walkthrough</p>
+                    <p className="text-gray-300 text-xs mt-1">Click to watch the 2-minute demo</p>
+                  </div>
+                </div>
+              </MloDemoModal>
               {/* Ambient Glow */}
               <div className="absolute -inset-10 bg-[#17AA8C]/10 blur-[100px] rounded-full -z-10" />
             </motion.div>
@@ -106,14 +122,7 @@ const MloApp = () => {
               staying compliant, and managing loan pipelines. Many still rely on disconnected tools and manual
               follow-ups, which makes it difficult to stay organized.
             </p>
-            <div className="flex justify-center gap-5">
-              <MloContactModal>
-                <button className="bg-[#17AA8C] text-white px-8 py-4 rounded-lg font-bold">Schedule a Consultation</button>
-              </MloContactModal>
-              <MloDemoModal>
-                <button className="border border-white/10 text-white px-8 py-4 rounded-lg font-bold">Request a Demo</button>
-              </MloDemoModal>
-            </div>
+
           </div>
         </section>
 
@@ -125,13 +134,15 @@ const MloApp = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {displayedServices.map((item, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#17AA8C]/50 transition-all group">
-                <div className="w-12 h-12 rounded-lg bg-[#17AA8C]/10 flex items-center justify-center text-[#17AA8C] mb-6 group-hover:bg-[#17AA8C] group-hover:text-white transition-all">
-                  {item.icon}
+              <MloContactModal key={i} defaultService={item.title}>
+                <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#17AA8C]/50 transition-all group cursor-pointer">
+                  <div className="w-12 h-12 rounded-lg bg-[#17AA8C]/10 flex items-center justify-center text-[#17AA8C] mb-6 group-hover:bg-[#17AA8C] group-hover:text-white transition-all">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-              </div>
+              </MloContactModal>
             ))}
           </div>
 

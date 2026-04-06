@@ -5,94 +5,70 @@ import {
   Brain,
   Rocket,
   Palette,
-  Network,
   Server,
-  Globe,
+  Cloud,
   LayoutTemplate,
-  TrendingUp,
   Briefcase,
-  Database,
   ChevronDown,
   ChevronUp,
   Target,
-  Magnet,
   Zap,
-  Link,
 } from "lucide-react";
+import { ContactModal } from "@/components/contact/ContactModal";
 
 const primaryServices = [
   {
-    icon: Rocket,
-    title: "Digital Transformation",
-    description: "Build secure, scalable digital infrastructure that enables long-term growth.",
+    icon: Server,
+    title: "Digital Foundations",
+    description: "Build secure, scalable, and future-ready digital infrastructure that enables growth, resilience, and long-term performance.",
   },
   {
     icon: Palette,
-    title: "Digital Marketing",
-    description: "Design tailored digital solutions that solve real business challenges.",
+    title: "Digital Solutions Engineering",
+    description: "Design and develop tailored digital solutions that solve real business challenges and integrate seamlessly with existing systems.",
   },
   {
     icon: Brain,
-    title: "Marketing Automations",
-    description: "Apply data-driven AI to automate processes and unlock smarter workflows.",
+    title: "AI, Data & Intelligent Systems",
+    description: "Apply AI and data-driven intelligence to enhance decision-making, automate processes, and unlock smarter ways of working.",
   },
   {
-    icon: Network,
-    title: "Product Marketing",
-    description: "Align strategy and technology to drive sustainable, measurable outcomes.",
+    icon: Rocket,
+    title: "Digital Transformation & Advisory",
+    description: "Align strategy, technology, and execution to drive meaningful transformation with measurable, sustainable outcomes.",
   },
 ];
 
 const supportingServices = [
   {
-    icon: Server,
-    title: "Digital Foundations and GTM",
-    description: "Establish strong technical foundations combined with effective go-to-market strategies for sustainable growth.",
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    description: "Modernize your online presence with a high-performance, conversion-focused website built for today's digital landscape.",
+    icon: Cloud,
+    title: "Cloud & Infrastructure Services",
+    description: "Enable cloud readiness, modernization, and performance optimization across enterprise environments.",
   },
   {
     icon: LayoutTemplate,
-    title: "Dedicated Landing Pages",
-    description: "Design and deploy targeted landing pages optimized for lead generation, campaigns, and measurable results.",
+    title: "Enterprise Systems & Platforms",
+    description: "Implement and optimize enterprise platforms to improve visibility, efficiency, and operational control.",
   },
   {
-    icon: TrendingUp,
-    title: "Sales Funnels",
-    description: "Build end-to-end sales funnels that guide prospects through every stage of the buyer journey with precision.",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Development",
-    description: "Identify growth opportunities, forge strategic partnerships, and execute plans that expand your market presence.",
-  },
-  {
-    icon: Database,
-    title: "CRM Solutions",
-    description: "Implement and optimize CRM platforms to centralize customer data, improve pipeline visibility, and drive retention.",
-  },
-  {
-    icon: Link,
-    title: "Integration",
-    description: "Connect your technical ecosystem for seamless data flow and a unified view of your operations.",
+    icon: Palette,
+    title: "UX, Product & Experience Design",
+    description: "Create intuitive, user-centered digital experiences that balance usability, performance, and business goals.",
   },
   {
     icon: Zap,
-    title: "Automation",
-    description: "Streamline repetitive tasks with intelligent workflows that boost speed and eliminate errors.",
+    title: "Integration & Automation",
+    description: "Connect systems, data, and workflows to eliminate silos and improve operational efficiency.",
   },
   {
     icon: Target,
-    title: "Ad Campaigns",
-    description: "Scale your reach with high-performance advertising across Search, Social, and Display channels.",
+    title: "Security, Compliance & Reliability",
+    description: "Design and maintain systems with security, compliance, and resilience built in from the ground up.",
   },
   {
-    icon: Magnet,
-    title: "Lead Generation",
-    description: "Deploy multi-channel strategies to capture and qualify high-intent prospects for your business.",
+    icon: Briefcase,
+    title: "Staff Augmentation & Managed Teams",
+    description: "Scale your delivery capacity with skilled professionals aligned to your technology stack and business objectives.",
   },
 ];
 
@@ -104,7 +80,11 @@ export const ServicesSection = () => {
   const visibleServices = showAll ? supportingServices : supportingServices.slice(0, 6);
 
   return (
-    <section ref={ref} id="services" className="py-20 md:py-24 bg-secondary">
+    <section ref={ref} id="services" className="py-20 md:py-24 bg-secondary relative overflow-hidden">
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-[0.03] pointer-events-none"
+        style={{ background: "radial-gradient(circle, #17aa8c 0%, transparent 70%)" }} />
+ 
       <div className="container-max section-padding">
         {/* Header */}
         <motion.div
@@ -121,21 +101,22 @@ export const ServicesSection = () => {
         {/* Primary Services */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {primaryServices.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              className="group relative bg-card rounded-2xl overflow-hidden card-hover cursor-pointer h-full border border-border/50"
-            >
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <service.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <div className="p-5 xl:p-6">
-                <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">{service.title}</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">{service.description}</p>
-              </div>
-            </motion.div>
+            <ContactModal key={service.title} defaultService={service.title}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                className="group relative bg-card rounded-2xl overflow-hidden card-hover cursor-pointer h-full border border-border/50"
+              >
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <service.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div className="p-5 xl:p-6">
+                  <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">{service.title}</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">{service.description}</p>
+                </div>
+              </motion.div>
+            </ContactModal>
           ))}
         </div>
 
@@ -145,24 +126,25 @@ export const ServicesSection = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
             <AnimatePresence initial={false}>
               {visibleServices.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, scale: 0.95, y: 16 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 16 }}
-                  transition={{ duration: 0.35, delay: index >= 6 ? 0 : 0.3 + index * 0.05 }}
-                  className="flex gap-4 p-5 rounded-xl bg-background border border-border/60 hover:border-primary/50 transition-colors group"
-                >
-                  <div className="shrink-0 mt-1">
-                    <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                      <service.icon className="w-5 h-5 text-primary" />
+                <ContactModal key={service.title} defaultService={service.title}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 16 }}
+                    transition={{ duration: 0.35, delay: index >= 6 ? 0 : 0.3 + index * 0.05 }}
+                    className="flex h-full gap-4 p-5 rounded-xl bg-background border border-border/60 hover:border-primary/50 transition-colors group cursor-pointer"
+                  >
+                    <div className="shrink-0 mt-1">
+                      <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                        <service.icon className="w-5 h-5 text-primary" />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="font-subheading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">{service.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                  </div>
-                </motion.div>
+                    <div>
+                      <h4 className="font-subheading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">{service.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    </div>
+                  </motion.div>
+                </ContactModal>
               ))}
             </AnimatePresence>
           </div>
@@ -225,12 +207,14 @@ export const ServicesSection = () => {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <button
-                  type="button"
-                  className="px-8 py-4 rounded-xl bg-primary text-white font-bold text-sm tracking-wide hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 whitespace-nowrap"
-                >
-                  Get My Free Proposal
-                </button>
+                <ContactModal defaultService="General Inquiry">
+                  <button
+                    type="button"
+                    className="px-8 py-4 rounded-xl bg-primary text-white font-bold text-sm tracking-wide hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 whitespace-nowrap"
+                  >
+                    Kick off your project
+                  </button>
+                </ContactModal>
               </div>
             </div>
 

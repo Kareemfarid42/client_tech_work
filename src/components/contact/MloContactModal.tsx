@@ -11,21 +11,29 @@ import {
 
 interface MloContactModalProps {
     children: React.ReactNode;
+    defaultService?: string;
 }
 
-export const MloContactModal = ({ children }: MloContactModalProps) => {
+export const MloContactModal = ({ children, defaultService }: MloContactModalProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         company: "",
         email: "",
-        message: ""
+        message: "",
+        initial_service: defaultService || "Mortgage Loan Officer Solutions",
+        sms_consent: false
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { id, value } = e.target;
-        setFormData(prev => ({ ...prev, [id]: value }));
+        const { id, value, type } = e.target as HTMLInputElement;
+        if (type === "checkbox") {
+            const { checked } = e.target as HTMLInputElement;
+            setFormData(prev => ({ ...prev, [id]: checked }));
+        } else {
+            setFormData(prev => ({ ...prev, [id]: value }));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -38,7 +46,7 @@ export const MloContactModal = ({ children }: MloContactModalProps) => {
                 import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
                 {
                     ...formData,
-                    service: "Mortgage Loan Officer Solutions",
+                    service: formData.initial_service,
                     source: "MLO Landing Page",
                     form_type: "Schedule a Consultation"
                 },
@@ -54,7 +62,9 @@ export const MloContactModal = ({ children }: MloContactModalProps) => {
                 name: "",
                 company: "",
                 email: "",
-                message: ""
+                message: "",
+                initial_service: defaultService || "Mortgage Loan Officer Solutions",
+                sms_consent: false
             });
             setIsOpen(false);
 
@@ -133,6 +143,28 @@ export const MloContactModal = ({ children }: MloContactModalProps) => {
                                 className="w-full bg-[#111111] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17AA8C] focus:ring-1 focus:ring-[#17AA8C] transition-all resize-none"
                                 placeholder="Tell us about your objectives, timeline, and technical constraints..."
                             ></textarea>
+                        </div>
+
+                        {/* SMS Opt-in Checkbox */}
+                        <div className="flex items-start gap-2.5 p-3 rounded-lg bg-white/5 border border-white/10">
+                            <div className="flex items-center h-5 mt-0.5">
+                                <input
+                                    id="sms_consent"
+                                    type="checkbox"
+                                    required
+                                    checked={formData.sms_consent}
+                                    onChange={handleInputChange}
+                                    className="w-3.5 h-3.5 rounded border-white/20 bg-zinc-900 text-[#17AA8C] focus:ring-[#17AA8C] transition-colors cursor-pointer"
+                                />
+                            </div>
+                            <div className="text-[10px] leading-relaxed text-gray-400">
+                                <label htmlFor="sms_consent" className="cursor-pointer">
+                                    I consent to receive automated text messages from ClienTech Solutions LLC for service updates and marketing. 
+                                    Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out. 
+                                    <br />
+                                    View <a href="/privacy-policy" className="text-[#17AA8C] hover:underline" target="_blank">Privacy Policy</a> and <a href="/terms-conditions" className="text-[#17AA8C] hover:underline" target="_blank">Terms</a>.
+                                </label>
+                            </div>
                         </div>
 
                         {/* Submit Button */}

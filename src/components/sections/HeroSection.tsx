@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { DigitalEngineAnimation } from "./DigitalEngineAnimation";
+import { ContactModal } from "@/components/contact/ContactModal";
 
 const credibilityItems = [
   "Built for scale. Designed for impact.",
@@ -16,9 +17,11 @@ export const HeroSection = () => {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-secondary/95" />
 
-      {/* Subtle radial glow in the right half */}
-      <div className="absolute right-0 top-1/4 w-[600px] h-[600px] rounded-full blur-3xl opacity-10 pointer-events-none"
+      {/* Subtle radial glows */}
+      <div className="absolute right-0 top-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-10 pointer-events-none"
         style={{ background: "radial-gradient(circle, #1DD1A1 0%, transparent 70%)" }} />
+      <div className="absolute -left-48 bottom-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-5 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #3B82F6 0%, transparent 70%)" }} />
 
       <div className="relative container-max section-padding">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-0 items-center justify-between w-full max-w-7xl mx-auto px-4 min-h-[70vh]">
@@ -31,19 +34,21 @@ export const HeroSection = () => {
           >
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-secondary-foreground leading-tight">
-                Build Smarter Systems. <span className="text-gradient">Automate Growth.</span> <br className="hidden sm:block" />Scale Your Digital Business.
+                Transforming Challenges Into <span className="text-gradient">Intelligent Digital Solutions</span>
               </h1>
-
+ 
               <h2 className="text-xl sm:text-2xl font-subheading font-medium text-secondary-foreground/80 max-w-4xl leading-relaxed">
-                We design automation, AI systems, and digital infrastructure that help modern businesses scale faster and operate smarter.
+                Digital foundations, smart solutions, and transformation—designed to help organizations move forward with clarity and confidence.
               </h2>
             </div>
-
+ 
             <div className="pt-6 relative z-20">
-              <Button variant="hero" size="xl" className="group w-full sm:w-max">
-                Book Strategy Call
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <ContactModal defaultService="Performance Audit">
+                <Button variant="hero" size="xl" className="group w-full sm:w-max">
+                  Get a Proposal
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </ContactModal>
             </div>
           </motion.div>
 

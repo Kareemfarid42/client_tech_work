@@ -1,8 +1,13 @@
-import React from "react";
-import { Facebook, Linkedin, Instagram, Youtube, Send, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Facebook, Linkedin, Send, Loader2 } from "lucide-react";
 import logo from "@/assets/logo-v4.png";
+import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 const CleansyFooter = () => {
+    const [email, setEmail] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const serviceLinks = [
         { text: "Digital Foundation & Positioning", href: "#services" },
         { text: "Lead Generation", href: "#services" },
@@ -17,6 +22,38 @@ const CleansyFooter = () => {
         { text: "Blog", href: "#blog" },
         { text: "Contact", href: "#contact" },
     ];
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
+                {
+                    name: "Franchise Newsletter Subscriber",
+                    email: email,
+                    service: "Franchise Newsletter",
+                    message: `New franchise subscription request from: ${email}`
+                },
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+
+            toast.success("Subscribed Successfully!", {
+                description: "You've been added to our franchise growth strategies list.",
+            });
+            setEmail("");
+        } catch (error) {
+            console.error("Subscription error:", error);
+            toast.error("Subscription Failed", {
+                description: "Please try again or contact us directly.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
 
     return (
         <footer className="bg-[#0A0A0A] text-white border-t border-white/10">
@@ -42,10 +79,8 @@ const CleansyFooter = () => {
                         {/* Social Icons */}
                         <div className="flex gap-4 pt-2">
                             {[
-                                { Icon: Facebook, href: "https://facebook.com" },
-                                { Icon: Linkedin, href: "https://linkedin.com" },
-                                { Icon: Instagram, href: "https://instagram.com" },
-                                { Icon: Youtube, href: "https://youtube.com" },
+                                { Icon: Linkedin, href: "https://www.linkedin.com/company/clientech-solutions-llc/" },
+                                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576436324660" },
                             ].map(({ Icon, href }, i) => (
                                 <a
                                     key={i}
@@ -97,18 +132,26 @@ const CleansyFooter = () => {
                             <p className="text-sm text-white/60 mb-4 leading-relaxed">
                                 Get weekly franchise growth strategies delivered to your inbox.
                             </p>
-                            <form className="relative w-full">
+                            <form className="relative w-full" onSubmit={handleSubmit}>
                                 <input
                                     type="email"
                                     placeholder="Email Address"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="w-full h-11 pl-4 pr-12 rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary outline-none text-sm"
                                 />
                                 <button
                                     type="submit"
-                                    className="absolute right-1 top-1 w-9 h-9 bg-primary rounded-md flex items-center justify-center text-primary-foreground hover:opacity-80 transition-opacity"
+                                    disabled={isSubmitting}
+                                    className="absolute right-1 top-1 w-9 h-9 bg-primary rounded-md flex items-center justify-center text-primary-foreground hover:opacity-80 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                                     aria-label="Subscribe"
                                 >
-                                    <Send className="w-4 h-4" />
+                                    {isSubmitting ? (
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                    ) : (
+                                        <Send className="w-4 h-4" />
+                                    )}
                                 </button>
                             </form>
                         </div>

@@ -47,7 +47,7 @@ export const Footer = () => {
             </p>
             <div className="pt-2">
               <p className="text-sm font-medium mb-2">Ready to start your transformation?</p>
-              <ContactModal>
+              <ContactModal defaultService="Performance Audit">
                 <Button variant="hero" className="w-full sm:w-auto">Get a Proposal</Button>
               </ContactModal>
             </div>
@@ -128,13 +128,20 @@ export const Footer = () => {
               © {new Date().getFullYear()} ClienTech Solutions. All rights reserved.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-secondary-foreground transition-colors">
+              <a 
+                href="https://www.linkedin.com/company/clientech-solutions-llc/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-muted-foreground hover:text-secondary-foreground transition-colors"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-secondary-foreground transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-secondary-foreground transition-colors">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61576436324660" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-muted-foreground hover:text-secondary-foreground transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>

@@ -1,7 +1,44 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 const BlogCTA = () => {
+    const [email, setEmail] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID, // Reusing contact template or could use a specific newsletter one
+                {
+                    name: "Newsletter Subscriber",
+                    email: email,
+                    service: "Newsletter Subscription",
+                    message: `New subscription request from: ${email}`
+                },
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+
+            toast.success("Subscribed Successfully!", {
+                description: "You've been added to our insights mailing list.",
+            });
+            setEmail("");
+        } catch (error) {
+            console.error("Subscription error:", error);
+            toast.error("Subscription Failed", {
+                description: "Please try again or contact us directly.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -31,21 +68,31 @@ const BlogCTA = () => {
                         Get our latest insights on digital strategy, enterprise architecture, and emerging tech delivered directly to your inbox. No spam, just high-signal intel.
                     </p>
 
-                    <form className="w-full relative flex flex-col sm:flex-row items-center gap-3">
+                    <form className="w-full relative flex flex-col sm:flex-row items-center gap-3" onSubmit={handleSubmit}>
                         <div className="relative w-full flex-grow">
                             <input
                                 type="email"
                                 placeholder="Enter your work email"
                                 required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="w-full bg-[#111111] border border-[#333333] text-white rounded-full py-4 pl-6 pr-4 focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all placeholder:text-[#555555]"
                             />
                         </div>
                         <button
-                            type="button"
-                            className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-[#17aa8c] hover:bg-[#0284c7] text-white font-semibold py-4 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(23, 170, 140,0.3)] hover:shadow-[0_0_30px_rgba(23, 170, 140,0.5)]"
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-[#17aa8c] hover:bg-[#0284c7] text-white font-semibold py-4 px-8 rounded-full transition-all shadow-[0_0_20px_rgba(23, 170, 140,0.3)] hover:shadow-[0_0_30px_rgba(23, 170, 140,0.5)] disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Subscribe Now
-                            <ArrowRight className="w-4 h-4" />
+                            {isSubmitting ? (
+                                <>
+                                    Subscribing... <Loader2 className="w-4 h-4 animate-spin" />
+                                </>
+                            ) : (
+                                <>
+                                    Subscribe Now <ArrowRight className="w-4 h-4" />
+                                </>
+                            )}
                         </button>
                     </form>
 

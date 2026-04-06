@@ -6,6 +6,7 @@ const sections: Section[] = [
     { id: "cookies-and-tracking", title: "Cookies and Tracking Technologies" },
     { id: "data-security", title: "Data Security" },
     { id: "third-party", title: "Third-Party Services" },
+    { id: "sms-privacy", title: "SMS and Mobile Communication Privacy" },
     { id: "external-links", title: "External Links" },
     { id: "your-privacy-rights", title: "Your Privacy Rights" },
     { id: "updates", title: "Updates to This Privacy Policy" },
@@ -117,7 +118,6 @@ const PrivacyPolicy = () => {
                     While we work to maintain secure systems, no internet transmission or electronic storage method can be guaranteed to be completely secure.
                 </p>
             </section>
-
             <section id="third-party" className="mb-16 scroll-mt-32">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
                     Third-Party Services
@@ -128,6 +128,20 @@ const PrivacyPolicy = () => {
                 <p>
                     These providers may collect limited technical information necessary to operate their services and follow their own privacy policies.
                 </p>
+            </section>
+
+            <section id="sms-privacy" className="mb-16 scroll-mt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-4">
+                    SMS and Mobile Communication Privacy
+                </h2>
+                <p className="mb-4">
+                    ClienTech Solutions is committed to protecting your mobile privacy. If you opt-in to receive text messages from us, we handle your information with the highest level of confidentiality.
+                </p>
+                <div className="p-6 rounded-2xl bg-[#17aa8c]/5 border border-[#17aa8c]/20">
+                    <p className="text-white font-medium mb-0 leading-relaxed">
+                        Mobile information will not be shared with third parties or affiliates for marketing or promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+                    </p>
+                </div>
             </section>
 
             <section id="external-links" className="mb-16 scroll-mt-32">

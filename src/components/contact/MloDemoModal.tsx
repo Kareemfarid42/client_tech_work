@@ -7,6 +7,8 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { MloContactModal } from "./MloContactModal";
+
 interface MloDemoModalProps {
     children: React.ReactNode;
 }
@@ -58,6 +60,14 @@ export const MloDemoModal = ({ children }: MloDemoModalProps) => {
                                     {item}
                                 </div>
                             ))}
+                        </div>
+
+                        <div className="mt-8 flex justify-center pb-2">
+                             <MloContactModal>
+                                <button className="bg-[#17AA8C] hover:bg-[#138e75] text-white px-10 py-3.5 rounded-xl font-bold transition-all shadow-lg shadow-teal-900/20 text-sm">
+                                    Schedule Your Demo Consultation
+                                </button>
+                             </MloContactModal>
                         </div>
                     </div>
                 </div>

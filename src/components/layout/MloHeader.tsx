@@ -20,7 +20,7 @@ const navItems: NavItem[] = [
   { label: "MLOs Challenges", href: "#challenge" },
   { label: "How We Help", href: "#solutions" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "What You Get", href: "#benefits" },
+  { label: "Outcomes", href: "#benefits" },
   { label: "Get Started", href: "#footer" },
 ];
 

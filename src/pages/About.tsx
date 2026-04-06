@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Target, Eye, Lightbulb, Shield, Users,
-  Award, Trophy, Star, Linkedin, Twitter
+  Award, Trophy, Star
 } from "lucide-react";
 import { HistoryAwardsSection } from "@/components/sections/HistoryAwardsSection";
 
@@ -75,7 +75,7 @@ const About = () => {
                 Shaping the Future of <span className="text-gradient">Digital Marketing</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                WebFX is redefining how businesses grow online — by removing barriers, offering transparency, and focusing on real impact.
+                ClienTech Solutions is redefining how businesses grow online — by removing barriers, offering transparency, and focusing on real impact.
               </p>
             </motion.div>
           </div>
@@ -103,7 +103,7 @@ const About = () => {
                     Our Mission
                   </h2>
                   <p className="text-muted-foreground leading-relaxed text-[15px]">
-                    To empower businesses of all sizes with data-driven digital marketing strategies that deliver measurable results, foster sustainable growth, and create lasting competitive advantages in an ever-evolving digital landscape.
+                    To partner with organizations to build resilient digital foundations, implement scalable solutions, and drive meaningful transformation that delivers real, measurable outcomes through strategy-led execution.
                   </p>
                 </div>
               </motion.div>
@@ -130,7 +130,7 @@ const About = () => {
                     Our Vision
                   </h2>
                   <p className="text-white/75 leading-relaxed text-[15px]">
-                    To be the world's most trusted digital marketing partner, recognized for our innovation, integrity, and unwavering commitment to driving revenue growth for our clients across every industry and market.
+                    To be the world&apos;s most trusted partner for digital excellence, recognized for our innovation, integrity, and unwavering commitment to solving today's challenges while illuminating the path for tomorrow's growth.
                   </p>
                 </div>
               </motion.div>
@@ -279,7 +279,7 @@ const About = () => {
                   {/* Content Container */}
                   <div className="py-5 px-1 sm:px-2 text-center bg-card flex-1 flex flex-col justify-center relative z-20 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)]">
                     <h3 className="font-display font-bold text-lg text-foreground mb-1 group-hover:text-primary transition-colors">{leader.name}</h3>
-                    <p className="text-[7px] sm:text-[7.5px] md:text-[8px] lg:text-[8.5px] xl:text-[9px] font-bold uppercase text-primary/80 whitespace-nowrap tracking-tight">{leader.role}</p>
+                    <p className="text-[10px] md:text-xs font-bold uppercase text-primary/80 whitespace-nowrap tracking-wider">{leader.role}</p>
                   </div>
                 </motion.div>
               ))}

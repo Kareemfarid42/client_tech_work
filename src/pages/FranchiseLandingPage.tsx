@@ -9,6 +9,7 @@ import RatingStars from "@/components/cleansy/RatingStars";
 import FAQAccordion from "@/components/cleansy/FAQAccordion";
 import { CleansyHeader } from "@/components/cleansy/CleansyHeader";
 import CleansyFooter from "@/components/cleansy/CleansyFooter";
+import { ContactModal } from "@/components/contact/ContactModal";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -103,22 +104,12 @@ export default function FranchiseLandingPage() {
               </motion.p>
 
               {/* ── CTA Buttons ── */}
-              <motion.div variants={fadeUpVariant} className="flex items-center gap-5 mb-10">
-
-                {/* Left: Calendar icon + label */}
-                <a href="/contact" className="flex items-center gap-3 group">
-                  <div className="w-12 h-12 rounded-full bg-[#00c0a3] flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#1b273d] transition-colors duration-300">
-                    <CalendarCheck size={20} className="text-white" />
+              <motion.div variants={fadeUpVariant} className="flex justify-start mb-10">
+                <ContactModal defaultService="Performance Audit">
+                  <div className="bg-[#00c0a3] text-white text-base font-bold px-10 py-5 rounded-2xl hover:bg-[#1b273d] transition-colors duration-300 shadow-xl cursor-pointer">
+                    Get a Free Growth Audit
                   </div>
-                  <span className="text-white font-semibold text-sm group-hover:text-[#00c0a3] transition-colors">
-                    Book a Strategy Call
-                  </span>
-                </a>
-
-                {/* Right: solid navy button */}
-                <a href="/contact" className="bg-white text-[#0A0A0A] text-sm font-bold px-7 py-3 rounded-xl hover:bg-[#00c0a3] hover:text-white transition-colors duration-300 shadow-md">
-                  Get a Free Growth Audit
-                </a>
+                </ContactModal>
               </motion.div>
             </motion.div>
 
@@ -402,7 +393,9 @@ export default function FranchiseLandingPage() {
                 ))}
               </div>
 
-              <Button size="lg">Learn More About Us</Button>
+              <Link to="/about">
+                <Button size="lg">Learn More About Us</Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -538,8 +531,10 @@ export default function FranchiseLandingPage() {
                 />
                 <div className="absolute inset-0 bg-[#1B2A45]/30"></div>
                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-[15px] text-center">
-                  <p className="font-bold text-[#1B2A45] mb-1">Still Have Questions About Scaling Your Franchise?</p>
-                  <Link to="/contact" className="text-[#1B2A45] font-extrabold hover:text-[#1DD1A1] underline transition-colors">Book a Growth Strategy Session</Link>
+                  <p className="font-bold text-[#1B2A45] mb-1">Scale Your Franchise and Growth Revenue Today</p>
+                  <ContactModal defaultService="Performance Audit">
+                    <span className="text-[#1B2A45] font-extrabold hover:text-[#00c0a3] underline transition-colors cursor-pointer">Request Your Free Revenue Audit</span>
+                  </ContactModal>
                 </div>
               </div>
             </div>
@@ -672,13 +667,12 @@ export default function FranchiseLandingPage() {
           <p className="text-[#7FDED0] text-xl mb-10 max-w-2xl mx-auto">
             Let&apos;s build a digital foundation that drives consistent leads, stronger conversions, and more revenue across every franchise location.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-[#1DD1A1] text-[#1B2A45] hover:bg-white font-bold border-0">
-              Book a Strategy Call
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-[#1B2A45]">
-              Get a Free Growth Audit
-            </Button>
+          <div className="flex justify-center">
+            <ContactModal defaultService="Performance Audit">
+              <Button size="lg" className="bg-[#1DD1A1] text-[#1B2A45] hover:bg-white font-bold border-0 px-10 py-6 text-lg rounded-2xl">
+                Get Your Free Growth Audit
+              </Button>
+            </ContactModal>
           </div>
         </div>
       </section>
@@ -687,4 +681,3 @@ export default function FranchiseLandingPage() {
     </div>
   );
 }
-
