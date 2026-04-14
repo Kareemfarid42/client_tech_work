@@ -1,13 +1,15 @@
 {
-    "cleanUrls": true,
-    "rewrites": [
-        {
-            "source": "/mlo",
-            "destination": "/mlo.html"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ]
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/mlo",
+      "destination": "/mlo.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
