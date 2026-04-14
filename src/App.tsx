@@ -17,6 +17,7 @@ const About = lazy(() => import("./pages/About"));
 const Industry = lazy(() => import("./pages/Industry"));
 const FranchiseLandingPage = lazy(() => import("./pages/FranchiseLandingPage"));
 const DLP_1 = lazy(() => import("./pages/DLP_1"));
+const DLP_2 = lazy(() => import("./pages/DLP_2"));
 const MloLandingPage = lazy(() => import("./pages/MloLandingPage"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -60,6 +61,7 @@ const App = () => (
               <Route path="/industry" element={<Industry />} />
               <Route path="/industry/franchises" element={<FranchiseLandingPage />} />
               <Route path="/industry/DLP_1" element={<DLP_1 />} />
+              <Route path="/industry/DLP_2" element={<DLP_2 />} />
               <Route path="/industry/mlo" element={<MloLandingPage />} />
               <Route path="/audits" element={<PerformanceAudits />} />
               <Route path="/sample-report" element={<SampleReport />} />

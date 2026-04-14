@@ -3,8 +3,8 @@ import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-v4.png";
 
-// Anchor-based navigation — all sections live on this single landing page
-const navigation = [
+// Default navigation — links to homepage sections
+const defaultNavigation = [
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Results", href: "#results" },
@@ -14,14 +14,23 @@ const navigation = [
 
 const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const hash = href.includes("#") ? href.split("#")[1] : href.replace("#", "");
+    const el = document.getElementById(hash);
+    if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 };
 
-export const CleansyHeader = () => {
+interface CleansyHeaderProps {
+    navItems?: { name: string; href: string }[];
+    ctaHref?: string;
+}
+
+export const CleansyHeader = ({ navItems, ctaHref }: CleansyHeaderProps = {}) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const navigation = navItems || defaultNavigation;
+    const ctaTarget = ctaHref || "#contact";
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -84,8 +93,8 @@ export const CleansyHeader = () => {
                                 <span>(916) 836-8687</span>
                             </a>
                             <a
-                                href="#contact"
-                                onClick={(e) => handleNavClick(e, "#contact")}
+                                href={ctaTarget}
+                                onClick={(e) => handleNavClick(e, ctaTarget)}
                                 className="mt-1 inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-bold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 whitespace-nowrap shadow-md"
                             >
                                 <MessageSquare className="w-4 h-4" />
@@ -148,8 +157,8 @@ export const CleansyHeader = () => {
                                     <span>(916) 836-8687</span>
                                 </a>
                                 <a
-                                    href="#contact"
-                                    onClick={(e) => handleNavClick(e, "#contact")}
+                                    href={ctaTarget}
+                                    onClick={(e) => handleNavClick(e, ctaTarget)}
                                     className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 w-full"
                                 >
                                     <MessageSquare className="w-4 h-4" />

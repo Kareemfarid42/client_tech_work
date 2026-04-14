@@ -135,7 +135,17 @@ export default function DLP_1() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0A0A]">
-      <CleansyHeader />
+      <CleansyHeader
+        navItems={[
+          { name: "About", href: "#who" },
+          { name: "Our Solution", href: "#solution" },
+          { name: "Process", href: "#how-it-works" },
+          { name: "System", href: "#system" },
+          { name: "Pricing", href: "#pricing" },
+          { name: "Contact", href: "#contact" },
+        ]}
+        ctaHref="#contact"
+      />
       <main className="flex-grow">
 
         {/* ═══════════════════════════════════════════════════════
