@@ -21,8 +21,8 @@ const values = [
 ];
 
 const leaders = [
-  { name: "Waleed B", role: "CEO & Co-founder", image: "/team/waleed-b.jpeg" },
-  { name: "Nate", role: "Co-founder & CMO", image: "/team/nate.jpeg" },
+  { name: "Waleed B", role: "CEO & Co-founder", image: "/team/waleed-b-v2.jpeg" },
+  { name: "Nate", role: "Co-founder & CMO", image: "/team/nate_v2.jpeg" },
   { name: "Kareem Farid", role: "Head of Technology & Automation", image: "/team/kareem-farid.jpeg" },
   { name: "Ali Ahmad", role: "Head of Marketing", image: "/team/ali-ahmad.png" },
   { name: "Rahmat Ullah", role: "Creative Director", image: "/team/rahmat-ullah.jpeg" },
@@ -259,9 +259,9 @@ const About = () => {
                   {/* Image Wrapper */}
                   <div className="aspect-[4/5] relative overflow-hidden bg-muted">
                     {leader.image ? (
-                      <img 
-                        src={leader.image} 
-                        alt={leader.name} 
+                      <img
+                        src={leader.image}
+                        alt={leader.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     ) : (
@@ -269,10 +269,10 @@ const About = () => {
                         <span className="text-4xl font-display font-bold text-muted-foreground/30">{leader.name.charAt(0)}</span>
                       </div>
                     )}
-                    
+
                     {/* Gradient Overlay for Text Polish */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
 
                   </div>
 
