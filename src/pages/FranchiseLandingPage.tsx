@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CalendarCheck } from "lucide-react";
+import { CalendarCheck, ChevronDown, ChevronUp, MapPin, Share2, Megaphone, Users, Cpu, Star, Network } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 import AnimatedHeading from "@/components/cleansy/AnimatedHeading";
 import { Button } from "@/components/ui/button";
 import CompanyLogos from "@/components/cleansy/CompanyLogos";
@@ -39,7 +40,53 @@ const popIn = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.6, ease: "backOut" as const } }
 };
 
+const franchiseServices = [
+  {
+    title: "Local SEO / Google Business",
+    description: "Dominating local search results and maps across every territory. We optimize for AEO, GEO, and hyper-local visibility.",
+    icon: <MapPin className="w-7 h-7 text-[#1DD1A1]" />,
+    isDark: true
+  },
+  {
+    title: "Social Media Localization",
+    description: "Tailored social content that resonates with local communities while maintaining global brand consistency across all franchise locations.",
+    icon: <Share2 className="w-7 h-7 text-[#1B2A45]" />,
+    isDark: false
+  },
+  {
+    title: "Paid Ads",
+    description: "Scalable performance marketing on Google, Meta, and beyond. Precision targeting to drive high-intent leads to every location.",
+    icon: <Megaphone className="w-7 h-7 text-[#1DD1A1]" />,
+    isDark: true
+  },
+  {
+    title: "CRM + Pipeline Setup",
+    description: "Centralized systems to track every lead. We build the pipelines and automation that turn prospects into loyal customers.",
+    icon: <Users className="w-7 h-7 text-[#1B2A45]" />,
+    isDark: false
+  },
+  {
+    title: "AI Lead Qualification",
+    description: "Smart automation that vets leads in real-time. Only pass the most qualified prospects to your sales teams.",
+    icon: <Cpu className="w-7 h-7 text-[#1DD1A1]" />,
+    isDark: true
+  },
+  {
+    title: "Review & Reputation Management",
+    description: "Automated systems to collect positive reviews and manage your brand's reputation across all local search platforms.",
+    icon: <Star className="w-7 h-7 text-[#1B2A45]" />,
+    isDark: false
+  },
+  {
+    title: "Partnership & Referral Systems",
+    description: "Building scalable referral loops and local partnership networks that drive organic, high-trust growth.",
+    icon: <Network className="w-7 h-7 text-[#1DD1A1]" />,
+    isDark: true
+  }
+];
+
 export default function FranchiseLandingPage() {
+  const [showAllServices, setShowAllServices] = React.useState(false);
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -209,6 +256,7 @@ export default function FranchiseLandingPage() {
             { id: 11, url: "/logos/22.svg", alt: "Partner Logo 11" },
             { id: 12, url: "/logos/23.svg", alt: "Partner Logo 12" },
             { id: 13, url: "/logos/24.svg", alt: "Partner Logo 13" },
+            { id: 14, url: "/logos/SMAP-Logo.svg", alt: "SMAP Logo" },
           ]}
         />
       </section>
@@ -254,73 +302,86 @@ export default function FranchiseLandingPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            {/* Card 1 — DARK, elevated */}
-            <motion.div
-              variants={fadeUpVariant}
-              className="bg-[#1B2A45] rounded-3xl p-8 shadow-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300"
-            >
-              <div className="w-14 h-14 bg-[#1DD1A1]/15 rounded-2xl flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#1DD1A1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <h3 className="text-[#1DD1A1] text-lg font-extrabold leading-snug">Digital Foundation &amp; Positioning</h3>
-              <p className="text-white/60 text-sm leading-relaxed flex-1">
-                We build or fix the digital base your franchise grows on — stronger brand authority, higher conversions, scalable growth.
-              </p>
-              <span className="inline-flex items-center gap-1 text-[#1DD1A1] font-bold text-sm cursor-pointer hover:gap-2 transition-all">Learn more →</span>
-            </motion.div>
+            {franchiseServices.slice(0, 4).map((service, index) => (
+              <motion.div
+                key={service.title}
+                variants={fadeUpVariant}
+                className={`${
+                  service.isDark ? "bg-[#1B2A45]" : "bg-white"
+                } rounded-3xl p-8 shadow-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 ${
+                  !service.isDark ? "lg:mt-14 shadow-xl" : ""
+                }`}
+              >
+                <div className={`w-14 h-14 ${service.isDark ? "bg-[#1DD1A1]/15" : ""} rounded-2xl flex items-center justify-center`} style={!service.isDark ? { backgroundColor: "rgba(27,42,69,0.07)" } : {}}>
+                  {service.icon}
+                </div>
+                <h3 className={`${service.isDark ? "text-[#1DD1A1]" : "text-[#1B2A45]"} text-lg font-extrabold leading-snug`}>
+                  {service.title}
+                </h3>
+                <p className={`${service.isDark ? "text-white/60" : "text-[#1B2A45]/55"} text-sm leading-relaxed flex-1`}>
+                  {service.description}
+                </p>
+                <span className={`inline-flex items-center gap-1 ${service.isDark ? "text-[#1DD1A1]" : "text-[#1B2A45]"} font-bold text-sm cursor-pointer hover:gap-2 transition-all`}>
+                  Learn more →
+                </span>
+              </motion.div>
+            ))}
 
-            {/* Card 2 — LIGHT, pushed down */}
-            <motion.div
-              variants={fadeUpVariant}
-              className="bg-white rounded-3xl p-8 shadow-xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 lg:mt-14"
-            >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ backgroundColor: "rgba(27,42,69,0.07)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#1B2A45]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
-                </svg>
-              </div>
-              <h3 className="text-[#1B2A45] text-lg font-extrabold leading-snug">Lead Generation</h3>
-              <p className="text-[#1B2A45]/55 text-sm leading-relaxed flex-1">
-                Consistent, trackable leads across every territory. Predictable cost-per-lead, more booked appointments, better ROI.
-              </p>
-              <span className="inline-flex items-center gap-1 text-[#1B2A45] font-bold text-sm cursor-pointer hover:text-[#1DD1A1] hover:gap-2 transition-all">Learn more →</span>
-            </motion.div>
+            <AnimatePresence>
+              {showAllServices && (
+                franchiseServices.slice(4).map((service, index) => (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className={`${
+                      service.isDark ? "bg-[#1B2A45]" : "bg-white"
+                    } rounded-3xl p-8 shadow-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 ${
+                      !service.isDark ? "lg:mt-14 shadow-xl" : ""
+                    }`}
+                  >
+                    <div className={`w-14 h-14 ${service.isDark ? "bg-[#1DD1A1]/15" : ""} rounded-2xl flex items-center justify-center`} style={!service.isDark ? { backgroundColor: "rgba(27,42,69,0.07)" } : {}}>
+                      {service.icon}
+                    </div>
+                    <h3 className={`${service.isDark ? "text-[#1DD1A1]" : "text-[#1B2A45]"} text-lg font-extrabold leading-snug`}>
+                      {service.title}
+                    </h3>
+                    <p className={`${service.isDark ? "text-white/60" : "text-[#1B2A45]/55"} text-sm leading-relaxed flex-1`}>
+                      {service.description}
+                    </p>
+                    <span className={`inline-flex items-center gap-1 ${service.isDark ? "text-[#1DD1A1]" : "text-[#1B2A45]"} font-bold text-sm cursor-pointer hover:gap-2 transition-all`}>
+                      Learn more →
+                    </span>
+                  </motion.div>
+                ))
+              )}
+            </AnimatePresence>
+          </motion.div>
 
-            {/* Card 3 — DARK, elevated */}
-            <motion.div
-              variants={fadeUpVariant}
-              className="bg-[#1B2A45] rounded-3xl p-8 shadow-2xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300"
+          <motion.div
+            className="flex justify-center mt-16"
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Button
+              onClick={() => setShowAllServices(!showAllServices)}
+              variant="outline"
+              className="group border-[#00c0a3] text-[#00c0a3] hover:bg-[#00c0a3] hover:text-white px-8 py-6 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center gap-2"
             >
-              <div className="w-14 h-14 bg-[#1DD1A1]/15 rounded-2xl flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#1DD1A1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-[#1DD1A1] text-lg font-extrabold leading-snug">Automation &amp; Follow-Up Systems</h3>
-              <p className="text-white/60 text-sm leading-relaxed flex-1">
-                Stop leads slipping through the cracks. Higher show-up rates, more closed deals, far less manual chaos at every location.
-              </p>
-              <span className="inline-flex items-center gap-1 text-[#1DD1A1] font-bold text-sm cursor-pointer hover:gap-2 transition-all">Learn more →</span>
-            </motion.div>
-
-            {/* Card 4 — LIGHT, pushed down */}
-            <motion.div
-              variants={fadeUpVariant}
-              className="bg-white rounded-3xl p-8 shadow-xl flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 lg:mt-14"
-            >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ backgroundColor: "rgba(27,42,69,0.07)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#1B2A45]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="text-[#1B2A45] text-lg font-extrabold leading-snug">Growth &amp; Performance Optimization</h3>
-              <p className="text-[#1B2A45]/55 text-sm leading-relaxed flex-1">
-                Turn marketing data into scalable decisions. Lower acquisition cost, smarter scaling, happier franchisees across all locations.
-              </p>
-              <span className="inline-flex items-center gap-1 text-[#1B2A45] font-bold text-sm cursor-pointer hover:text-[#1DD1A1] hover:gap-2 transition-all">Learn more →</span>
-            </motion.div>
+              {showAllServices ? (
+                <>
+                  Show Less <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+                </>
+              ) : (
+                <>
+                  More Services <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                </>
+              )}
+            </Button>
           </motion.div>
 
 
@@ -462,19 +523,19 @@ export default function FranchiseLandingPage() {
                 name: "James Rodriguez",
                 role: "Home Services Franchise Owner",
                 quote: "CTS transformed our lead generation completely. We went from inconsistent results to a predictable pipeline of qualified leads across all 3 locations.",
-                img: "https://randomuser.me/api/portraits/men/20.jpg",
+                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
               },
               {
                 name: "Sarah Mitchell",
                 role: "Fitness Studio Franchisee",
                 quote: "The automation systems they set up saved us hours every week. Show-up rates doubled and cost-per-acquisition dropped by 40%.",
-                img: "https://randomuser.me/api/portraits/women/44.jpg",
+                img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
               },
               {
                 name: "David Chen",
                 role: "Senior Care Franchise Director",
                 quote: "CTS understands the franchise model. Systems that work at both corporate level and for each individual location. Transparent reporting too.",
-                img: "https://randomuser.me/api/portraits/men/54.jpg",
+                img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
               },
             ].map((t, i) => (
               <motion.div key={i} variants={fadeUpVariant} className="flex flex-col gap-4">
@@ -483,7 +544,7 @@ export default function FranchiseLandingPage() {
                   <img
                     src={t.img}
                     alt={t.name}
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-[#1B2A45]/30 group-hover:bg-[#1B2A45]/50 transition-colors duration-300" />
