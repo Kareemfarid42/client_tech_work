@@ -141,12 +141,12 @@ export const MloHeader = () => {
           <div className="flex items-center gap-4">
             <div className="hidden lg:flex flex-col items-center gap-0.5">
               <a
-                href="tel:+19168368687"
+                href="tel:+15306093136"
                 className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-primary transition-colors whitespace-nowrap"
                 aria-label="Call us"
               >
                 <Phone className="w-4 h-4" />
-                <span>(916) 836-8687</span>
+                <span>(530) 609-3136</span>
               </a>
               <MloContactModal>
                 <Button variant="hero" size="lg" className="flex items-center gap-2">
@@ -262,12 +262,12 @@ export const MloHeader = () => {
                 transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
               >
                 <a
-                  href="tel:+19168368687"
+                  href="tel:+15306093136"
                   className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors"
                   aria-label="Call us"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>(916) 836-8687</span>
+                  <span>(530) 609-3136</span>
                 </a>
                 <MloContactModal>
                   <Button variant="hero" className="w-full flex items-center gap-2 justify-center">

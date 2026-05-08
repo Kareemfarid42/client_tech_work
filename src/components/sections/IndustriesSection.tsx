@@ -95,6 +95,14 @@ const industries = [
     link: "/industry/mlo",
     externalLink: true,
   },
+  {
+    icon: Wrench,
+    title: "Home Services",
+    description: "Digital systems for general contractors, plumbers, and electricians to book more jobs and automate operations.",
+    color: "#0D9488",
+    link: "/industry/home-services",
+    externalLink: true,
+  },
 ];
 
 const CARDS_PER_VIEW_DESKTOP = 3;

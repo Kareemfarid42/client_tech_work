@@ -76,17 +76,17 @@ const ServerError = () => {
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center">
                             <a
-                                href="mailto:support@clientech.solutions"
+                                href="mailto:admin@clientechsolutions.com"
                                 className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
                             >
                                 <Mail className="w-4 h-4" />
-                                support@clientech.solutions
+                                admin@clientechsolutions.com
                             </a>
                             <a
-                                href="tel:+1234567890"
+                                href="tel:+15306093136"
                                 className="text-sm text-primary hover:underline"
                             >
-                                Call: +1 (234) 567-890
+                                Call: +1 (530) 609-3136
                             </a>
                         </div>
                     </div>

@@ -81,7 +81,7 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
         } catch (error) {
             console.error("Submission error:", error);
             toast.error("Failed to send request", {
-                description: "Please try again or email us directly at info@clientechsolutions.com",
+                description: "Please try again or email us directly at admin@clientechsolutions.com",
             });
         } finally {
             setIsSubmitting(false);

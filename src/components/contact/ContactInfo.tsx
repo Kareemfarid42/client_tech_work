@@ -46,8 +46,8 @@ const ContactInfo = () => {
                     <div>
                         <h3 className="text-white font-heading font-bold text-xl mb-1">Email Us</h3>
                         <p className="text-[#888888] text-sm mb-2">For general inquiries, project discussions, or partnership opportunities.</p>
-                        <a href="mailto:info@clientechsolutions.com" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
-                            info@clientechsolutions.com
+                        <a href="mailto:admin@clientechsolutions.com" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
+                            admin@clientechsolutions.com
                         </a>
                     </div>
                 </motion.div>
@@ -64,8 +64,8 @@ const ContactInfo = () => {
                         <h3 className="text-white font-heading font-bold text-xl mb-1">Talk to Our Team</h3>
                         <p className="text-[#888888] text-sm mb-2">Speak with a member of our team for questions about our services or your project.</p>
                         <div className="text-[#888888] text-xs mb-2">Monday – Friday, 8am – 5pm (PST)</div>
-                        <a href="tel:+19168368687" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
-                            (916) 836-8687
+                        <a href="tel:+15306093136" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
+                            (530) 609-3136
                         </a>
                     </div>
                 </motion.div>

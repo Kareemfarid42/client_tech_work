@@ -1,3 +1,4 @@
+// HOME SERVICES DEDICATED HEADER - EDITING THIS WILL NOT AFFECT THE MAIN SITE
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MessageSquare } from "lucide-react";
@@ -6,6 +7,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-v4.png";
 
 import { ChevronDown } from "lucide-react";
+import { HsContactModal } from "@/components/contact/HsContactModal";
 
 type NavItem = {
   label: string;
@@ -15,19 +17,14 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  {
-    label: "Who We Are",
-    href: "/about",
-    isRoute: true,
-  },
-  { label: "What We Do", href: "#services" },
-  { label: "Who We Serve", href: "#industries" },
-  { label: "Performance Audits", href: "/audits", isRoute: true },
-  { label: "Latest Insights", href: "/blog", isRoute: true },
-  { label: "Contact Us", href: "/contact", isRoute: true },
+  { label: "Contractors Challenges", href: "#challenge" },
+  { label: "How We Help", href: "#solutions" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "Outcomes", href: "#benefits" },
+  { label: "Get Started", href: "#footer" },
 ];
 
-export const Header = () => {
+export const HsHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
@@ -47,8 +44,9 @@ export const Header = () => {
     const id = href.replace("#", "");
     setMobileMenuOpen(false);
 
-    if (location.pathname !== "/") {
-      navigate("/" + href);
+    const isHsPage = location.pathname.includes("home-services") || location.pathname.includes("homeservices");
+    if (!isHsPage) {
+      navigate("/homeservices.html" + href);
     } else {
       const el = document.getElementById(id);
       if (el) {
@@ -108,6 +106,16 @@ export const Header = () => {
                 );
               }
 
+              if (item.label === "Get Started") {
+                return (
+                  <HsContactModal key={item.label}>
+                    <button className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap">
+                      {item.label}
+                    </button>
+                  </HsContactModal>
+                );
+              }
+
               return item.isRoute ? (
                 <Link
                   key={item.label}
@@ -140,12 +148,12 @@ export const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>(530) 609-3136</span>
               </a>
-              <Link to="/contact">
+              <HsContactModal>
                 <Button variant="hero" size="lg" className="flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
                   Speak with an Expert
                 </Button>
-              </Link>
+              </HsContactModal>
             </div>
             <button
               className="xl:hidden p-2 text-white"
@@ -198,6 +206,23 @@ export const Header = () => {
                   );
                 }
 
+                if (item.label === "Get Started") {
+                  return (
+                    <motion.div
+                      key={item.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                    >
+                      <HsContactModal>
+                        <button className="text-sm font-semibold uppercase tracking-widest text-white/80 hover:text-white transition-colors block text-left w-full">
+                          {item.label}
+                        </button>
+                      </HsContactModal>
+                    </motion.div>
+                  );
+                }
+
                 return item.isRoute ? (
                   <motion.div
                     key={item.label}
@@ -244,12 +269,12 @@ export const Header = () => {
                   <Phone className="w-4 h-4" />
                   <span>(530) 609-3136</span>
                 </a>
-                <Link to="/contact" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                <HsContactModal>
                   <Button variant="hero" className="w-full flex items-center gap-2 justify-center">
                     <MessageSquare className="w-4 h-4" />
                     Speak with an Expert
                   </Button>
-                </Link>
+                </HsContactModal>
               </motion.div>
             </nav>
           </motion.div>

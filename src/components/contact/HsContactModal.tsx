@@ -9,12 +9,12 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 
-interface MloContactModalProps {
+interface HsContactModalProps {
     children: React.ReactNode;
     defaultService?: string;
 }
 
-export const MloContactModal = ({ children, defaultService }: MloContactModalProps) => {
+export const HsContactModal = ({ children, defaultService }: HsContactModalProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ export const MloContactModal = ({ children, defaultService }: MloContactModalPro
         company: "",
         email: "",
         message: "",
-        initial_service: defaultService || "Mortgage Loan Officer Solutions"
+        initial_service: defaultService || "Home Services / General Contractor Solutions"
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,14 +46,14 @@ export const MloContactModal = ({ children, defaultService }: MloContactModalPro
                 {
                     ...formData,
                     service: formData.initial_service,
-                    source: "MLO Landing Page",
+                    source: "Home Services Landing Page",
                     form_type: "Schedule a Consultation"
                 },
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
             toast.success("Inquiry Sent Successfully!", {
-                description: "Our MLO systems expert will contact you within 24 hours.",
+                description: "Our home services systems expert will contact you within 24 hours.",
             });
 
             // Reset form and close modal
@@ -62,7 +62,7 @@ export const MloContactModal = ({ children, defaultService }: MloContactModalPro
                 company: "",
                 email: "",
                 message: "",
-                initial_service: defaultService || "Mortgage Loan Officer Solutions"
+                initial_service: defaultService || "Home Services / General Contractor Solutions"
             });
             setIsOpen(false);
 
@@ -139,7 +139,7 @@ export const MloContactModal = ({ children, defaultService }: MloContactModalPro
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 className="w-full bg-[#111111] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17AA8C] focus:ring-1 focus:ring-[#17AA8C] transition-all resize-none"
-                                placeholder="Tell us about your objectives, timeline, and technical constraints..."
+                                placeholder="Tell us about your business, service area, and goals..."
                             ></textarea>
                         </div>
 

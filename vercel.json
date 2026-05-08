@@ -8,6 +8,10 @@
       "destination": "/mlo.html"
     },
     {
+      "source": "/homeservices",
+      "destination": "/homeservices.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

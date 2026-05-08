@@ -11,8 +11,7 @@ const ContactForm = () => {
         company: "",
         email: "",
         service: "",
-        message: "",
-        sms_consent: false
+        message: ""
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -47,14 +46,13 @@ const ContactForm = () => {
                 company: "",
                 email: "",
                 service: "",
-                message: "",
-                sms_consent: false
+                message: ""
             });
 
         } catch (error) {
             console.error("Submission error:", error);
             toast.error("Failed to send message", {
-                description: "Please try again or email us directly at info@clientechsolutions.com",
+                description: "Please try again or email us directly at admin@clientechsolutions.com",
             });
         } finally {
             setIsSubmitting(false);
@@ -153,28 +151,6 @@ const ContactForm = () => {
                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-4 py-3 text-white placeholder:text-[#555555] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all resize-none"
                         placeholder="Tell us about your objectives, timeline, and technical constraints..."
                     ></textarea>
-                </div>
-
-                {/* SMS Opt-in Checkbox */}
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-                    <div className="flex items-center h-5 mt-1">
-                        <input
-                            id="sms_consent"
-                            type="checkbox"
-                            required
-                            checked={formData.sms_consent}
-                            onChange={handleInputChange}
-                            className="w-4 h-4 rounded border-white/20 bg-zinc-900 text-[#17aa8c] focus:ring-[#17aa8c] transition-colors cursor-pointer"
-                        />
-                    </div>
-                    <div className="text-[11px] leading-relaxed text-gray-400">
-                        <label htmlFor="sms_consent" className="cursor-pointer">
-                            I consent to receive automated text messages from ClienTech Solutions LLC for service updates and marketing. 
-                            Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. 
-                            <br />
-                            View our <a href="/privacy-policy" className="text-[#17aa8c] hover:underline" target="_blank">Privacy Policy</a> and <a href="/terms-conditions" className="text-[#17aa8c] hover:underline" target="_blank">Terms of Service</a>.
-                        </label>
-                    </div>
                 </div>
 
                 {/* Highly Stylized Submit Button */}

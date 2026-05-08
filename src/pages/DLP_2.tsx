@@ -122,7 +122,7 @@ export default function DLP_2() {
     } catch (err) {
       console.error(err);
       toast.error("Submission failed", {
-        description: "Please try again or email us at info@clientechsolutions.com",
+        description: "Please try again or email us at admin@clientechsolutions.com",
       });
     } finally {
       setIsSubmitting(false);

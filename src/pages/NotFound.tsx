@@ -65,7 +65,7 @@ const NotFound = () => {
               <Link to="/industry" className="text-sm text-primary hover:underline">
                 Industries
               </Link>
-              <a href="tel:+1234567890" className="text-sm text-primary hover:underline">
+              <a href="tel:+15306093136" className="text-sm text-primary hover:underline">
                 Contact Support
               </a>
             </div>

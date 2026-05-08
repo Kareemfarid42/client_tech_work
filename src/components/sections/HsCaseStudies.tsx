@@ -5,32 +5,32 @@ import { ArrowUpRight, TrendingUp, Users, Zap } from "lucide-react";
 
 const caseStudies = [
   {
-    title: "320% Increase in Qualified Borrower Leads",
-    client: "National Mortgage Group",
-    metric: "3.2x ROI",
-    description: "Implemented a custom lead generation funnel with automated qualification scoring, reducing manual vetting time by 70%.",
+    title: "280% Increase in Booked Jobs",
+    client: "Regional Plumbing Co.",
+    metric: "2.8x ROI",
+    description: "Implemented a custom lead generation funnel with automated qualification scoring, reducing wasted call-backs by 65% and filling the schedule consistently.",
     icon: Users,
     color: "from-[#17AA8C]/20 to-teal-500/10"
   },
   {
-    title: "85% Higher Retention with Automated Nurture",
-    client: "Regional Lending Partner",
-    metric: "+85% Retention",
-    description: "Deployed a multi-channel CRM automation strategy that kept past clients engaged, resulting in a massive boost in repeat business.",
+    title: "92% Faster Response to New Inquiries",
+    client: "Metro Electrical Services",
+    metric: "+92% Speed",
+    description: "Deployed an AI-driven intake system that instantly qualifies and routes leads, slashing average response time from 4 hours to under 20 minutes.",
     icon: Zap,
     color: "from-[#17AA8C]/20 to-emerald-500/10"
   },
   {
-    title: "Save 20+ Hours per Week on Admin Tasks",
-    client: "Independent MLO Team",
-    metric: "20hrs/wk Saved",
-    description: "Unified fragmented tools into a single digital ecosystem, automating status updates and document reminders for all active loans.",
+    title: "Save 15+ Hours per Week on Admin Tasks",
+    client: "Independent Contractor Team",
+    metric: "15hrs/wk Saved",
+    description: "Unified fragmented tools into a single digital ecosystem, automating job status updates, invoicing reminders, and follow-up sequences for all active projects.",
     icon: TrendingUp,
     color: "from-[#17AA8C]/20 to-[#17AA8C]/5"
   }
 ];
 
-export const MloCaseStudies = () => {
+export const HsCaseStudies = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -46,10 +46,10 @@ export const MloCaseStudies = () => {
           >
             <h2 className="text-sm uppercase tracking-[0.2em] text-[#17AA8C] font-bold mb-4">Success Stories</h2>
             <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Real results for modern <span className="text-[#17AA8C]">Loan Officers</span>
+              Real results for modern <span className="text-[#17AA8C]">Contractors</span>
             </h3>
             <p className="text-gray-400 text-lg leading-relaxed">
-              We help MLOs transition from manual chaos to automated growth. These are the measurable impacts of our digital systems.
+              We help general contractors, plumbers, and electricians transition from word-of-mouth chaos to automated growth. These are the measurable impacts of our digital systems.
             </p>
           </motion.div>
         </div>

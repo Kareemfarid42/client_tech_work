@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => ({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         mlo: path.resolve(__dirname, 'mlo.html'),
+        homeservices: path.resolve(__dirname, 'homeservices.html'),
       },
       output: {
         manualChunks: {

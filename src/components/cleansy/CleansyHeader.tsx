@@ -85,12 +85,12 @@ export const CleansyHeader = ({ navItems, ctaHref }: CleansyHeaderProps = {}) =>
                     <div className="flex items-center gap-4">
                         <div className="hidden lg:flex flex-col items-center gap-0.5">
                             <a
-                                href="tel:+19168368687"
+                                href="tel:+15306093136"
                                 className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-primary transition-colors whitespace-nowrap"
                                 aria-label="Call us"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>(916) 836-8687</span>
+                                <span>(530) 609-3136</span>
                             </a>
                             <a
                                 href={ctaTarget}
@@ -149,12 +149,12 @@ export const CleansyHeader = ({ navItems, ctaHref }: CleansyHeaderProps = {}) =>
                                 transition={{ duration: 0.3, delay: navigation.length * 0.05 }}
                             >
                                 <a
-                                    href="tel:+19168368687"
+                                    href="tel:+15306093136"
                                     className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors"
                                     aria-label="Call us"
                                 >
                                     <Phone className="w-4 h-4" />
-                                    <span>(916) 836-8687</span>
+                                    <span>(530) 609-3136</span>
                                 </a>
                                 <a
                                     href={ctaTarget}
