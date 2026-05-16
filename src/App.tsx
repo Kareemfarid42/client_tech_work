@@ -20,6 +20,7 @@ const DLP_1 = lazy(() => import("./pages/DLP_1"));
 const DLP_2 = lazy(() => import("./pages/DLP_2"));
 const MloLandingPage = lazy(() => import("./pages/MloLandingPage"));
 const HomeServicesLandingPage = lazy(() => import("./pages/HomeServicesLandingPage"));
+const ProfessionalsLandingPage = lazy(() => import("./pages/ProfessionalsLandingPage"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contact = lazy(() => import("./pages/Contact"));
 const PerformanceAudits = lazy(() => import("./pages/PerformanceAudits"));
@@ -65,6 +66,7 @@ const App = () => (
               <Route path="/industry/DLP_2" element={<DLP_2 />} />
               <Route path="/industry/mlo" element={<MloLandingPage />} />
               <Route path="/industry/home-services" element={<HomeServicesLandingPage />} />
+              <Route path="/industry/professionals" element={<ProfessionalsLandingPage />} />
               <Route path="/audits" element={<PerformanceAudits />} />
               <Route path="/sample-report" element={<SampleReport />} />
               <Route path="/blog" element={<Blog />} />

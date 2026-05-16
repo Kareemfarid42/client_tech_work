@@ -12,6 +12,10 @@
       "destination": "/homeservices.html"
     },
     {
+      "source": "/professionals",
+      "destination": "/professionals.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

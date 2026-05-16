@@ -16,9 +16,42 @@ import {
   Landmark,
   ChevronLeft,
   ChevronRight,
+  Briefcase,
 } from "lucide-react";
 
 const industries = [
+  {
+    icon: Store,
+    title: "Franchises",
+    description: "Multi-location management and unified digital ecosystems with scalable lead systems.",
+    color: "#DC2626",
+    link: "/industry/franchises",
+    externalLink: true,
+  },
+  {
+    icon: Wrench,
+    title: "Home Services",
+    description: "Digital systems for general contractors, plumbers, and electricians to book more jobs and automate operations.",
+    color: "#0d9447ff",
+    link: "/industry/home-services",
+    externalLink: true,
+  },
+  {
+    icon: Briefcase,
+    title: "Professionals",
+    description: "Digital systems for professionals to generate qualified leads and automate pipelines.",
+    color: "#0D9488",
+    link: "/industry/professionals",
+    externalLink: true,
+  },
+  {
+    icon: Landmark,
+    title: "Mortgage & Lending",
+    description: "Digital systems for mortgage loan officers to generate qualified leads and automate pipelines.",
+    color: "#720d94ff",
+    link: "/industry/mlo",
+    externalLink: true,
+  },
   {
     icon: Building2,
     title: "Public Sector",
@@ -78,30 +111,6 @@ const industries = [
     title: "Media & Gaming",
     description: "Supporting digital-first businesses with scalable platforms, engaging user experiences, and performance-focused systems.",
     color: "#8B5CF6",
-  },
-  {
-    icon: Store,
-    title: "Franchises",
-    description: "Multi-location management and unified digital ecosystems with scalable lead systems.",
-    color: "#DC2626",
-    link: "/industry/franchises",
-    externalLink: true,
-  },
-  {
-    icon: Landmark,
-    title: "Mortgage & Lending",
-    description: "Digital systems for mortgage loan officers to generate qualified leads and automate pipelines.",
-    color: "#0D9488",
-    link: "/industry/mlo",
-    externalLink: true,
-  },
-  {
-    icon: Wrench,
-    title: "Home Services",
-    description: "Digital systems for general contractors, plumbers, and electricians to book more jobs and automate operations.",
-    color: "#0D9488",
-    link: "/industry/home-services",
-    externalLink: true,
   },
 ];
 
