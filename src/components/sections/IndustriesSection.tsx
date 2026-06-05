@@ -17,6 +17,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Briefcase,
+  Search,
 } from "lucide-react";
 
 const industries = [
@@ -34,6 +35,14 @@ const industries = [
     description: "Digital systems for general contractors, plumbers, and electricians to book more jobs and automate operations.",
     color: "#0d9447ff",
     link: "/industry/home-services",
+    externalLink: true,
+  },
+  {
+    icon: Search,
+    title: "SEO",
+    description: "Digital systems for SEO professionals to automate strategies and increase online visibility.",
+    color: "#D97706",
+    link: "/industry/seo",
     externalLink: true,
   },
   {

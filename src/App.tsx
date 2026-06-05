@@ -20,6 +20,7 @@ const DLP_1 = lazy(() => import("./pages/DLP_1"));
 const DLP_2 = lazy(() => import("./pages/DLP_2"));
 const MloLandingPage = lazy(() => import("./pages/MloLandingPage"));
 const HomeServicesLandingPage = lazy(() => import("./pages/HomeServicesLandingPage"));
+const SeoLandingPage = lazy(() => import("./pages/SeoLandingPage"));
 const ProfessionalsLandingPage = lazy(() => import("./pages/ProfessionalsLandingPage"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -62,10 +63,11 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/industry" element={<Industry />} />
               <Route path="/industry/franchises" element={<FranchiseLandingPage />} />
-              <Route path="/industry/DLP_1" element={<DLP_1 />} />
-              <Route path="/industry/DLP_2" element={<DLP_2 />} />
+              <Route path="/own-a-business" element={<DLP_1 />} />
+              <Route path="/franchise-alternative" element={<DLP_2 />} />
               <Route path="/industry/mlo" element={<MloLandingPage />} />
               <Route path="/industry/home-services" element={<HomeServicesLandingPage />} />
+              <Route path="/industry/seo" element={<SeoLandingPage />} />
               <Route path="/industry/professionals" element={<ProfessionalsLandingPage />} />
               <Route path="/audits" element={<PerformanceAudits />} />
               <Route path="/sample-report" element={<SampleReport />} />

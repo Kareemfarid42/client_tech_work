@@ -73,11 +73,16 @@ const AuditHero = ({ onOpenModal }: AuditHeroProps) => {
                         >
                             Start Your Audit
                         </button>
-                        <Link to="/sample-report" className="w-full sm:w-auto">
+                        <a 
+                            href="/Digital-Performance-Audit-Sample-CTS.pdf" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="w-full sm:w-auto"
+                        >
                             <button className="bg-transparent w-full border border-[#333333] text-white font-bold uppercase tracking-wider py-4 px-8 rounded-sm hover:border-white transition-colors duration-300">
                                 View Sample Report
                             </button>
-                        </Link>
+                        </a>
                     </div>
                 </motion.div>
 
