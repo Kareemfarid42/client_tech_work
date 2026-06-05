@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { HsHeader } from "@/components/layout/HsHeader";
 import { SeoTestimonials } from "@/components/sections/SeoTestimonials";
+import { SeoIndustriesWeServe } from "@/components/sections/SeoIndustriesWeServe";
 import { AwardsSection } from "@/components/sections/AwardsSection";
 import { SeoFaqSection } from "@/components/sections/SeoFaqSection";
 import { HsTrustMarquee } from "@/components/sections/HsTrustMarquee";
@@ -170,10 +171,13 @@ const SeoApp = () => {
           </div>
         </section>
 
+        {/* Industries We Serve */}
+        <SeoIndustriesWeServe />
+
         {/* 4. Portfolio / Success Stories Section */}
         <section id="portfolio" className="py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 lg:px-20">
-            <div className="max-w-3xl mb-16">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
               <h2 className="text-sm uppercase tracking-[0.2em] text-[#17AA8C] font-bold mb-4">Our Portfolio</h2>
               <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Proven Visibility. <span className="text-[#17AA8C]">Measurable Growth.</span>

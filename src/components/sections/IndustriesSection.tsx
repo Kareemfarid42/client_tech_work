@@ -37,14 +37,7 @@ const industries = [
     link: "/industry/home-services",
     externalLink: true,
   },
-  {
-    icon: Search,
-    title: "SEO",
-    description: "Digital systems for SEO professionals to automate strategies and increase online visibility.",
-    color: "#D97706",
-    link: "/industry/seo",
-    externalLink: true,
-  },
+
   {
     icon: Briefcase,
     title: "Professionals",

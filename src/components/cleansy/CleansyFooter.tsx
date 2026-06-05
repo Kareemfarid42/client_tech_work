@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Facebook, Linkedin, Send, Loader2 } from "lucide-react";
+import { Send, Loader2, Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo-v4.png";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
@@ -9,10 +9,12 @@ const CleansyFooter = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const serviceLinks = [
-        { text: "Digital Foundation & Positioning", href: "#services" },
+        { text: "Web Development", href: "#services" },
+        { text: "SEO", href: "#services" },
+        { text: "Paid Advertising", href: "#services" },
+        { text: "Content Marketing", href: "#services" },
         { text: "Lead Generation", href: "#services" },
-        { text: "Automation & Follow-Up Systems", href: "#services" },
-        { text: "Growth & Performance Optimization", href: "#services" },
+        { text: "Marketing Automation", href: "#services" },
     ];
 
     const companyLinks = [
@@ -73,30 +75,24 @@ const CleansyFooter = () => {
                                 />
                             </div>
                         </a>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                            We help franchise systems build scalable digital foundations — combining strategy and conversion systems that drive sustainable growth.
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                            Helping businesses increase visibility, generate qualified leads, and grow through digital marketing, automation, and conversion-focused solutions.
                         </p>
-                        {/* Social Icons */}
-                        <div className="flex gap-4 pt-2">
-                            {[
-                                { Icon: Linkedin, href: "https://www.linkedin.com/company/clientech-solutions-llc/" },
-                                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576436324660" },
-                            ].map(({ Icon, href }, i) => (
-                                <a
-                                    key={i}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-                                >
-                                    <Icon className="w-5 h-5" />
-                                </a>
-                            ))}
+                        {/* Contact Info */}
+                        <div className="space-y-3 pt-2">
+                            <a href="mailto:admin@clientechsolutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                                <Mail className="w-4 h-4 text-primary" />
+                                admin@clientechsolutions.com
+                            </a>
+                            <a href="tel:+15306093136" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                                <Phone className="w-4 h-4 text-primary" />
+                                (530) 609-3136
+                            </a>
                         </div>
                     </div>
 
                     {/* Links */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:col-span-3 lg:flex lg:justify-start lg:gap-32 gap-8">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:col-span-3 gap-8 lg:gap-12 lg:pl-16 xl:pl-24">
 
                         {/* Services */}
                         <div>

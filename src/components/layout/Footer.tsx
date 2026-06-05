@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo-v4.png";
 import { ContactModal } from "@/components/contact/ContactModal";
 import { Link } from "react-router-dom";
 
 const footerLinks = {
   services: [
-    "Digital Transformation",
-    "Solutions Engineering",
-    "AI & Intelligent Systems",
-    "Cloud Services",
-    "Enterprise Platforms",
-    "Staff Augmentation",
+    "Web Development",
+    "SEO",
+    "Paid Advertising",
+    "Content Marketing",
+    "Lead Generation",
+    "Marketing Automation",
   ],
   company: [
     "About Us",
@@ -42,11 +42,21 @@ export const Footer = () => {
                 loading="lazy"
               />
             </a>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Partnering with organizations to build resilient digital foundations, implement scalable solutions, and drive meaningful transformation.
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              Helping businesses increase visibility, generate qualified leads, and grow through digital marketing, automation, and conversion-focused solutions.
             </p>
+            <div className="space-y-3 mb-6">
+              <a href="mailto:admin@clientechsolutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                <Mail className="w-4 h-4 text-primary" />
+                admin@clientechsolutions.com
+              </a>
+              <a href="tel:+15306093136" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                <Phone className="w-4 h-4 text-primary" />
+                (530) 609-3136
+              </a>
+            </div>
             <div className="pt-2">
-              <p className="text-sm font-medium mb-2">Ready to start your transformation?</p>
+              <p className="text-sm font-medium mb-2">Ready to grow your business?</p>
               <ContactModal defaultService="Performance Audit">
                 <Button variant="hero" className="w-full sm:w-auto">Get a Proposal</Button>
               </ContactModal>
@@ -54,7 +64,7 @@ export const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:col-span-3 lg:flex lg:justify-start lg:gap-32 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:col-span-3 gap-8 lg:gap-12 lg:pl-16 xl:pl-24">
             <div>
               <h4 className="font-sans font-semibold mb-4 text-sm uppercase tracking-wider text-primary">Services</h4>
               <ul className="space-y-2">
@@ -127,24 +137,6 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground text-center sm:text-left">
               © {new Date().getFullYear()} ClienTech Solutions. All rights reserved.
             </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://www.linkedin.com/company/clientech-solutions-llc/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=61576436324660" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-secondary-foreground transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -1,83 +1,66 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  Brain,
-  Rocket,
-  Palette,
-  Server,
-  Cloud,
   LayoutTemplate,
-  Briefcase,
-  ChevronDown,
-  ChevronUp,
+  Search,
+  PenTool,
   Target,
+  Share2,
   Zap,
+  Bot,
+  Brain,
 } from "lucide-react";
 import { ContactModal } from "@/components/contact/ContactModal";
 
-const primaryServices = [
-  {
-    icon: Server,
-    title: "Digital Foundations",
-    description: "Build secure, scalable, and future-ready digital infrastructure that enables growth, resilience, and long-term performance.",
-  },
-  {
-    icon: Palette,
-    title: "Digital Solutions Engineering",
-    description: "Design and develop tailored digital solutions that solve real business challenges and integrate seamlessly with existing systems.",
-  },
-  {
-    icon: Brain,
-    title: "AI, Data & Intelligent Systems",
-    description: "Apply AI and data-driven intelligence to enhance decision-making, automate processes, and unlock smarter ways of working.",
-  },
-  {
-    icon: Rocket,
-    title: "Digital Transformation & Advisory",
-    description: "Align strategy, technology, and execution to drive meaningful transformation with measurable, sustainable outcomes.",
-  },
-];
-
-const supportingServices = [
-  {
-    icon: Cloud,
-    title: "Cloud & Infrastructure Services",
-    description: "Enable cloud readiness, modernization, and performance optimization across enterprise environments.",
-  },
+const servicesList = [
   {
     icon: LayoutTemplate,
-    title: "Enterprise Systems & Platforms",
-    description: "Implement and optimize enterprise platforms to improve visibility, efficiency, and operational control.",
+    title: "Web Development",
+    description: "Build fast, secure, and conversion-optimized websites that serve as the foundation of your digital presence.",
   },
   {
-    icon: Palette,
-    title: "UX, Product & Experience Design",
-    description: "Create intuitive, user-centered digital experiences that balance usability, performance, and business goals.",
+    icon: Search,
+    title: "SEO (Search Engine Optimization)",
+    description: "Increase organic visibility, outrank competitors, and drive high-intent traffic to your website consistently.",
+    link: "/industry/seo",
   },
   {
-    icon: Zap,
-    title: "Integration & Automation",
-    description: "Connect systems, data, and workflows to eliminate silos and improve operational efficiency.",
+    icon: PenTool,
+    title: "Content Marketing",
+    description: "Engage your audience and build authority with strategic content that educates prospects and drives conversions.",
   },
   {
     icon: Target,
-    title: "Security, Compliance & Reliability",
-    description: "Design and maintain systems with security, compliance, and resilience built in from the ground up.",
+    title: "Google Ads",
+    description: "Capture high-intent searchers immediately with targeted campaigns designed to maximize ROI and lead quality.",
   },
   {
-    icon: Briefcase,
-    title: "Staff Augmentation & Managed Teams",
-    description: "Scale your delivery capacity with skilled professionals aligned to your technology stack and business objectives.",
+    icon: Share2,
+    title: "Meta Ads",
+    description: "Reach your ideal customers on Facebook and Instagram with highly targeted, creative-driven social campaigns.",
+  },
+  {
+    icon: Zap,
+    title: "Lead Generation",
+    description: "Build predictable pipelines with multi-channel systems designed to attract, qualify, and convert prospects.",
+  },
+  {
+    icon: Bot,
+    title: "Marketing Automation",
+    description: "Streamline your follow-ups and nurture sequences to close more deals with less manual effort.",
+  },
+  {
+    icon: Brain,
+    title: "AI Chatbots",
+    description: "Provide 24/7 intelligent customer support and lead qualification right on your website with conversational AI.",
   },
 ];
 
 export const ServicesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [showAll, setShowAll] = useState(false);
-
-  const visibleServices = showAll ? supportingServices : supportingServices.slice(0, 6);
 
   return (
     <section ref={ref} id="services" className="py-20 md:py-24 bg-secondary relative overflow-hidden">
@@ -98,10 +81,10 @@ export const ServicesSection = () => {
           </h2>
           <p className="text-sm font-subheading uppercase tracking-wider text-primary font-semibold">Transform Your Business</p>
         </motion.div>
-        {/* Primary Services */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {primaryServices.map((service, index) => (
-            <ContactModal key={service.title} defaultService={service.title}>
+        {/* Services Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {servicesList.map((service, index) => {
+            const cardContent = (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -112,69 +95,27 @@ export const ServicesSection = () => {
                   <service.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="p-5 xl:p-6">
-                  <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">{service.title}</h3>
+                  <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight">{service.title}</h3>
                   <p className="text-base text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>
-            </ContactModal>
-          ))}
-        </div>
+            );
 
-        {/* Supporting Services */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-subheading font-semibold text-secondary-foreground mb-8 text-center sm:text-left">Supporting Capabilities</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
-            <AnimatePresence initial={false}>
-              {visibleServices.map((service, index) => (
-                <ContactModal key={service.title} defaultService={service.title}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 16 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: 16 }}
-                    transition={{ duration: 0.35, delay: index >= 6 ? 0 : 0.3 + index * 0.05 }}
-                    className="flex h-full gap-4 p-5 rounded-xl bg-background border border-border/60 hover:border-primary/50 transition-colors group cursor-pointer"
-                  >
-                    <div className="shrink-0 mt-1">
-                      <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                        <service.icon className="w-5 h-5 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-subheading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">{service.title}</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                    </div>
-                  </motion.div>
-                </ContactModal>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
+            if (service.link) {
+              return (
+                <Link to={service.link} key={service.title} className="block h-full">
+                  {cardContent}
+                </Link>
+              );
+            }
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex justify-center mt-12"
-        >
-          <Button
-            variant="heroDark"
-            size="lg"
-            className="gap-2"
-            onClick={() => setShowAll((prev) => !prev)}
-          >
-            {showAll ? (
-              <>
-                Show Less
-                <ChevronUp className="w-4 h-4" />
-              </>
-            ) : (
-              <>
-                View All Capabilities
-                <ChevronDown className="w-4 h-4" />
-              </>
-            )}
-          </Button>
-        </motion.div>
+            return (
+              <ContactModal key={service.title} defaultService={service.title}>
+                {cardContent}
+              </ContactModal>
+            );
+          })}
+        </div>
 
         {/* ── Call to Action Block ── */}
         <motion.div
