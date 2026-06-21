@@ -5,10 +5,10 @@ import { DigitalEngineAnimation } from "./DigitalEngineAnimation";
 import { ContactModal } from "@/components/contact/ContactModal";
 
 const credibilityItems = [
-  "Built for scale. Designed for impact.",
-  "Strategy-led. Execution-focused.",
-  "From foundations to transformation.",
-  "Clean. Confident. Works globally.",
+  "Websites that convert",
+  "SEO that drives visibility",
+  "Advertising that generates leads",
+  "Automation that scales growth",
 ];
 
 export const HeroSection = () => {
@@ -34,11 +34,11 @@ export const HeroSection = () => {
           >
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-secondary-foreground leading-tight">
-                Transforming Challenges Into <span className="text-gradient">Intelligent Digital Solutions</span>
+                Helping Businesses Generate More <span className="text-gradient">Leads, Visibility & Growth</span>
               </h1>
  
               <h2 className="text-xl sm:text-2xl font-subheading font-medium text-secondary-foreground/80 max-w-4xl leading-relaxed">
-                Digital foundations, smart solutions, and transformation—designed to help organizations move forward with clarity and confidence.
+                We help businesses attract qualified customers through web development, SEO, paid advertising, lead generation, and marketing automation systems built for measurable results.
               </h2>
             </div>
  

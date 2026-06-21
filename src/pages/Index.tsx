@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ProfTrustMarquee } from "@/components/sections/ProfTrustMarquee";
 import { MarketingSection } from "@/components/sections/MarketingSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
@@ -38,6 +39,7 @@ const Index = () => {
       <Header />
       <main id="main-content" tabIndex={-1} aria-label="Main content">
         <HeroSection />
+        <ProfTrustMarquee />
         <MarketingSection />
         <ServicesSection />
         <IndustriesSection />

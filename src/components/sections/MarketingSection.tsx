@@ -3,11 +3,11 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const progressStack = [
-  { label: "Digital Visibility", color: "bg-primary/20" },
-  { label: "User & System Engagement", color: "bg-primary/40" },
-  { label: "Qualified Demand", color: "bg-primary/60" },
-  { label: "Operational Enablement", color: "bg-primary/80" },
-  { label: "Outcome-Driven Optimization", color: "bg-primary" },
+  { label: "Visibility & Awareness", color: "bg-primary/20" },
+  { label: "Traffic & Engagement", color: "bg-primary/40" },
+  { label: "Qualified Leads", color: "bg-primary/60" },
+  { label: "Customer Conversion", color: "bg-primary/80" },
+  { label: "Scalable Growth", color: "bg-primary" },
 ];
 
 export const MarketingSection = () => {
@@ -24,10 +24,10 @@ export const MarketingSection = () => {
           className="text-center max-w-4xl mx-auto mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Move From Digital Effort to <span className="text-primary">Digital Impact</span>
+            From Visibility to <span className="text-primary">Revenue</span>
           </h2>
           <p className="text-xl text-foreground font-medium mb-6">
-            We help organizations move beyond fragmented initiatives by aligning strategy, technology, and execution turning digital investments into outcomes that matter.
+            We help businesses turn traffic, leads, and customer interactions into measurable growth through integrated marketing and automation systems.
           </p>
         </motion.div>
 
@@ -63,16 +63,16 @@ export const MarketingSection = () => {
             className="space-y-8"
           >
             <div className="p-8 rounded-xl border border-border bg-card shadow-sm">
-              <h3 className="font-display font-bold text-xl text-foreground mb-3">Traditional Digital Execution</h3>
+              <h3 className="font-display font-bold text-xl text-foreground mb-3">Fragmented Marketing Efforts</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Disconnected tools, siloed teams, and fragmented data often result in initiatives that look active but lack clarity, alignment, and measurable impact—leading to decisions driven by assumptions rather than outcomes.
+                Many businesses rely on disconnected tactics—websites, SEO, ads, and content that operate independently. The result is inconsistent lead flow, unclear performance, wasted budget, and missed growth opportunities.
               </p>
             </div>
 
             <div className="p-8 rounded-xl border-l-4 border-primary bg-primary/5 shadow-sm">
-              <h3 className="font-display font-bold text-xl text-primary mb-3">Integrated, Outcome-Driven Transformation</h3>
+              <h3 className="font-display font-bold text-xl text-primary mb-3">Integrated Growth Systems</h3>
               <p className="text-foreground leading-relaxed">
-                ClienTech aligns strategy, technology, and execution through connected digital foundations—enabling organizations to optimize continuously, reduce inefficiencies, and make informed decisions backed by real-world performance.
+                ClienTech combines websites, SEO, advertising, lead generation, and automation into a unified growth system designed to attract customers, increase conversions, and support long-term business growth.
               </p>
             </div>
           </motion.div>
