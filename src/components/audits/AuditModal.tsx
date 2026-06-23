@@ -1,15 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, CalendarIcon, Loader2 } from "lucide-react";
-import { format } from "date-fns";
-import { cn } from "@/lib/utils";
-import { CustomDatePicker } from "@/components/ui/multi-view-calendar";
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
+import { X, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
 
@@ -18,73 +9,67 @@ interface AuditModalProps {
     onClose: () => void;
 }
 
+type ModalState = "idle" | "loading" | "success";
+
 const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
-    const [date, setDate] = useState<Date>();
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [modalState, setModalState] = useState<ModalState>("idle");
 
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
-        companyName: "",
         phoneNumber: "",
-        projectType: "",
-        projectStage: "",
+        companyName: "",
+        industry: "",
+        biggestChallenge: "",
         budget: "",
-        description: "",
-        additionalNotes: ""
+        websiteUrl: ""
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-
-        try {
-            const submissionData = {
-                ...formData,
-                desiredLaunchDate: date ? format(date, "PPP") : "Not specified",
-            };
-
-            await emailjs.send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_AUDIT_TEMPLATE_ID,
-                submissionData,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-            );
-
-            toast.success("Audit Request Sent Successfully!", {
-                description: "Our engineering team will review your details and contact you within 24 hours.",
-            });
-
-            // Reset form
+    const handleClose = () => {
+        onClose();
+        // Reset state after animation completes
+        setTimeout(() => {
+            setModalState("idle");
             setFormData({
                 fullName: "",
                 email: "",
-                companyName: "",
                 phoneNumber: "",
-                projectType: "",
-                projectStage: "",
+                companyName: "",
+                industry: "",
+                biggestChallenge: "",
                 budget: "",
-                description: "",
-                additionalNotes: ""
+                websiteUrl: ""
             });
-            setDate(undefined);
-            
-            // Close modal after delay
-            setTimeout(onClose, 500);
+        }, 300);
+    };
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setModalState("loading");
+
+        const delay = new Promise((resolve) => setTimeout(resolve, 3000));
+        
+        try {
+            const emailPromise = emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_AUDIT_TEMPLATE_ID,
+                formData,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            ).catch((error) => {
+                console.error("EmailJS Error:", error);
+            });
+
+            await Promise.all([emailPromise, delay]);
+
+            setModalState("success");
         } catch (error) {
             console.error("Submission error:", error);
-            toast.error("Failed to send request", {
-                description: "Please try again or email us directly at admin@clientechsolutions.com",
-            });
-        } finally {
-            setIsSubmitting(false);
+            setModalState("success"); 
         }
     };
 
@@ -96,7 +81,7 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto"
-                    onClick={onClose}
+                    onClick={handleClose}
                 >
                     <div className="min-h-full py-4 sm:py-6 flex items-center w-full max-w-3xl mx-auto">
                         <motion.div
@@ -104,250 +89,254 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 20, scale: 0.95 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-full bg-[#0a0a0a] border border-[#333333] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]"
+                            className="relative w-full bg-[#0a0a0a] border border-[#333333] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] min-h-[400px] flex flex-col"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Close Button */}
                             <button
-                                onClick={onClose}
+                                onClick={handleClose}
                                 className="absolute top-6 right-6 p-2 bg-white/5 hover:bg-white/10 rounded-full text-[#888888] hover:text-[#17aa8c] transition-colors border border-transparent hover:border-[#333333] z-50"
                             >
                                 <X className="w-5 h-5" />
                             </button>
 
-                            {/* Header */}
-                            <div className="px-6 py-6 md:px-8 md:pt-8 md:pb-6 border-b border-[#333333] relative">
-                                <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#17aa8c]/50 to-transparent" />
-                                <div className="absolute top-0 right-1/4 w-24 h-24 bg-[#17aa8c]/10 blur-[40px] rounded-full pointer-events-none" />
+                            {/* Header (Only show in idle state) */}
+                            <AnimatePresence mode="wait">
+                                {modalState === "idle" && (
+                                    <motion.div 
+                                        initial={{ opacity: 0, height: 0 }} 
+                                        animate={{ opacity: 1, height: "auto" }} 
+                                        exit={{ opacity: 0, height: 0, overflow: "hidden" }}
+                                        className="px-6 py-6 md:px-8 md:pt-8 md:pb-6 border-b border-[#333333] relative"
+                                    >
+                                        <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#17aa8c]/50 to-transparent" />
+                                        <div className="absolute top-0 right-1/4 w-24 h-24 bg-[#17aa8c]/10 blur-[40px] rounded-full pointer-events-none" />
 
-                                <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-1.5 tracking-tight">
-                                    Schedule Your <span className="text-[#17aa8c]">Audit</span>
-                                </h2>
-                                <p className="text-[#888888] text-sm font-sans">
-                                    Please provide context on your current architecture to help our engineering team prepare.
-                                </p>
-                            </div>
+                                        <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-1.5 tracking-tight">
+                                            Request Your <span className="text-[#17aa8c]">Free Audit</span>
+                                        </h2>
+                                        <p className="text-[#888888] text-sm font-sans">
+                                            Fill out the details below so our engineering team can begin analyzing your digital footprint.
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
-                            {/* Form Content */}
-                            <div className="px-6 py-6 md:px-8 md:py-8 bg-[#000000]">
-                                <form className="space-y-4" onSubmit={handleSubmit}>
-
-                                    {/* Row 1: 4 Columns (or 2x2 on mobile) */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Full Name <span className="text-red-500">*</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="fullName"
-                                                required
-                                                value={formData.fullName}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
-                                                placeholder="Enter Your Name"
-                                            />
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Email <span className="text-red-500">*</span>
-                                            </label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                required
-                                                value={formData.email}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
-                                                placeholder="Enter Your Email"
-                                            />
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Company Name <span className="text-red-500">*</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="companyName"
-                                                required
-                                                value={formData.companyName}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
-                                                placeholder="Enter Company Name"
-                                            />
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Phone Number
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="phoneNumber"
-                                                value={formData.phoneNumber}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
-                                                placeholder="Enter Phone Number"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Row 2: 2 Columns */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Project Type <span className="text-red-500">*</span>
-                                            </label>
-                                            <select
-                                                id="projectType"
-                                                required
-                                                value={formData.projectType}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
-                                            >
-                                                <option value="" disabled className="text-[#333333]">Select Project Type</option>
-                                                <option value="digital-performance-audit">Digital Performance Audit</option>
-                                                <option value="digital-transformation">Digital Transformation</option>
-                                                <option value="digital-marketing">Digital Marketing</option>
-                                                <option value="marketing-automation">Marketing Automation</option>
-                                                <option value="product-marketing">Product Marketing</option>
-                                                <option value="gtm-strategy">Go-To-Market (GTM) Strategy</option>
-                                                <option value="platform-optimization">Website / Platform Optimization</option>
-                                                <option value="ai-data-solutions">AI & Data Solutions</option>
-                                                <option value="crm-lead-management">CRM & Lead Management Setup</option>
-                                                <option value="lead-gen-funnel">Lead Generation & Funnel Setup</option>
-                                                <option value="custom-digital-solution">Custom Digital Solution</option>
-                                                <option value="not-sure">Not Sure / Need Consultation</option>
-                                            </select>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Current Project Stage <span className="text-red-500">*</span>
-                                            </label>
-                                            <select
-                                                id="projectStage"
-                                                required
-                                                value={formData.projectStage}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
-                                            >
-                                                <option value="" disabled className="text-[#333333]">Select Project Stage</option>
-                                                <option value="planning">Initial Planning / Arch</option>
-                                                <option value="development">In Development (Pre-Launch)</option>
-                                                <option value="live">Live in Production (Refactoring)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    {/* Row 3: 2 Columns */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block pb-0.5">
-                                                Desired Launch Date
-                                            </label>
-                                            <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-                                                <PopoverTrigger asChild>
-                                                    <Button
-                                                        variant="outline"
-                                                        className={cn(
-                                                            "w-full justify-start text-left font-normal bg-[#111111] hover:bg-[#1a1a1a] hover:text-white border border-white/10 rounded-sm px-3 py-2 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all h-[38px] min-h-[38px]",
-                                                            !date && "text-[#333333]"
-                                                        )}
-                                                    >
-                                                        <CalendarIcon className="mr-2 h-4 w-4 opacity-50" />
-                                                        {date ? (
-                                                            format(date, "PPP")
-                                                        ) : (
-                                                            <span className="font-mono text-[#333333]">Jan 01, 2025</span>
-                                                        )}
-                                                    </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-auto p-0 z-[110] bg-transparent border-none shadow-none" align="start">
-                                                    <CustomDatePicker
-                                                        value={date}
-                                                        onChange={(newDate) => {
-                                                            setDate(newDate);
-                                                            setIsCalendarOpen(false);
-                                                        }}
-                                                    />
-                                                </PopoverContent>
-                                            </Popover>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Estimated Budget
-                                            </label>
-                                            <input
-                                                type="number"
-                                                id="budget"
-                                                min="0"
-                                                value={formData.budget}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all font-mono"
-                                                placeholder="5000"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Row 4: 2 Columns Textareas */}
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Project Description <span className="text-red-500">*</span>
-                                            </label>
-                                            <textarea
-                                                id="description"
-                                                required
-                                                rows={3}
-                                                value={formData.description}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all resize-none"
-                                                placeholder="Enter Project Description..."
-                                            ></textarea>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                Additional Notes
-                                            </label>
-                                            <textarea
-                                                id="additionalNotes"
-                                                rows={3}
-                                                value={formData.additionalNotes}
-                                                onChange={handleInputChange}
-                                                className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all resize-none"
-                                                placeholder="I want to..."
-                                            ></textarea>
-                                        </div>
-                                    </div>
-
-                                    {/* Footer / Submit */}
-                                    <div className="pt-4 border-t border-[#333333] mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                                        <button
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            className="w-full sm:w-auto relative overflow-hidden group border border-[#17aa8c] text-[#17aa8c] text-sm font-bold py-3 px-10 rounded-sm bg-transparent transition-all duration-300 hover:shadow-[0_0_20px_rgba(23, 170, 140,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+                            {/* Dynamic Content Area */}
+                            <div className="flex-1 flex flex-col relative px-6 py-6 md:px-8 md:py-8 bg-[#000000]">
+                                <AnimatePresence mode="wait">
+                                    {modalState === "idle" && (
+                                        <motion.form 
+                                            key="form"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 20 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="space-y-5 flex-1 flex flex-col" 
+                                            onSubmit={handleSubmit}
                                         >
-                                            <span className="absolute inset-0 w-full h-full bg-[#17aa8c] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0"></span>
-                                            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300">
-                                                {isSubmitting ? (
-                                                    <>
-                                                        Sending... <Loader2 className="w-4 h-4 animate-spin" />
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        Submit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                                    </>
-                                                )}
-                                            </span>
-                                        </button>
+                                            {/* Row 1: 4 Columns */}
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Full Name <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        id="fullName"
+                                                        required
+                                                        value={formData.fullName}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
+                                                        placeholder="John Doe"
+                                                    />
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Email <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="email"
+                                                        id="email"
+                                                        required
+                                                        value={formData.email}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
+                                                        placeholder="john@example.com"
+                                                    />
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Phone Number
+                                                    </label>
+                                                    <input
+                                                        type="tel"
+                                                        id="phoneNumber"
+                                                        value={formData.phoneNumber}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
+                                                        placeholder="(555) 000-0000"
+                                                    />
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Company Name <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        id="companyName"
+                                                        required
+                                                        value={formData.companyName}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
+                                                        placeholder="Company Inc."
+                                                    />
+                                                </div>
+                                            </div>
 
-                                        <div className="text-[10px] text-[#555555]">
-                                            All fields marked with <span className="text-red-500">*</span> are required.
-                                        </div>
-                                    </div>
+                                            {/* Row 2: Selects */}
+                                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Industry <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <select
+                                                        id="industry"
+                                                        required
+                                                        value={formData.industry}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="" disabled className="text-[#555]">Select Industry</option>
+                                                        <option value="e-commerce">E-Commerce</option>
+                                                        <option value="b2b-services">B2B Services</option>
+                                                        <option value="home-services">Home Services</option>
+                                                        <option value="saas">SaaS / Technology</option>
+                                                        <option value="healthcare">Healthcare</option>
+                                                        <option value="real-estate">Real Estate</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Biggest Challenge <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <select
+                                                        id="biggestChallenge"
+                                                        required
+                                                        value={formData.biggestChallenge}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="" disabled className="text-[#555]">Select Challenge</option>
+                                                        <option value="low-traffic">Not Enough Website Traffic</option>
+                                                        <option value="low-conversion">Traffic Isn't Converting</option>
+                                                        <option value="slow-website">Slow / Outdated Website</option>
+                                                        <option value="lead-quality">Poor Lead Quality</option>
+                                                        <option value="no-strategy">No Clear Digital Strategy</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Monthly Marketing Budget <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <select
+                                                        id="budget"
+                                                        required
+                                                        value={formData.budget}
+                                                        onChange={handleInputChange}
+                                                        className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="" disabled className="text-[#555]">Select Budget</option>
+                                                        <option value="under-1k">Under $1,000</option>
+                                                        <option value="1k-3k">$1,000 - $3,000</option>
+                                                        <option value="3k-10k">$3,000 - $10,000</option>
+                                                        <option value="10k-plus">$10,000+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                                </form>
+                                            {/* Row 3: Website URL + Submit Button */}
+                                            <div className="mt-6 pt-6 border-t border-[#333333] flex-1 flex flex-col justify-end">
+                                                <div className="space-y-2">
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
+                                                        Website URL <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <div className="relative w-full">
+                                                        <input
+                                                            type="url"
+                                                            id="websiteUrl"
+                                                            required
+                                                            value={formData.websiteUrl}
+                                                            onChange={handleInputChange}
+                                                            className="w-full bg-[#111111] border border-[#17aa8c]/50 rounded-sm pl-4 pr-32 py-4 text-base text-white placeholder:text-[#555555] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all font-mono"
+                                                            placeholder="https://yourwebsite.com"
+                                                        />
+                                                        <button
+                                                            type="submit"
+                                                            className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#17aa8c] hover:bg-[#138e75] text-black font-bold uppercase tracking-wider text-sm px-8 rounded-sm transition-colors duration-300 shadow-[0_0_15px_rgba(23,170,140,0.3)]"
+                                                        >
+                                                            Audit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </motion.form>
+                                    )}
+
+                                    {modalState === "loading" && (
+                                        <motion.div
+                                            key="loading"
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.9 }}
+                                            className="flex-1 flex flex-col items-center justify-center py-20"
+                                        >
+                                            <div className="relative w-20 h-20 flex items-center justify-center mb-6">
+                                                <div className="absolute inset-0 bg-[#17aa8c]/20 rounded-full blur-xl animate-pulse" />
+                                                <Loader2 className="w-12 h-12 text-[#17aa8c] animate-spin relative z-10" />
+                                            </div>
+                                            <h3 className="text-xl font-heading font-bold text-white mb-2">
+                                                Preparing your audit...
+                                            </h3>
+                                            <p className="text-[#888888] font-sans text-sm">
+                                                Our systems are securely capturing your request.
+                                            </p>
+                                        </motion.div>
+                                    )}
+
+                                    {modalState === "success" && (
+                                        <motion.div
+                                            key="success"
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            className="flex-1 flex flex-col items-center justify-center py-16 text-center"
+                                        >
+                                            <motion.div 
+                                                initial={{ scale: 0 }}
+                                                animate={{ scale: 1 }}
+                                                transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
+                                                className="w-20 h-20 rounded-full bg-[#17aa8c]/10 flex items-center justify-center mb-6 border border-[#17aa8c]/30"
+                                            >
+                                                <CheckCircle2 className="w-10 h-10 text-[#17aa8c]" />
+                                            </motion.div>
+                                            <h3 className="text-3xl font-heading font-bold text-white mb-4">
+                                                Audit Request Received
+                                            </h3>
+                                            <p className="text-[#888888] font-sans text-lg max-w-md mx-auto mb-10 leading-relaxed">
+                                                Thank you for submitting your audit request. You'll receive your audit via email shortly.
+                                            </p>
+                                            <button
+                                                onClick={handleClose}
+                                                className="bg-transparent border border-[#333333] text-white hover:bg-white hover:text-black font-bold uppercase tracking-wider text-sm py-3 px-10 rounded-sm transition-all duration-300"
+                                            >
+                                                Close Window
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
-
                         </motion.div>
                     </div>
                 </motion.div>

@@ -2,9 +2,13 @@ import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import AuditHero from "@/components/audits/AuditHero";
-import AuditVectors from "@/components/audits/AuditVectors";
+import AuditTrustStrip from "@/components/audits/AuditTrustStrip";
 import AuditWaterfall from "@/components/audits/AuditWaterfall";
 import AuditReport from "@/components/audits/AuditReport";
+import AuditCommonIssues from "@/components/audits/AuditCommonIssues";
+import AuditWhyUs from "@/components/audits/AuditWhyUs";
+import AuditFAQs from "@/components/audits/AuditFAQs";
+import AuditFooterCTA from "@/components/audits/AuditFooterCTA";
 import AuditModal from "@/components/audits/AuditModal";
 import { useState } from "react";
 
@@ -21,17 +25,29 @@ const PerformanceAudits = () => {
             <Header />
 
             <main className="flex-grow">
-                {/* 1. The Diagnostic HUD (Animated SVG Gauge) */}
+                {/* 1. The Diagnostic HUD */}
                 <AuditHero onOpenModal={() => setIsAuditModalOpen(true)} />
 
-                {/* 2. The 2x2 Audit Vectors Grid */}
-                <AuditVectors />
+                {/* Trust Strip */}
+                <AuditTrustStrip />
 
-                {/* 3. The Before/After Waterfall Visual */}
+                {/* 2. Here's What You'll Receive (6-card grid) */}
+                <AuditReport onOpenModal={() => setIsAuditModalOpen(true)} />
+
+                {/* 3. Common Issues 8-card grid */}
+                <AuditCommonIssues onOpenModal={() => setIsAuditModalOpen(true)} />
+
+                {/* 4. Why Us & Social Proof */}
+                <AuditWhyUs />
+
+                {/* 5. The Before/After Waterfall Visual */}
                 <AuditWaterfall />
 
-                {/* 4. The 3D Delivered Report & CTA */}
-                <AuditReport onOpenModal={() => setIsAuditModalOpen(true)} />
+                {/* 6. FAQs */}
+                <AuditFAQs />
+
+                {/* 7. Footer CTA */}
+                <AuditFooterCTA onOpenModal={() => setIsAuditModalOpen(true)} />
             </main>
 
             <AuditModal

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, FileText, ArrowRight } from "lucide-react";
+import { ArrowRight, LayoutDashboard, Search, MapPin, Users, TrendingUp, CheckSquare } from "lucide-react";
 
 interface AuditReportProps {
     onOpenModal: () => void;
@@ -7,105 +7,98 @@ interface AuditReportProps {
 
 const AuditReport = ({ onOpenModal }: AuditReportProps) => {
     const deliverables = [
-        "Executive Summary and Business Impact",
-        "Marketing & Funnel Analysis",
-        "Automation & Lead Nurture Review",
-        "Digital Infrastructure Optimization",
-        "Analytics & Reporting Review"
+        {
+            title: "Website Performance Review",
+            description: "Deep-dive analysis into load times, mobile responsiveness, and structural bottlenecks affecting user experience.",
+            icon: <LayoutDashboard className="w-6 h-6" />
+        },
+        {
+            title: "SEO & AI Visibility Assessment",
+            description: "Evaluate your search engine rankings and readiness for AI-driven discovery platforms.",
+            icon: <Search className="w-6 h-6" />
+        },
+        {
+            title: "Google Business Profile Review",
+            description: "Optimize your local footprint to ensure you capture high-intent customers in your area.",
+            icon: <MapPin className="w-6 h-6" />
+        },
+        {
+            title: "Lead Generation Analysis",
+            description: "Review your conversion funnels, forms, and CTAs to maximize the leads generated from existing traffic.",
+            icon: <Users className="w-6 h-6" />
+        },
+        {
+            title: "Growth Opportunities",
+            description: "Identify untapped marketing channels and strategies to aggressively scale your business.",
+            icon: <TrendingUp className="w-6 h-6" />
+        },
+        {
+            title: "Prioritized Action Plan",
+            description: "A clear, step-by-step roadmap outlining exactly what to fix first for the highest ROI.",
+            icon: <CheckSquare className="w-6 h-6" />
+        }
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden text-center md:text-left">
-            {/* Background Hex Texture (Simulated) */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] opacity-20 pointer-events-none" />
-
-            <div className="container-max section-padding grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-
-                {/* Left: The 3D PDF Representation */}
-                <div className="flex justify-center items-center perspective-[1000px] h-full min-h-[400px]">
-                    <motion.div
-                        initial={{ opacity: 0, rotateY: 30, rotateX: 10, scale: 0.9 }}
-                        whileInView={{ opacity: 1, rotateY: 15, rotateX: 5, scale: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                        className="relative w-full max-w-[340px] aspect-[1/1.4] bg-[#0a0a0a] rounded-r-3xl border border-[#333333] shadow-[30px_20px_50px_rgba(0,0,0,0.8),_inset_10px_0_20px_rgba(255,255,255,0.02)] overflow-hidden flex flex-col"
-                    >
-                        {/* Book Binding effect */}
-                        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black to-transparent border-r border-white/5 z-20 pointer-events-none" />
-
-                        {/* Report Cover Stylings */}
-                        <div className="p-8 h-full flex flex-col justify-between relative z-10">
-                            <div>
-                                <div className="text-[#17aa8c] text-xs font-mono mb-2 uppercase tracking-widest bg-[#17aa8c]/10 inline-block px-2 py-1 rounded">Confidential</div>
-                                <h3 className="text-2xl font-heading font-bold text-white mb-2 leading-tight">Performance<br />Diagnostic<br />Report</h3>
-                                <div className="text-[#555] text-[10px] font-mono border-t border-[#333333] pt-2 mt-4 inline-block">
-                                    ID: CHK-2024-X9<br />
-                                    STATUS: EXECUTED
-                                </div>
-                            </div>
-
-                            {/* Faux graph on cover */}
-                            <div className="flex items-end h-24 gap-1 opacity-50">
-                                {[40, 70, 45, 90, 65, 100, 80].map((h, i) => (
-                                    <div key={i} className="flex-1 bg-[#17aa8c]/40 rounded-t-sm" style={{ height: `${h}%` }}></div>
-                                ))}
-                            </div>
-
-                            <div className="flex items-center gap-3 border-t border-[#333333] pt-6">
-                                <div className="w-8 h-8 rounded bg-[#111111] border border-[#333333] flex items-center justify-center">
-                                    <FileText className="w-4 h-4 text-[#888888]" />
-                                </div>
-                                <div className="text-left">
-                                    <div className="text-xs font-mono text-white">45 Pages</div>
-                                    <div className="text-[10px] font-mono text-[#555]">Generated in 48hrs</div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-
-                {/* Right: Deliverables & Final CTA */}
+        <section className="py-24 relative overflow-hidden bg-[#050505]">
+            <div className="container-max section-padding relative z-10">
+                {/* Header Section */}
                 <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
+                    className="text-center max-w-4xl mx-auto mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
-                        Your Digital Performance <span className="text-[#17aa8c]">Blueprint</span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                        Here's What You'll <span className="text-[#17aa8c]">Receive</span>
                     </h2>
-                    <p className="text-[#888888] text-lg leading-relaxed mb-8 font-sans text-center">
-                        Our audit provides a clear overview of how your digital systems, marketing channels, and automation workflows are performing.
-                        You receive practical insights and recommendations that help improve lead generation, customer engagement, and operational efficiency.
+                    <p className="text-[#888888] text-lg leading-relaxed font-sans">
+                        Your complimentary Digital Performance Audit includes a personalized review of the key areas that influence your online visibility, lead generation, and business growth along with practical recommendations tailored to your business.
                     </p>
+                </motion.div>
 
-                    <div className="space-y-4 mb-10">
-                        {deliverables.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-xl"
-                            >
-                                <CheckCircle2 className="w-5 h-5 text-[#17aa8c] flex-shrink-0" />
-                                <span className="text-white font-medium">{item}</span>
-                            </motion.div>
-                        ))}
-                    </div>
+                {/* 6-Card Grid (White Card UI Style) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+                    {deliverables.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="bg-white rounded-2xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_rgba(23,170,140,0.2)] transition-all duration-300 transform hover:-translate-y-1 group relative overflow-hidden border border-transparent"
+                        >
+                            <div className="w-14 h-14 rounded-xl bg-[#f0f9f7] text-[#17aa8c] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#17aa8c] group-hover:text-white transition-all duration-300 shadow-sm">
+                                {item.icon}
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 font-heading leading-tight">{item.title}</h3>
+                            <p className="text-gray-600 font-sans text-sm leading-relaxed">
+                                {item.description}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
 
+                {/* Final CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex flex-col items-center justify-center"
+                >
                     <button
                         onClick={onOpenModal}
-                        className="w-full relative overflow-hidden group border border-[#17aa8c] text-[#17aa8c] font-bold py-5 rounded-sm bg-transparent transition-all duration-300 hover:shadow-[0_0_30px_rgba(23, 170, 140,0.3)]"
+                        className="relative overflow-hidden group bg-[#17aa8c] text-black font-bold py-5 px-10 rounded-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(23,170,140,0.4)]"
                     >
-                        <span className="absolute inset-0 w-full h-full bg-[#17aa8c] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out z-0"></span>
-                        <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-black transition-colors duration-300 text-lg">
-                            schedule Your Audit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <span className="relative z-10 flex items-center justify-center gap-2 text-lg uppercase tracking-wider">
+                            Schedule Your Audit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </button>
-                    <p className="text-[#555] text-xs font-mono text-center mt-4 tracking-widest">limited Audit Availability Each Month.</p>
-
+                    <p className="text-[#555] text-xs font-mono text-center mt-6 tracking-widest uppercase">
+                        Limited Audit Availability Each Month.
+                    </p>
                 </motion.div>
 
             </div>
