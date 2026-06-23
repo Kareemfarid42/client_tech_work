@@ -13,7 +13,7 @@ const credibilityItems = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-secondary w-full overflow-x-hidden pt-24 lg:pt-32 pb-32 md:pb-0">
+    <section className="relative min-h-[90vh] bg-secondary w-full overflow-x-hidden pt-24 pb-20 md:pb-0">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-secondary/95" />
 
@@ -24,13 +24,13 @@ export const HeroSection = () => {
         style={{ background: "radial-gradient(circle, #3B82F6 0%, transparent 70%)" }} />
 
       <div className="relative container-max section-padding">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-0 items-center justify-between w-full max-w-7xl mx-auto px-4 min-h-[70vh]">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-0 items-center lg:items-start justify-between w-full max-w-7xl mx-auto px-4">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-6 w-full lg:w-1/2 pt-10 pb-5"
+            className="flex flex-col gap-6 w-full lg:w-1/2 pt-10 lg:pt-10 pb-5 lg:pb-20"
           >
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-secondary-foreground leading-tight">
