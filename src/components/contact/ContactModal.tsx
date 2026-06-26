@@ -91,7 +91,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
                         {/* Name & Company Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium text-[#888888] block">Full Name</label>
+                                <label htmlFor="name" className="text-sm font-medium text-[#888888] block">Full Name <span className="text-red-500">*</span></label>
                                 <input
                                     type="text"
                                     id="name"
@@ -103,11 +103,13 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="company" className="text-sm font-medium text-[#888888] block">Company Name</label>
+                                <label htmlFor="company" className="text-sm font-medium text-[#888888] block flex items-center justify-between">
+                                    <span>Company Name</span>
+                                    <span className="text-[10px] text-[#555]">(Optional)</span>
+                                </label>
                                 <input
                                     type="text"
                                     id="company"
-                                    required
                                     value={formData.company}
                                     onChange={handleInputChange}
                                     className="w-full bg-[#111111] border border-white/10 rounded-sm px-4 py-2.5 text-white placeholder:text-[#555555] focus:outline-none focus:border-[#2DB298] focus:ring-1 focus:ring-[#2DB298] transition-all"
@@ -118,7 +120,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
 
                         {/* Email */}
                         <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-medium text-[#888888] block">Work Email</label>
+                            <label htmlFor="email" className="text-sm font-medium text-[#888888] block">Work Email <span className="text-red-500">*</span></label>
                             <input
                                 type="email"
                                 id="email"
@@ -132,11 +134,13 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
 
                         {/* Service Selection Dropdown */}
                         <div className="space-y-2">
-                            <label htmlFor="service" className="text-sm font-medium text-[#888888] block">How can we help?</label>
+                            <label htmlFor="service" className="text-sm font-medium text-[#888888] block flex items-center justify-between">
+                                <span>How can we help?</span>
+                                <span className="text-[10px] text-[#555]">(Optional)</span>
+                            </label>
                             <div className="relative">
                                 <select
                                     id="service"
-                                    required
                                     value={formData.service}
                                     onChange={handleInputChange}
                                     className="w-full bg-[#111111] border border-white/10 rounded-sm px-4 py-2.5 text-white focus:outline-none focus:border-[#2DB298] focus:ring-1 focus:ring-[#2DB298] transition-all appearance-none cursor-pointer"
@@ -168,10 +172,12 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
 
                         {/* Message Box */}
                         <div className="space-y-2">
-                            <label htmlFor="message" className="text-sm font-medium text-[#888888] block">Project Details</label>
+                            <label htmlFor="message" className="text-sm font-medium text-[#888888] block flex items-center justify-between">
+                                <span>Project Details</span>
+                                <span className="text-[10px] text-[#555]">(Optional)</span>
+                            </label>
                             <textarea
                                 id="message"
-                                required
                                 rows={2}
                                 value={formData.message}
                                 onChange={handleInputChange}

@@ -167,11 +167,12 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
                                                 </div>
                                                 <div className="space-y-1.5">
                                                     <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                        Phone Number
+                                                        Phone Number <span className="text-red-500">*</span>
                                                     </label>
                                                     <input
                                                         type="tel"
                                                         id="phoneNumber"
+                                                        required
                                                         value={formData.phoneNumber}
                                                         onChange={handleInputChange}
                                                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
@@ -179,13 +180,13 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
                                                     />
                                                 </div>
                                                 <div className="space-y-1.5">
-                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                        Company Name <span className="text-red-500">*</span>
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block flex items-center justify-between">
+                                                        <span>Company Name</span>
+                                                        <span className="text-[8px] text-[#444]">(Optional)</span>
                                                     </label>
                                                     <input
                                                         type="text"
                                                         id="companyName"
-                                                        required
                                                         value={formData.companyName}
                                                         onChange={handleInputChange}
                                                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white placeholder:text-[#333333] focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all"
@@ -197,62 +198,76 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
                                             {/* Row 2: Selects */}
                                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                                 <div className="space-y-1.5">
-                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                        Industry <span className="text-red-500">*</span>
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block flex items-center justify-between">
+                                                        <span>Industry</span>
+                                                        <span className="text-[8px] text-[#444]">(Optional)</span>
                                                     </label>
                                                     <select
                                                         id="industry"
-                                                        required
                                                         value={formData.industry}
                                                         onChange={handleInputChange}
                                                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
                                                     >
                                                         <option value="" disabled className="text-[#555]">Select Industry</option>
-                                                        <option value="e-commerce">E-Commerce</option>
-                                                        <option value="b2b-services">B2B Services</option>
                                                         <option value="home-services">Home Services</option>
-                                                        <option value="saas">SaaS / Technology</option>
+                                                        <option value="franchise">Franchise</option>
                                                         <option value="healthcare">Healthcare</option>
+                                                        <option value="legal">Legal</option>
                                                         <option value="real-estate">Real Estate</option>
+                                                        <option value="mortgage">Mortgage</option>
+                                                        <option value="financial-services">Financial Services</option>
+                                                        <option value="construction">Construction</option>
+                                                        <option value="e-commerce">E-commerce</option>
+                                                        <option value="manufacturing">Manufacturing</option>
+                                                        <option value="professional-services">Professional Services</option>
+                                                        <option value="education">Education</option>
+                                                        <option value="technology-saas">Technology / SaaS</option>
+                                                        <option value="non-profit">Non-Profit</option>
                                                         <option value="other">Other</option>
                                                     </select>
                                                 </div>
                                                 <div className="space-y-1.5">
-                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                        Biggest Challenge <span className="text-red-500">*</span>
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block flex items-center justify-between">
+                                                        <span>Biggest Challenge</span>
+                                                        <span className="text-[8px] text-[#444]">(Optional)</span>
                                                     </label>
                                                     <select
                                                         id="biggestChallenge"
-                                                        required
                                                         value={formData.biggestChallenge}
                                                         onChange={handleInputChange}
                                                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
                                                     >
                                                         <option value="" disabled className="text-[#555]">Select Challenge</option>
-                                                        <option value="low-traffic">Not Enough Website Traffic</option>
-                                                        <option value="low-conversion">Traffic Isn't Converting</option>
-                                                        <option value="slow-website">Slow / Outdated Website</option>
-                                                        <option value="lead-quality">Poor Lead Quality</option>
-                                                        <option value="no-strategy">No Clear Digital Strategy</option>
+                                                        <option value="need-more-leads">Need More Qualified Leads</option>
+                                                        <option value="low-conversions">Low Website Conversions</option>
+                                                        <option value="improve-seo">Improve Google Rankings (SEO)</option>
+                                                        <option value="google-ads">Google Ads Performance</option>
+                                                        <option value="meta-ads">Meta/Facebook Ads Performance</option>
+                                                        <option value="ai-search-visibility">AI Search Visibility (AEO/GEO)</option>
+                                                        <option value="website-performance">Website Performance / UX</option>
+                                                        <option value="reputation-management">Reputation Management</option>
+                                                        <option value="not-sure">Not Sure (Need an Expert Review)</option>
                                                         <option value="other">Other</option>
                                                     </select>
                                                 </div>
                                                 <div className="space-y-1.5">
-                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block">
-                                                        Monthly Marketing Budget <span className="text-red-500">*</span>
+                                                    <label className="text-[10px] font-semibold uppercase tracking-widest text-[#555] block flex items-center justify-between">
+                                                        <span>Monthly Marketing Budget</span>
+                                                        <span className="text-[8px] text-[#444]">(Optional)</span>
                                                     </label>
                                                     <select
                                                         id="budget"
-                                                        required
                                                         value={formData.budget}
                                                         onChange={handleInputChange}
                                                         className="w-full bg-[#111111] border border-white/10 rounded-sm px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#17aa8c] focus:ring-1 focus:ring-[#17aa8c] transition-all appearance-none cursor-pointer"
                                                     >
                                                         <option value="" disabled className="text-[#555]">Select Budget</option>
-                                                        <option value="under-1k">Under $1,000</option>
-                                                        <option value="1k-3k">$1,000 - $3,000</option>
-                                                        <option value="3k-10k">$3,000 - $10,000</option>
-                                                        <option value="10k-plus">$10,000+</option>
+                                                        <option value="under-1k">Under $1,000/month</option>
+                                                        <option value="1k-2.5k">$1,000–2,499/month</option>
+                                                        <option value="2.5k-5k">$2,500–4,999/month</option>
+                                                        <option value="5k-10k">$5,000–9,999/month</option>
+                                                        <option value="10k-plus">$10,000+/month</option>
+                                                        <option value="not-investing">Not Currently Investing</option>
                                                     </select>
                                                 </div>
                                             </div>
