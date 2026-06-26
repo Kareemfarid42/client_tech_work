@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MousePointerClick, MapPin, Smartphone, Gauge, ShieldAlert, Users, Store } from "lucide-react";
+import { MousePointerClick, MapPin, Smartphone, Gauge, ShieldAlert, Users, Store, Search, Target, TrendingUp } from "lucide-react";
 
 interface AuditCommonIssuesProps {
     onOpenModal: () => void;
@@ -102,6 +102,62 @@ const AuditCommonIssues = ({ onOpenModal }: AuditCommonIssuesProps) => {
                         </button>
                     </motion.div>
                 </div>
+
+                {/* Goal Banner */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-16 bg-[#111111] border border-[#333333] rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] max-w-6xl mx-auto"
+                >
+                    {/* Left side */}
+                    <div className="flex items-center gap-5 lg:w-2/5 lg:border-r border-[#333333] lg:pr-8">
+                        <div className="w-16 h-16 rounded-full bg-[#17aa8c]/20 flex items-center justify-center flex-shrink-0 text-[#17aa8c] border border-[#17aa8c]/30 shadow-[0_0_15px_rgba(23,170,140,0.2)]">
+                            <Search className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-white mb-1.5 font-heading">Our goal is simple:</h4>
+                            <p className="text-[#888888] text-sm font-sans leading-relaxed">
+                                Identify the issues. Prioritize what matters. Help you grow.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Right side */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-4 lg:w-3/5 lg:pl-4 justify-between">
+                        {/* Item 1 */}
+                        <div className="flex items-start gap-4 flex-1">
+                            <Target className="w-6 h-6 text-[#17aa8c] flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h5 className="text-white font-bold text-sm mb-1 font-heading">Actionable Insights</h5>
+                                <p className="text-[#888888] text-[11px] leading-relaxed">Practical recommendations you can act on.</p>
+                            </div>
+                        </div>
+                        
+                        <div className="hidden sm:block w-px h-12 bg-[#333333]"></div>
+
+                        {/* Item 2 */}
+                        <div className="flex items-start gap-4 flex-1">
+                            <TrendingUp className="w-6 h-6 text-[#17aa8c] flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h5 className="text-white font-bold text-sm mb-1 font-heading">More Leads</h5>
+                                <p className="text-[#888888] text-[11px] leading-relaxed">Improve visibility, user experience & conversions.</p>
+                            </div>
+                        </div>
+
+                        <div className="hidden sm:block w-px h-12 bg-[#333333]"></div>
+
+                        {/* Item 3 */}
+                        <div className="flex items-start gap-4 flex-1">
+                            <Users className="w-6 h-6 text-[#17aa8c] flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h5 className="text-white font-bold text-sm mb-1 font-heading">Business Growth</h5>
+                                <p className="text-[#888888] text-[11px] leading-relaxed">Turn insights into real, measurable growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
