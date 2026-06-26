@@ -10,6 +10,7 @@ import AuditWhyUs from "@/components/audits/AuditWhyUs";
 import AuditFAQs from "@/components/audits/AuditFAQs";
 import AuditFooterCTA from "@/components/audits/AuditFooterCTA";
 import AuditModal from "@/components/audits/AuditModal";
+import AuditHowItWorks from "@/components/audits/AuditHowItWorks";
 import { useState } from "react";
 
 const PerformanceAudits = () => {
@@ -30,6 +31,9 @@ const PerformanceAudits = () => {
 
                 {/* Trust Strip */}
                 <AuditTrustStrip />
+
+                {/* How It Works */}
+                <AuditHowItWorks />
 
                 {/* 2. Here's What You'll Receive (6-card grid) */}
                 <AuditReport onOpenModal={() => setIsAuditModalOpen(true)} />
