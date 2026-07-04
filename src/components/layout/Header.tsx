@@ -140,7 +140,7 @@ export const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>(530) 609-3136</span>
               </a>
-              <Link to="/contact">
+              <Link to="https://calendly.com/admin-clientech-solutions/strategy-session">
                 <Button variant="hero" size="lg" className="flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
                   Speak with an Expert

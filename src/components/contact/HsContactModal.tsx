@@ -81,7 +81,7 @@ export const HsContactModal = ({ children, defaultService }: HsContactModalProps
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="max-w-md bg-[#0a0a0a] border-[#333333] p-0 overflow-hidden rounded-3xl">
+            <DialogContent className="w-[95vw] max-w-md bg-[#0a0a0a] border-[#333333] p-0 rounded-3xl max-h-[calc(100vh-var(--nav-height)-30px)] overflow-y-auto no-scrollbar shadow-2xl !top-[calc(var(--nav-height)+15px)] !translate-y-0 mb-4">
                 <div className="p-5">
                     <h2 className="text-xl font-heading font-bold text-white mb-0.5">Send a Message</h2>
                     <p className="text-[#888888] text-[11px] mb-4">Fill out the form below and we'll get back to you shortly.</p>

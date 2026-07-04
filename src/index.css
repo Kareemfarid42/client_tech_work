@@ -61,6 +61,21 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 168 76% 38%;
+
+    /* Nav Height */
+    --nav-height: 96px;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --nav-height: 104px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --nav-height: 112px;
+    }
   }
 
   .dark {
@@ -169,6 +184,17 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 }
 

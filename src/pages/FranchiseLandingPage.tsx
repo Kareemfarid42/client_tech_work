@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CalendarCheck, ChevronDown, ChevronUp, MapPin, Share2, Megaphone, Users, Cpu, Star, Network } from "lucide-react";
@@ -87,8 +87,8 @@ const franchiseServices = [
 
 export default function FranchiseLandingPage() {
   const [showAllServices, setShowAllServices] = React.useState(false);
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
+  React.useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
   return (

@@ -83,7 +83,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogContent className="max-w-sm bg-[#0a0a0a] border-[#333333] p-0 overflow-hidden rounded-3xl">
+            <DialogContent className="w-[95vw] max-w-sm bg-[#0a0a0a] border-[#333333] p-0 rounded-3xl max-h-[calc(100vh-var(--nav-height)-30px)] overflow-y-auto no-scrollbar shadow-2xl !top-[calc(var(--nav-height)+15px)] !translate-y-0 mb-4">
                 <div className="p-4 md:p-5">
                     <h2 className="text-lg font-heading font-bold text-white mb-4">Speak with an Expert</h2>
 
@@ -103,7 +103,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="company" className="text-sm font-medium text-[#888888] block flex items-center justify-between">
+                                <label htmlFor="company" className="text-sm font-medium text-[#888888] flex items-center justify-between whitespace-nowrap gap-1">
                                     <span>Company Name</span>
                                     <span className="text-[10px] text-[#555]">(Optional)</span>
                                 </label>
@@ -146,23 +146,69 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
                                     className="w-full bg-[#111111] border border-white/10 rounded-sm px-4 py-2.5 text-white focus:outline-none focus:border-[#2DB298] focus:ring-1 focus:ring-[#2DB298] transition-all appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled className="text-[#555]">Select your area of interest...</option>
-                                    {/* Primary Capabilities */}
-                                    <option value="Digital Foundations" className="bg-[#111111] text-white">Digital Foundations</option>
-                                    <option value="Digital Solutions Engineering" className="bg-[#111111] text-white">Digital Solutions Engineering</option>
-                                    <option value="AI, Data & Intelligent Systems" className="bg-[#111111] text-white">AI, Data & Intelligent Systems</option>
-                                    <option value="Digital Transformation & Advisory" className="bg-[#111111] text-white">Digital Transformation & Advisory</option>
-                                    {/* Supporting Capabilities */}
-                                    <option value="Cloud & Infrastructure Services" className="bg-[#111111] text-white">Cloud & Infrastructure Services</option>
-                                    <option value="Enterprise Systems & Platforms" className="bg-[#111111] text-white">Enterprise Systems & Platforms</option>
-                                    <option value="UX, Product & Experience Design" className="bg-[#111111] text-white">UX, Product & Experience Design</option>
-                                    <option value="Integration & Automation" className="bg-[#111111] text-white">Integration & Automation</option>
-                                    <option value="Security, Compliance & Reliability" className="bg-[#111111] text-white">Security, Compliance & Reliability</option>
-                                    <option value="Staff Augmentation & Managed Teams" className="bg-[#111111] text-white">Staff Augmentation & Managed Teams</option>
-                                    {/* Specialized & General */}
-                                    <option value="SEO & Search Optimization" className="bg-[#111111] text-white">SEO & Search Optimization</option>
-                                    <option value="Social Media Marketing" className="bg-[#111111] text-white">Social Media Marketing</option>
-                                    <option value="Performance Audit" className="bg-[#111111] text-white">Complimentary Performance Audit</option>
-                                    <option value="General Inquiry" className="bg-[#111111] text-white">General Inquiry</option>
+                                    
+                                    {(() => {
+                                        const dynamicOptions: Record<string, string[]> = {
+                                            "Content Marketing": [
+                                                "Content Marketing", "Content Strategy", "SEO Content Writing", "Website Copywriting", 
+                                                "Blog Writing", "Landing Page Copy", "Social Media Content", "Short-Form Video Scripts",
+                                                "Video Shorts (Reels, TikTok & YouTube Shorts)", "Email Marketing Content", "Content Calendar Planning"
+                                            ],
+                                            "Google Ads": [
+                                                "Google Ads", "Google Ads Account Setup", "Search Campaigns", "Display Campaigns", 
+                                                "Performance Max Campaigns", "Local Services Ads (LSA)", "Google Shopping Ads", 
+                                                "Remarketing Campaigns", "Conversion Tracking Setup", "Campaign Optimization", "Monthly Campaign Management"
+                                            ],
+                                            "Meta Ads": [
+                                                "Meta Ads", "Facebook Ads", "Instagram Ads", "Lead Generation Campaigns", "Brand Awareness Campaigns",
+                                                "Retargeting Campaigns", "Lookalike Audience Setup", "Meta Pixel & Conversion API Setup",
+                                                "Creative Testing", "Campaign Optimization", "Monthly Ad Management"
+                                            ],
+                                            "Lead Generation": [
+                                                "Lead Generation", "Landing Pages", "Lead Funnels", "Lead Capture Forms", "CRM Integration",
+                                                "Appointment Booking Systems", "Email Lead Nurturing", "SMS Follow-up Campaigns",
+                                                "Local Lead Generation", "B2B Lead Generation", "Pipeline Management"
+                                            ],
+                                            "Marketing Automation": [
+                                                "Marketing Automation", "CRM Automation", "Email Automation", "SMS Automation", "Workflow Automation",
+                                                "Lead Scoring", "Appointment Reminders", "Follow-up Sequences", "Review Request Automation",
+                                                "Sales Pipeline Automation", "AI Workflow Integration"
+                                            ],
+                                            "AI Chatbots": [
+                                                "AI Chatbots", "Website AI Chatbots", "Lead Qualification Bots", "Appointment Booking Bots",
+                                                "Customer Support Chatbots", "FAQ Automation", "Messenger Chatbots",
+                                                "Instagram DM Automation", "WhatsApp Automation", "AI Sales Assistant", "CRM Integration"
+                                            ]
+                                        };
+
+                                        if (defaultService && dynamicOptions[defaultService]) {
+                                            return dynamicOptions[defaultService].map((opt) => (
+                                                <option key={opt} value={opt} className="bg-[#111111] text-white">{opt}</option>
+                                            ));
+                                        }
+
+                                        return (
+                                            <>
+                                                {/* Primary Capabilities */}
+                                                <option value="Digital Foundations" className="bg-[#111111] text-white">Digital Foundations</option>
+                                                <option value="Digital Solutions Engineering" className="bg-[#111111] text-white">Digital Solutions Engineering</option>
+                                                <option value="AI, Data & Intelligent Systems" className="bg-[#111111] text-white">AI, Data & Intelligent Systems</option>
+                                                <option value="Digital Transformation & Advisory" className="bg-[#111111] text-white">Digital Transformation & Advisory</option>
+                                                {/* Supporting Capabilities */}
+                                                <option value="Cloud & Infrastructure Services" className="bg-[#111111] text-white">Cloud & Infrastructure Services</option>
+                                                <option value="Enterprise Systems & Platforms" className="bg-[#111111] text-white">Enterprise Systems & Platforms</option>
+                                                <option value="UX, Product & Experience Design" className="bg-[#111111] text-white">UX, Product & Experience Design</option>
+                                                <option value="Integration & Automation" className="bg-[#111111] text-white">Integration & Automation</option>
+                                                <option value="Security, Compliance & Reliability" className="bg-[#111111] text-white">Security, Compliance & Reliability</option>
+                                                <option value="Staff Augmentation & Managed Teams" className="bg-[#111111] text-white">Staff Augmentation & Managed Teams</option>
+                                                {/* Specialized & General */}
+                                                <option value="SEO & Search Optimization" className="bg-[#111111] text-white">SEO & Search Optimization</option>
+                                                <option value="Social Media Marketing" className="bg-[#111111] text-white">Social Media Marketing</option>
+                                                <option value="Performance Audit" className="bg-[#111111] text-white">Complimentary Performance Audit</option>
+                                                <option value="General Inquiry" className="bg-[#111111] text-white">General Inquiry</option>
+                                            </>
+                                        );
+                                    })()}
                                 </select>
                                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#888888]">
                                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>

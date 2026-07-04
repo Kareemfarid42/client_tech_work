@@ -5,57 +5,50 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    category: "Home Services / Local SEO",
-    quote: "Within a few months, we started showing up in Google Maps for searches that actually mattered. The increase in calls and quote requests was noticeable almost immediately. Local SEO became one of our best lead sources.",
-    name: "Michael Anderson",
-    role: "HVAC Company Owner",
+    category: "Custom Web Application",
+    quote: "The custom web app they built completely streamlined our internal processes. It's incredibly fast, intuitive, and exactly what we needed to scale operations without hiring more administrative staff.",
+    name: "James Wilson",
+    role: "Operations Director",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
   },
   {
-    category: "Franchise / Multi-Location SEO",
-    quote: "Managing visibility across multiple locations was becoming a challenge. Their team helped standardize everything from our Google Business Profiles to local rankings, making it much easier for customers to find us.",
-    name: "Jennifer Roberts",
-    role: "Franchise Operations Manager",
+    category: "High-Performance Ecommerce",
+    quote: "Our old site was painfully slow and losing us sales. Since launching the new custom ecommerce platform, our page load times dropped by 70% and our conversion rate doubled in the first month.",
+    name: "Sarah Jenkins",
+    role: "Ecommerce Founder",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop",
   },
   {
-    category: "Real Estate / Content Marketing",
-    quote: "The content strategy completely changed our online presence. We went from relying almost entirely on referrals to generating a steady flow of organic traffic and qualified inquiries every month.",
-    name: "David Thompson",
-    role: "Real Estate Broker",
+    category: "Corporate Website Redesign",
+    quote: "They didn't just build a website; they built a digital extension of our brand. The design is stunning, the UX is flawless, and it positions us perfectly as industry leaders.",
+    name: "Michael Chang",
+    role: "Marketing Executive",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
   },
   {
-    category: "Google Ads",
-    quote: "We had tried Google Ads before with mixed results. After restructuring our campaigns and landing pages, lead quality improved significantly and our cost per lead dropped.",
-    name: "Chris Martinez",
-    role: "Roofing Company Owner",
+    category: "Conversion Optimization",
+    quote: "The previous agency built something pretty but it didn't convert. The new site focuses on user journey and clear CTAs. We're seeing 3x more qualified leads coming through the site organically.",
+    name: "Elena Rodriguez",
+    role: "B2B Sales Manager",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop",
   },
   {
-    category: "Google Business Profile & Reviews",
-    quote: "Their review and reputation strategy helped us build trust online. We saw a substantial increase in reviews, profile views, and phone calls directly from our Google Business Profile.",
-    name: "Sarah Collins",
-    role: "Dental Practice Owner",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
-  },
-  {
-    category: "AI Search Visibility",
-    quote: "What impressed us most was their focus on AI search visibility. As search behavior evolves, they've helped position our business to stay visible not just on Google, but across emerging AI-driven platforms as well.",
+    category: "Franchise Platform",
+    quote: "Managing 50+ location websites was a nightmare before. The scalable architecture they built allows us to spin up new localized sites in minutes while maintaining perfect brand consistency.",
     name: "Robert Hughes",
-    role: "Managing Partner",
+    role: "Franchise Director",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
   },
   {
-    category: "Ecommerce / SEO",
-    quote: "Organic traffic became one of our strongest acquisition channels. The combination of technical SEO, content optimization, and authority building helped us reach customers we weren't capturing before.",
+    category: "SaaS Marketing Site",
+    quote: "We needed a marketing site that could explain our complex software simply. The interactive elements, flawless animations, and lightning-fast load times make a massive difference in how our product is perceived.",
     name: "Amanda Lee",
-    role: "Ecommerce Brand Founder",
+    role: "Tech Startup CEO",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
   }
 ];
 
-export const SeoTestimonials = () => {
+export const WebDevTestimonials = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

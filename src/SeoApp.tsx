@@ -60,7 +60,7 @@ const SeoApp = () => {
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">
         {/* 1. Hero Section */}
         <section className="relative pt-20 pb-32 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-20 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="container mx-auto px-6 lg:px-20 grid lg:grid-cols-2 gap-12 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -82,11 +82,11 @@ const SeoApp = () => {
                     Get Free Visibility Audit
                   </button>
                 </HsContactModal>
-                <HsDemoModal>
-                  <button className="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-lg font-bold transition-all">
-                    Book Strategy Call
-                  </button>
-                </HsDemoModal>
+
+                <button className="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-lg font-bold transition-all">
+                  <a href="https://calendly.com/admin-clientech-solutions/strategy-session">Book Strategy Call</a>
+                </button>
+
               </div>
             </motion.div>
 
@@ -94,26 +94,19 @@ const SeoApp = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative lg:ml-10"
+              className="relative lg:ml-10 h-full"
             >
-              <HsDemoModal>
-                <div className="relative z-10 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl group cursor-pointer overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" alt="Dashboard" className="rounded-xl w-full transition-transform duration-700 group-hover:scale-105" />
-                  
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-[#17AA8C] flex items-center justify-center shadow-[0_0_30px_rgba(23,170,140,0.4)] group-hover:scale-110 transition-transform duration-300">
-                      <Play className="w-8 h-8 text-white fill-current translate-x-1" />
-                    </div>
-                  </div>
-                  
-                  {/* Glass Label */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white font-bold text-sm">ClienTech SEO System Walkthrough</p>
-                    <p className="text-gray-300 text-xs mt-1">Click to watch the 2-minute demo</p>
-                  </div>
-                </div>
-              </HsDemoModal>
+              <div className="">
+                <video
+                  className="rounded-xl w-full object-cover h-[420px]"
+                  src="/seo-hero-video.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                />
+              </div>
               {/* Ambient Glow */}
               <div className="absolute -inset-10 bg-[#17AA8C]/10 blur-[100px] rounded-full -z-10" />
             </motion.div>

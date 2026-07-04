@@ -1,10 +1,10 @@
 import { useLayoutEffect } from "react";
-import SeoApp from "@/SeoApp";
+import WebDevApp from "@/WebDevApp";
 
-export default function SeoLandingPage() {
+export default function WebDevLandingPage() {
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
-  return <SeoApp />;
+  return <WebDevApp />;
 }

@@ -19,6 +19,7 @@ const servicesList = [
     icon: LayoutTemplate,
     title: "Web Development",
     description: "Build fast, secure, and conversion-optimized websites that serve as the foundation of your digital presence.",
+    link: "/industry/web-development",
   },
   {
     icon: Search,
