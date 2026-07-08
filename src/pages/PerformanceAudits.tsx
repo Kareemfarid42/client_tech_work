@@ -25,7 +25,7 @@ const PerformanceAudits = () => {
         <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-black flex flex-col font-sans">
             <Header />
 
-            <main className="flex-grow">
+            <main className="flex-grow pb-20 lg:pb-0">
                 {/* 1. The Diagnostic HUD */}
                 <AuditHero onOpenModal={() => setIsAuditModalOpen(true)} />
 

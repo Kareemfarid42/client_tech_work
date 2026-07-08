@@ -46,7 +46,7 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[#050505]">
+        <section className="py-16 sm:py-24 relative overflow-hidden bg-[#050505]">
             <div className="container-max section-padding relative z-10">
                 {/* Header Section */}
                 <motion.div
@@ -54,9 +54,9 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-4xl mx-auto mb-16"
+                    className="text-center max-w-4xl mx-auto mb-10 sm:mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                    <h2 className="text-[26px] sm:text-3xl md:text-5xl font-heading font-bold text-white mb-6">
                         Here's What You'll <span className="text-[#17aa8c]">Receive</span>
                     </h2>
                     <p className="text-[#888888] text-lg leading-relaxed font-sans">
@@ -65,7 +65,7 @@ const AuditReport = ({ onOpenModal }: AuditReportProps) => {
                 </motion.div>
 
                 {/* 6-Card Grid (Rectangles) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 mb-10 sm:mb-16">
                     {deliverables.map((item, index) => (
                         <motion.div
                             key={index}

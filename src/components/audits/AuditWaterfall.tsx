@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AuditWaterfall = () => {
     return (
-        <section className="py-24 relative border-b border-[#333333] bg-[#050505]">
+        <section className="py-16 sm:py-24 relative border-b border-[#333333] bg-[#050505]">
             <div className="container-max section-padding">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -13,7 +13,7 @@ const AuditWaterfall = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
+                        <h2 className="text-[26px] sm:text-3xl md:text-5xl font-heading font-bold text-white mb-6 text-center">
                             Remove <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500">Digital</span> <span className="text-red-500">Bottlenecks</span>
                         </h2>
                         <p className="text-[#888888] text-lg leading-relaxed mb-6 font-sans">
@@ -39,12 +39,12 @@ const AuditWaterfall = () => {
                     {/* Right: The Waterfall Comparison */}
                     <div className="relative bg-[#0a0a0a] rounded-2xl border border-[#333333] p-6 md:p-8 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
                         {/* Timeline Header */}
-                        <div className="flex justify-between text-[#555] text-xs font-mono border-b border-[#333333] pb-2 mb-6">
+                        <div className="flex justify-between text-[#555] text-[10px] sm:text-xs font-mono border-b border-[#333333] pb-2 mb-6">
                             <span>0ms</span>
-                            <span>500ms</span>
-                            <span>1000ms</span>
-                            <span>1500ms</span>
-                            <span>2000ms+</span>
+                            <span className="hidden sm:inline">500ms</span>
+                            <span>1s</span>
+                            <span className="hidden sm:inline">1500ms</span>
+                            <span>2s+</span>
                         </div>
 
                         {/* Unoptimized (Red) */}
@@ -55,19 +55,19 @@ const AuditWaterfall = () => {
                             {/* Document Request */}
                             <div className="w-full flex">
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "30%" }} transition={{ duration: 1, delay: 0.2 }} className="h-6 bg-[#333] rounded-sm relative">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono">index.html (300ms)</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono whitespace-nowrap hidden sm:inline">index.html (300ms)</span>
                                 </motion.div>
                             </div>
                             {/* Render Blocking JS */}
                             <div className="w-full flex border-l-2 border-dashed border-[#333] ml-[30%]">
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "45%" }} transition={{ duration: 1, delay: 0.4 }} className="h-6 bg-red-500/80 rounded-sm relative shadow-[0_0_10px_rgba(239,68,68,0.3)]">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono font-bold">app-bundle.js (PARSING BLOCK)</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono font-bold whitespace-nowrap hidden sm:inline">app-bundle.js (PARSING BLOCK)</span>
                                 </motion.div>
                             </div>
                             {/* Delayed CSS */}
                             <div className="w-full flex border-l-2 border-dashed border-red-500/50 ml-[75%]">
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "20%" }} transition={{ duration: 1, delay: 0.6 }} className="h-6 bg-[#444] rounded-sm relative">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono">styles.css (50ms)</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono whitespace-nowrap hidden sm:inline">styles.css (50ms)</span>
                                 </motion.div>
                             </div>
                             {/* FCP marker */}
@@ -84,16 +84,16 @@ const AuditWaterfall = () => {
                             {/* Document Request */}
                             <div className="w-full flex">
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "10%" }} transition={{ duration: 1, delay: 0.8 }} className="h-6 bg-[#333] rounded-sm relative">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono">index.html (50ms)</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white/50 font-mono whitespace-nowrap hidden sm:inline">index.html (50ms)</span>
                                 </motion.div>
                             </div>
                             {/* Concurrent CSS/JS */}
                             <div className="w-full flex border-l-2 border-dashed border-[#333] ml-[10%] space-x-1">
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "15%" }} transition={{ duration: 1, delay: 1.0 }} className="h-6 bg-[#17aa8c]/80 rounded-sm relative shadow-[0_0_10px_rgba(23, 170, 140,0.3)]">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono font-bold font-mono">critical.css</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono font-bold whitespace-nowrap hidden sm:inline">critical.css</span>
                                 </motion.div>
                                 <motion.div initial={{ width: 0 }} whileInView={{ width: "25%" }} transition={{ duration: 1, delay: 1.0 }} className="h-6 bg-[#17aa8c]/40 rounded-sm relative border border-[#17aa8c]/50">
-                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono">app-defer.js</span>
+                                    <span className="absolute left-2 top-1.5 text-[9px] text-white font-mono whitespace-nowrap hidden sm:inline">app-defer.js</span>
                                 </motion.div>
                             </div>
 

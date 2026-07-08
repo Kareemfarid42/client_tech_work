@@ -60,6 +60,7 @@ export const Header = () => {
   };
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out ${isScrolled
         ? "bg-neutral-950/80 backdrop-blur-lg border-b border-white/10 py-4 shadow-lg"
@@ -148,7 +149,7 @@ export const Header = () => {
               </Link>
             </div>
             <button
-              className="xl:hidden p-2 text-white"
+              className="xl:hidden p-2.5 text-white rounded-sm border border-white/10 hover:bg-white/5 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -166,7 +167,7 @@ export const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="xl:hidden border-t border-white/10 overflow-hidden"
-            style={{ backgroundColor: "#1b273d" }}
+            style={{ backgroundColor: "#0a0a0a" }}
           >
             <nav className="container-max section-padding py-6 flex flex-col gap-4">
               {navItems.map((item, index) => {
@@ -256,5 +257,25 @@ export const Header = () => {
         )}
       </AnimatePresence>
     </header>
+
+      {/* Sticky mobile CTA — visible below lg */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[99] bg-black/90 backdrop-blur-md border-t border-white/10 px-4 py-3 safe-area-inset-bottom">
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:+15306093136"
+            className="flex items-center justify-center w-12 h-12 rounded-sm border border-white/10 bg-white/5 text-white flex-shrink-0"
+            aria-label="Call us"
+          >
+            <Phone className="w-5 h-5" />
+          </a>
+          <Link to="https://calendly.com/admin-clientech-solutions/strategy-session" className="flex-1">
+            <Button variant="hero" className="w-full flex items-center gap-2 justify-center py-3">
+              <MessageSquare className="w-4 h-4" />
+              Speak with an Expert
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };

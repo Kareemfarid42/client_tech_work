@@ -29,16 +29,16 @@ const AuditFAQs = () => {
     };
 
     return (
-        <section className="py-24 relative bg-[#000000] border-b border-[#333333]">
+        <section className="py-16 sm:py-24 relative bg-[#000000] border-b border-[#333333]">
             <div className="container-max section-padding">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-16"
+                    className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                    <h2 className="text-[26px] sm:text-3xl md:text-5xl font-heading font-bold text-white mb-6">
                         Frequently Asked <span className="text-[#17aa8c]">Questions</span>
                     </h2>
                 </motion.div>

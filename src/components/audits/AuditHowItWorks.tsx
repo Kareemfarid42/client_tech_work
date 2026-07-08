@@ -30,7 +30,7 @@ const AuditHowItWorks = () => {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[#000000] border-b border-[#333333]">
+        <section className="py-16 sm:py-24 relative overflow-hidden bg-[#000000] border-b border-[#333333]">
             <div className="container-max section-padding relative z-10">
                 {/* Header */}
                 <motion.div
@@ -38,12 +38,12 @@ const AuditHowItWorks = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center max-w-3xl mx-auto mb-20"
+                    className="text-center max-w-3xl mx-auto mb-12 sm:mb-20"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#17aa8c]/30 bg-[#17aa8c]/10 text-[#17aa8c] text-xs font-mono font-bold uppercase tracking-widest mb-6 w-fit">
                         SIMPLE • FAST • PERSONALIZED
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                    <h2 className="text-[26px] sm:text-3xl md:text-5xl font-heading font-bold text-white mb-6">
                         How It <span className="text-[#17aa8c]">Works</span>
                     </h2>
                     <p className="text-[#888888] text-lg font-sans">
@@ -85,7 +85,7 @@ const AuditHowItWorks = () => {
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-white mb-4 font-heading leading-tight">{step.title}</h3>
+                                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 font-heading leading-tight">{step.title}</h3>
                                 <p className="text-[#888888] font-sans text-sm leading-relaxed flex-grow mb-8">
                                     {step.description}
                                 </p>

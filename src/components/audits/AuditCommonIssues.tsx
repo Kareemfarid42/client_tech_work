@@ -45,7 +45,7 @@ const AuditCommonIssues = ({ onOpenModal }: AuditCommonIssuesProps) => {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[#0a0a0a] border-b border-[#333333]">
+        <section className="py-16 sm:py-24 relative overflow-hidden bg-[#0a0a0a] border-b border-[#333333]">
             <div className="container-max section-padding">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const AuditCommonIssues = ({ onOpenModal }: AuditCommonIssuesProps) => {
                     transition={{ duration: 0.6 }}
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6">
+                    <h2 className="text-[26px] sm:text-3xl md:text-5xl font-heading font-bold text-white mb-6">
                         Common Issues <span className="text-[#17aa8c]">We Find</span>
                     </h2>
                     <p className="text-[#888888] text-lg font-sans">

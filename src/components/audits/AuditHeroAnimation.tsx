@@ -4,6 +4,14 @@ import { MousePointer2, Check, ShieldCheck, TrendingUp } from "lucide-react";
 
 const AuditHeroAnimation = () => {
     const [scene, setScene] = useState(1);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         let isMounted = true;
@@ -44,7 +52,8 @@ const AuditHeroAnimation = () => {
     const smoothTransition = { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }; // Apple-like ease
 
     return (
-        <div className="relative w-full aspect-square max-w-[550px] mx-auto flex items-center justify-center perspective-[1200px]">
+        <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[550px] mx-auto">
+        <div className="relative w-full h-full flex items-center justify-center perspective-[1200px]">
             {/* Ambient soft glow */}
             <motion.div 
                 animate={{ opacity: [0.4, 0.6, 0.4], scale: [0.9, 1.1, 0.9] }}
@@ -66,7 +75,7 @@ const AuditHeroAnimation = () => {
                         }}
                         exit={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
                         transition={{ ...smoothTransition, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
-                        className="absolute w-[420px] h-[280px] bg-[#0a0a0a]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] overflow-hidden flex flex-col z-10"
+                        className="absolute w-[90%] sm:w-[420px] h-[65%] sm:h-[280px] bg-[#0a0a0a]/90 backdrop-blur-xl rounded-2xl border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] overflow-hidden flex flex-col z-10"
                     >
                         {/* Browser Header */}
                         <div className="h-10 border-b border-white/5 flex items-center px-4 gap-2 bg-gradient-to-b from-white/[0.05] to-transparent">
@@ -154,7 +163,7 @@ const AuditHeroAnimation = () => {
             {/* Scene 2: Scan Cards (Floating) */}
             <AnimatePresence>
                 {scene === 2 && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 perspective-[1000px]">
+                    <div className="absolute inset-0 hidden sm:flex items-center justify-center pointer-events-none z-20 perspective-[1000px]">
                         {[
                             { label: "Website Performance", x: -160, y: -100, delay: 0 },
                             { label: "SEO & AI Visibility", x: 160, y: -80, delay: 0.4 },
@@ -204,17 +213,17 @@ const AuditHeroAnimation = () => {
                         initial={{ opacity: 0, scale: 0.8, rotateY: -20, rotateX: 10, y: 30 }}
                         animate={{
                             opacity: scene >= 3 ? 1 : 0,
-                            scale: scene === 3 ? 1 : scene >= 4 && scene <= 5 ? 0.95 : scene === 6 ? 1 : 0.8,
-                            x: scene === 4 ? -120 : 0,
-                            y: scene >= 4 && scene <= 5 ? 0 : [0, -5, 0], // Floating
+                            scale: scene === 3 ? (isMobile ? 0.85 : 1) : scene >= 4 && scene <= 5 ? (isMobile ? 0.55 : 0.95) : scene === 6 ? (isMobile ? 0.85 : 1) : 0.8,
+                            x: scene === 4 ? (isMobile ? 40 : -120) : 0,
+                            y: scene >= 4 && scene <= 5 ? 0 : [0, -5, 0],
                             rotateY: scene >= 4 && scene <= 5 ? 0 : -5,
                             rotateX: scene >= 4 && scene <= 5 ? 0 : 5,
                             zIndex: 40
                         }}
                         exit={{ opacity: 0, scale: 0.8, y: 30 }}
                         transition={{ ...springConfig, y: scene < 4 || scene === 6 ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : springConfig }}
-                        style={{ transformStyle: "preserve-3d" }}
-                        className="absolute w-[280px] h-[380px]"
+                        style={{ transformStyle: 'preserve-3d' }}
+                        className="absolute w-[65%] sm:w-[280px] h-[80%] sm:h-[380px] max-w-[280px] max-h-[380px]"
                     >
                         {/* Report Cover (Matte Black) */}
                         <motion.div 
@@ -340,7 +349,7 @@ const AuditHeroAnimation = () => {
             {/* --- SCENE 5: Floating Labels Around Report --- */}
             <AnimatePresence>
                 {scene === 5 && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-50">
+                    <div className="absolute inset-0 hidden sm:flex items-center justify-center pointer-events-none z-50">
                         {[
                             { label: "Website Performance", x: -260, y: -110 },
                             { label: "SEO Visibility", x: 260, y: -90 },
@@ -397,7 +406,7 @@ const AuditHeroAnimation = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -10, scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                        className="absolute bottom-[-60px] flex flex-col items-center z-50"
+                        className="absolute bottom-2 sm:bottom-[-60px] flex flex-col items-center z-50"
                     >
                         <div className="bg-white/[0.05] border border-white/10 px-5 py-2.5 rounded-full backdrop-blur-xl flex items-center gap-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                             <div className="w-1.5 h-1.5 rounded-full bg-[#17aa8c] shadow-[0_0_8px_rgba(23,170,140,0.8)] animate-pulse" />
@@ -407,6 +416,7 @@ const AuditHeroAnimation = () => {
                 )}
             </AnimatePresence>
 
+        </div>
         </div>
     );
 };

@@ -16,7 +16,7 @@ const AuditTrustStrip = () => {
             <div className="text-[10px] uppercase font-mono tracking-[0.2em] text-[#555] mb-5 text-center">
                 Platforms & Ecosystems We Review
             </div>
-            <div className="container-max flex flex-wrap justify-center items-center gap-x-10 gap-y-6 opacity-80">
+            <div className="container-max flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-10 gap-y-4 sm:gap-y-6 opacity-80">
                 {platforms.map((platform, index) => (
                     <motion.div
                         key={index}
