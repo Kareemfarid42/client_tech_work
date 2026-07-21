@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 import {
     Dialog,
     DialogContent,
@@ -52,6 +53,7 @@ export const HsContactModal = ({ children, defaultService }: HsContactModalProps
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
+            trackLead({ content_name: "Home Services Inquiry", source: "Home Services Landing Page", service: formData.initial_service });
             toast.success("Inquiry Sent Successfully!", {
                 description: "Our home services systems expert will contact you within 24 hours.",
             });

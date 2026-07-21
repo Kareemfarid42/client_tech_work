@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
@@ -13,6 +14,11 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-white flex flex-col font-sans">
+            <Seo
+                title="Contact Us"
+                description="Get in touch with ClienTech Solutions for a free consultation, proposal, or performance audit."
+                path="/contact"
+            />
             <Header />
 
             <main className="flex-grow pt-32 pb-24 relative overflow-hidden">

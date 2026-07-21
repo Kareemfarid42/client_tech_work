@@ -4,6 +4,7 @@ import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-v4.png";
+import { trackSchedule } from "@/lib/analytics";
 
 import { ChevronDown } from "lucide-react";
 
@@ -141,7 +142,7 @@ export const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>(530) 609-3136</span>
               </a>
-              <Link to="https://calendly.com/admin-clientech-solutions/strategy-session">
+              <Link to="https://calendly.com/admin-clientech-solutions/strategy-session" target="_blank" rel="noopener noreferrer" onClick={() => trackSchedule({ source: "Header (desktop)" })}>
                 <Button variant="hero" size="lg" className="flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
                   Speak with an Expert
@@ -268,7 +269,7 @@ export const Header = () => {
           >
             <Phone className="w-5 h-5" />
           </a>
-          <Link to="https://calendly.com/admin-clientech-solutions/strategy-session" className="flex-1">
+          <Link to="https://calendly.com/admin-clientech-solutions/strategy-session" target="_blank" rel="noopener noreferrer" onClick={() => trackSchedule({ source: "Header (mobile)" })} className="flex-1">
             <Button variant="hero" className="w-full flex items-center gap-2 justify-center py-3">
               <MessageSquare className="w-4 h-4" />
               Speak with an Expert

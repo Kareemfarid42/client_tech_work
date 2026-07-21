@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 import { ArrowRight, Check, Star, Zap, Target, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -10,6 +11,7 @@ const ColorPreview = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#fafafa" }}>
+      <Seo title="Color Preview" path="/color-preview" noindex />
       {/* Color Swatches */}
       <div className="py-12 px-6" style={{ backgroundColor: newSecondary }}>
         <div className="max-w-6xl mx-auto">

@@ -27,29 +27,36 @@ export const StructuredData = ({ type, data }: StructuredDataProps) => {
 // Organization structured data
 export const organizationData = {
     name: 'ClienTech Solutions',
-    url: 'https://clientech.solutions',
-    logo: 'https://clientech.solutions/logo.png',
+    url: 'https://clientech-solutions.com',
+    logo: 'https://clientech-solutions.com/logo.png',
     description: 'ClienTech Solutions partners with organizations to build resilient digital foundations, implement scalable solutions, and drive meaningful transformation.',
+    email: 'admin@clientech-solutions.com',
+    telephone: '+1-530-609-3136',
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: '3422 Hacienda Rd',
+        addressLocality: 'Cameron Park',
+        addressRegion: 'CA',
+        postalCode: '95682',
+        addressCountry: 'US',
+    },
     contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'Customer Service',
+        telephone: '+1-530-609-3136',
+        email: 'admin@clientech-solutions.com',
         availableLanguage: 'English',
     },
     sameAs: [
-        // Add social media URLs when available
+        // Add social media profile URLs here when available (LinkedIn, Facebook, etc.)
     ],
 };
 
 // Website structured data
 export const websiteData = {
-    url: 'https://clientech.solutions',
+    url: 'https://clientech-solutions.com',
     name: 'ClienTech Solutions',
     description: 'Digital Transformation & Intelligent Solutions',
-    potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://clientech.solutions/search?q={search_term_string}',
-        'query-input': 'required name=search_term_string',
-    },
 };
 
 // Service structured data

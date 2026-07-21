@@ -9,6 +9,7 @@ import { HsTrustMarquee } from "@/components/sections/HsTrustMarquee";
 import { HsContactModal } from "@/components/contact/HsContactModal";
 import { HsDemoModal } from "@/components/contact/HsDemoModal";
 import { Footer } from "@/components/layout/Footer";
+import { trackSchedule } from "@/lib/analytics";
 import {
   MapPin,
   Share2,
@@ -56,6 +57,11 @@ const SeoApp = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="SEO & AI Search Optimization Services"
+        description="Rank higher on Google and AI search (AEO/GEO) with technical SEO, content, and authority-building from ClienTech Solutions."
+        path="/industry/seo"
+      />
       <HsHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">
         {/* 1. Hero Section */}
@@ -84,7 +90,7 @@ const SeoApp = () => {
                 </HsContactModal>
 
                 <button className="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-lg font-bold transition-all">
-                  <a href="https://calendly.com/admin-clientech-solutions/strategy-session">Book Strategy Call</a>
+                  <a href="https://calendly.com/admin-clientech-solutions/strategy-session" target="_blank" rel="noopener noreferrer" onClick={() => trackSchedule({ source: "SEO Landing Page" })}>Book Strategy Call</a>
                 </button>
 
               </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import BlogHero from "@/components/blog/BlogHero";
@@ -19,6 +20,11 @@ const Blog = () => {
 
     return (
         <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-white flex flex-col font-sans">
+            <Seo
+                title="Blog & Insights"
+                description="Digital marketing, SEO, and growth insights from the ClienTech Solutions team."
+                path="/blog"
+            />
             <Header />
 
             <main className="flex-grow pt-24 pb-16">

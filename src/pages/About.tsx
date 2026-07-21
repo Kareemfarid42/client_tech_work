@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
@@ -59,6 +60,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="About Us"
+        description="Meet the team behind ClienTech Solutions and learn how we drive measurable digital growth for our clients."
+        path="/about"
+      />
       <Header />
       <main>
         {/* Hero Section */}

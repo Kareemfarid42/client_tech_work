@@ -198,7 +198,7 @@ const PrivacyPolicy = () => {
                     <ul className="space-y-4">
                         <li>
                             <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Email</span>
-                            <a href="mailto:admin@clientechsolutions.com" className="text-[#17aa8c] font-bold hover:underline">admin@clientechsolutions.com</a>
+                            <a href="mailto:admin@clientech-solutions.com" className="text-[#17aa8c] font-bold hover:underline">admin@clientech-solutions.com</a>
                         </li>
                         <li>
                             <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Website</span>

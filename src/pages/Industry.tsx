@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { 
@@ -86,6 +87,11 @@ const Industry = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Industries We Serve"
+        description="Digital growth systems tailored for franchises, home services, mortgage, professional services, and more."
+        path="/industry"
+      />
       <Header />
       
       {/* Hero Section */}

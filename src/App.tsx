@@ -1,9 +1,10 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { trackPageView } from "@/lib/analytics";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import SkipToContent from "@/components/SkipToContent";
 import { StructuredData, organizationData, websiteData } from "@/components/StructuredData";
@@ -36,6 +37,24 @@ const ServerError = lazy(() => import("./pages/ServerError"));
 
 const queryClient = new QueryClient();
 
+// Fire a Meta Pixel PageView on client-side route changes. The initial load is
+// already tracked by the pixel snippet in index.html, so skip the first render
+// to avoid double-counting the landing page.
+const RouteChangeTracker = () => {
+  const location = useLocation();
+  const isInitialLoad = useRef(true);
+
+  useEffect(() => {
+    if (isInitialLoad.current) {
+      isInitialLoad.current = false;
+      return;
+    }
+    trackPageView();
+  }, [location.pathname]);
+
+  return null;
+};
+
 // Enhanced loading fallback with skeleton
 const PageLoader = () => (
   <div className="min-h-screen bg-background">
@@ -58,6 +77,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <RouteChangeTracker />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />

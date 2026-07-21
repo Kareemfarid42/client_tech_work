@@ -8,11 +8,13 @@ import {
   Loader2, ChevronRight
 } from "lucide-react";
 import { CleansyHeader } from "@/components/cleansy/CleansyHeader";
+import Seo from "@/components/Seo";
 import CleansyFooter from "@/components/cleansy/CleansyFooter";
 import AnimatedHeading from "@/components/cleansy/AnimatedHeading";
 import { ContactModal } from "@/components/contact/ContactModal";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 
 /* ─── Animation Variants ─── */
 const fadeUp = {
@@ -113,6 +115,7 @@ export default function DLP_1() {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+      trackLead({ content_name: "Own a Business Request", source: "/own-a-business" });
       toast.success("Request Submitted!", {
         description: "We'll be in touch within 24 hours to schedule your strategy call.",
       });
@@ -120,7 +123,7 @@ export default function DLP_1() {
     } catch (err) {
       console.error(err);
       toast.error("Submission failed", {
-        description: "Please try again or email us at admin@clientechsolutions.com",
+        description: "Please try again or email us at admin@clientech-solutions.com",
       });
     } finally {
       setIsSubmitting(false);

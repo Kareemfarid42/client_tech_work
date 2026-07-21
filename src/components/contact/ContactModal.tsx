@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 import {
     Dialog,
     DialogContent,
@@ -53,6 +54,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
+            trackLead({ content_name: "Contact Modal", source: "Site-wide Contact Modal", service: formData.initial_service });
             toast.success("Message Sent Successfully!", {
                 description: "Thank you for reaching out. We'll get back to you shortly.",
             });
@@ -71,7 +73,7 @@ export const ContactModal = ({ children, defaultService, website, open, onOpenCh
         } catch (error) {
             console.error("Submission error:", error);
             toast.error("Failed to send message", {
-                description: "Please try again or email us directly at admin@clientechsolutions.com",
+                description: "Please try again or email us directly at admin@clientech-solutions.com",
             });
         } finally {
             setIsSubmitting(false);

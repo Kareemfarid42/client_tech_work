@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 
 const BlogCTA = () => {
     const [email, setEmail] = useState("");
@@ -25,6 +26,7 @@ const BlogCTA = () => {
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
+            trackLead({ content_name: "Newsletter Subscribe", source: "Blog" });
             toast.success("Subscribed Successfully!", {
                 description: "You've been added to our insights mailing list.",
             });

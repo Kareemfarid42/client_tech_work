@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Home, Search, ArrowLeft } from "lucide-react";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo title="Page Not Found" path="/404" noindex />
       <Header />
       <main className="flex-1 flex items-center justify-center bg-background p-4">
         <div className="max-w-2xl w-full text-center">

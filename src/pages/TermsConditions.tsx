@@ -140,7 +140,7 @@ const TermsConditions = () => {
                         <li><strong className="text-white">Message Frequency:</strong> Message frequency varies. We send messages only when relevant to your service or inquiry.</li>
                         <li><strong className="text-white">Rates:</strong> Message and data rates may apply depending on your mobile carrier plan.</li>
                         <li><strong className="text-white">Opt-Out:</strong> Text <span className="text-[#17aa8c] font-bold">STOP</span> to any message to unsubscribe at any time. Once you opt out, you will receive one final confirmation message.</li>
-                        <li><strong className="text-white">Support:</strong> Text <span className="text-[#17aa8c] font-bold">HELP</span> for assistance or contact us directly at admin@clientechsolutions.com.</li>
+                        <li><strong className="text-white">Support:</strong> Text <span className="text-[#17aa8c] font-bold">HELP</span> for assistance or contact us directly at admin@clientech-solutions.com.</li>
                     </ul>
                 </div>
                 <p>
@@ -160,7 +160,7 @@ const TermsConditions = () => {
                     <ul className="space-y-4">
                         <li>
                             <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Email</span>
-                            <a href="mailto:admin@clientechsolutions.com" className="text-[#17aa8c] font-bold hover:underline">admin@clientechsolutions.com</a>
+                            <a href="mailto:admin@clientech-solutions.com" className="text-[#17aa8c] font-bold hover:underline">admin@clientech-solutions.com</a>
                         </li>
                         <li>
                             <span className="text-gray-400 block text-sm uppercase tracking-wider mb-1">Website</span>

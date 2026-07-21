@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 
 const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,6 +37,7 @@ const ContactForm = () => {
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
+            trackLead({ content_name: "Contact Form", source: "Contact Page", service: formData.service });
             toast.success("Message Sent Successfully!", {
                 description: "Thank you for reaching out. We'll get back to you shortly.",
             });
@@ -52,7 +54,7 @@ const ContactForm = () => {
         } catch (error) {
             console.error("Submission error:", error);
             toast.error("Failed to send message", {
-                description: "Please try again or email us directly at admin@clientechsolutions.com",
+                description: "Please try again or email us directly at admin@clientech-solutions.com",
             });
         } finally {
             setIsSubmitting(false);

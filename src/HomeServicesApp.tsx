@@ -9,6 +9,7 @@ import { HsTrustMarquee } from "@/components/sections/HsTrustMarquee";
 import { HsContactModal } from "@/components/contact/HsContactModal";
 import { HsDemoModal } from "@/components/contact/HsDemoModal";
 import { Footer } from "@/components/layout/Footer";
+import Seo from "@/components/Seo";
 import {
   MapPin,
   Share2,
@@ -45,6 +46,11 @@ const HomeServicesApp = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Digital Systems for General Contractors & Home Services"
+        description="Book more jobs, manage your pipeline, and grow your reputation with automated marketing systems for home service pros."
+        path="/industry/home-services"
+      />
       <HsHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">
         {/* 1. Hero Section */}

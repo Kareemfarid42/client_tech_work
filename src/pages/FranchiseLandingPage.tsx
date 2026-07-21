@@ -9,6 +9,7 @@ import CompanyLogos from "@/components/cleansy/CompanyLogos";
 import RatingStars from "@/components/cleansy/RatingStars";
 import FAQAccordion from "@/components/cleansy/FAQAccordion";
 import { CleansyHeader } from "@/components/cleansy/CleansyHeader";
+import Seo from "@/components/Seo";
 import CleansyFooter from "@/components/cleansy/CleansyFooter";
 import { ContactModal } from "@/components/contact/ContactModal";
 
@@ -93,6 +94,11 @@ export default function FranchiseLandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0A0A]">
+      <Seo
+        title="Marketing Systems for Franchises"
+        description="Scalable, brand-compliant digital marketing and lead-generation systems for franchise networks and franchisees."
+        path="/industry/franchises"
+      />
       <CleansyHeader />
       <main className="flex-grow">
       {/* ═══════════════════════════════════════════════════════

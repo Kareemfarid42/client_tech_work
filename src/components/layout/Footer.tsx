@@ -46,9 +46,9 @@ export const Footer = () => {
               Helping businesses increase visibility, generate qualified leads, and grow through digital marketing, automation, and conversion-focused solutions.
             </p>
             <div className="space-y-3 mb-6">
-              <a href="mailto:admin@clientechsolutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+              <a href="mailto:admin@clientech-solutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                admin@clientechsolutions.com
+                admin@clientech-solutions.com
               </a>
               <a href="tel:+15306093136" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
                 <Phone className="w-4 h-4 text-primary" />

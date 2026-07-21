@@ -46,8 +46,8 @@ const ContactInfo = () => {
                     <div>
                         <h3 className="text-white font-heading font-bold text-xl mb-1">Email Us</h3>
                         <p className="text-[#888888] text-sm mb-2">For general inquiries, project discussions, or partnership opportunities.</p>
-                        <a href="mailto:admin@clientechsolutions.com" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
-                            admin@clientechsolutions.com
+                        <a href="mailto:admin@clientech-solutions.com" className="text-[#17aa8c] font-semibold hover:text-white transition-colors">
+                            admin@clientech-solutions.com
                         </a>
                     </div>
                 </motion.div>

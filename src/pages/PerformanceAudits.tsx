@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import AuditHero from "@/components/audits/AuditHero";
 import AuditTrustStrip from "@/components/audits/AuditTrustStrip";
@@ -23,6 +24,11 @@ const PerformanceAudits = () => {
 
     return (
         <div className="min-h-screen bg-black text-white selection:bg-[#17aa8c] selection:text-black flex flex-col font-sans">
+            <Seo
+                title="Free Digital Performance Audit"
+                description="Request a free, expert-reviewed audit of your website, SEO, and paid marketing campaigns."
+                path="/audits"
+            />
             <Header />
 
             <main className="flex-grow pb-20 lg:pb-0">

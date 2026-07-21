@@ -3,6 +3,7 @@ import { Send, Loader2, Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo-v4.png";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 
 const CleansyFooter = () => {
     const [email, setEmail] = useState("");
@@ -42,6 +43,7 @@ const CleansyFooter = () => {
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
 
+            trackLead({ content_name: "Newsletter Subscribe", source: "Cleansy Footer" });
             toast.success("Subscribed Successfully!", {
                 description: "You've been added to our franchise growth strategies list.",
             });
@@ -80,9 +82,9 @@ const CleansyFooter = () => {
                         </p>
                         {/* Contact Info */}
                         <div className="space-y-3 pt-2">
-                            <a href="mailto:admin@clientechsolutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
+                            <a href="mailto:admin@clientech-solutions.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
                                 <Mail className="w-4 h-4 text-primary" />
-                                admin@clientechsolutions.com
+                                admin@clientech-solutions.com
                             </a>
                             <a href="tel:+15306093136" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-secondary-foreground transition-colors">
                                 <Phone className="w-4 h-4 text-primary" />

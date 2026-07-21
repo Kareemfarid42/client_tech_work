@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /color-preview
+Disallow: /color-preview-2
+Disallow: /500
+
+Sitemap: https://clientech-solutions.com/sitemap.xml

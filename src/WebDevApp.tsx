@@ -9,6 +9,7 @@ import { HsTrustMarquee } from "@/components/sections/HsTrustMarquee";
 import { HsContactModal } from "@/components/contact/HsContactModal";
 import { HsDemoModal } from "@/components/contact/HsDemoModal";
 import { Footer } from "@/components/layout/Footer";
+import { trackSchedule } from "@/lib/analytics";
 import {
   Code2,
   Database,
@@ -49,6 +50,11 @@ const WebDevApp = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="High-Performance Web Development"
+        description="Custom, conversion-optimized websites and web apps engineered for speed, SEO, and growth."
+        path="/industry/web-development"
+      />
       <HsHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">
         {/* 1. Hero Section */}
@@ -77,7 +83,7 @@ const WebDevApp = () => {
                 </HsContactModal>
 
                 <button className="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-lg font-bold transition-all">
-                  <a href="https://calendly.com/admin-clientech-solutions/strategy-session">Book Project Strategy Call</a>
+                  <a href="https://calendly.com/admin-clientech-solutions/strategy-session" target="_blank" rel="noopener noreferrer" onClick={() => trackSchedule({ source: "Web Dev Landing Page" })}>Book Project Strategy Call</a>
                 </button>
 
               </div>

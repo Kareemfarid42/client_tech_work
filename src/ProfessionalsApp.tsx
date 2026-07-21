@@ -9,6 +9,7 @@ import { ProfTrustMarquee } from "@/components/sections/ProfTrustMarquee";
 import { ProfContactModal } from "@/components/contact/ProfContactModal";
 import { ProfDemoModal } from "@/components/contact/ProfDemoModal";
 import { Footer } from "@/components/layout/Footer";
+import Seo from "@/components/Seo";
 import {
   MapPin,
   Share2,
@@ -45,6 +46,11 @@ const ProfessionalsApp = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Digital Systems for Professional Services"
+        description="Automate client intake and maximize billable hours with digital systems built for lawyers, accountants, and consultants."
+        path="/industry/professionals"
+      />
       <ProfHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#0D9488]/30 pt-20">
         {/* 1. Hero Section */}

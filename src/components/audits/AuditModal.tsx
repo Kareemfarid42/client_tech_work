@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Loader2, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from "@emailjs/browser";
+import { trackLead } from "@/lib/analytics";
 
 interface AuditModalProps {
     isOpen: boolean;
@@ -52,24 +53,32 @@ const AuditModal = ({ isOpen, onClose }: AuditModalProps) => {
         e.preventDefault();
         setModalState("loading");
 
+        // Keep the "Preparing your audit..." animation on screen for at least
+        // 3s for UX, but only show success once the email has actually sent.
         const delay = new Promise((resolve) => setTimeout(resolve, 3000));
-        
+
         try {
-            const emailPromise = emailjs.send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_AUDIT_TEMPLATE_ID,
-                formData,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-            ).catch((error) => {
-                console.error("EmailJS Error:", error);
-            });
+            const [emailResult] = await Promise.all([
+                emailjs.send(
+                    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                    import.meta.env.VITE_EMAILJS_AUDIT_TEMPLATE_ID,
+                    formData,
+                    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+                ),
+                delay,
+            ]);
+            void emailResult;
 
-            await Promise.all([emailPromise, delay]);
-
+            trackLead({ content_name: "Performance Audit Request", source: "Audit Modal" });
             setModalState("success");
         } catch (error) {
-            console.error("Submission error:", error);
-            setModalState("success"); 
+            console.error("Audit submission error:", error);
+            // Return to the form so the lead is not silently lost.
+            setModalState("idle");
+            toast.error("We couldn't submit your audit request", {
+                description:
+                    "Please try again, or email us directly at admin@clientech-solutions.com",
+            });
         }
     };
 

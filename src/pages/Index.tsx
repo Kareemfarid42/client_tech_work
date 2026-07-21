@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
+import Seo from "@/components/Seo";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProfTrustMarquee } from "@/components/sections/ProfTrustMarquee";
@@ -36,6 +37,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="ClienTech Solutions – Digital Transformation & Marketing Agency"
+        description="ClienTech Solutions helps businesses grow with digital marketing, SEO, web development, automation, and conversion-focused systems."
+        path="/"
+      />
       <Header />
       <main id="main-content" tabIndex={-1} aria-label="Main content">
         <HeroSection />

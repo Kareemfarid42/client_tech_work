@@ -9,6 +9,7 @@ import { MloTrustMarquee } from "@/components/sections/MloTrustMarquee";
 import { MloContactModal } from "@/components/contact/MloContactModal";
 import { MloDemoModal } from "@/components/contact/MloDemoModal";
 import { Footer } from "@/components/layout/Footer";
+import Seo from "@/components/Seo";
 import {
   Users,
   Database,
@@ -48,6 +49,11 @@ const MloApp = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Digital Systems for Mortgage Loan Officers"
+        description="Generate more qualified borrowers and automate follow-up with digital marketing systems built for mortgage loan officers."
+        path="/industry/mlo"
+      />
       <MloHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">
         {/* 1. Hero Section */}
