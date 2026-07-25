@@ -10,6 +10,7 @@ import { HsContactModal } from "@/components/contact/HsContactModal";
 import { HsDemoModal } from "@/components/contact/HsDemoModal";
 import { Footer } from "@/components/layout/Footer";
 import { trackSchedule } from "@/lib/analytics";
+import { Seo } from "@/components/Seo";
 import {
   MapPin,
   Share2,
