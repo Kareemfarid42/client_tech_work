@@ -33,6 +33,7 @@ const ColorPreview2 = lazy(() => import("./pages/ColorPreview2"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const VoyageGrowth = lazy(() => import("./pages/VoyageGrowth"));
 const ServerError = lazy(() => import("./pages/ServerError"));
 
 const queryClient = new QueryClient();
@@ -88,8 +89,8 @@ const App = () => (
               <Route path="/franchise-alternative" element={<DLP_2 />} />
               <Route path="/industry/mlo" element={<MloLandingPage />} />
               <Route path="/industry/home-services" element={<HomeServicesLandingPage />} />
-              <Route path="/industry/seo" element={<SeoLandingPage />} />
-              <Route path="/industry/web-development" element={<WebDevLandingPage />} />
+              <Route path="/services/seo" element={<SeoLandingPage />} />
+              <Route path="/services/web-development" element={<WebDevLandingPage />} />
               <Route path="/industry/professionals" element={<ProfessionalsLandingPage />} />
               <Route path="/audits" element={<PerformanceAudits />} />
               <Route path="/sample-report" element={<SampleReport />} />
@@ -100,6 +101,7 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-and-conditions" element={<TermsConditions />} />
               <Route path="/500" element={<ServerError />} />
+              <Route path="/voyage-growth" element={<VoyageGrowth />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
