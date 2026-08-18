@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HsHeader } from "@/components/layout/HsHeader";
+import { SeoCaseStudy } from "@/components/seo/SeoCaseStudy";
 import { SeoTestimonials } from "@/components/sections/SeoTestimonials";
 import { SeoIndustriesWeServe } from "@/components/sections/SeoIndustriesWeServe";
 import { AwardsSection } from "@/components/sections/AwardsSection";
@@ -174,39 +175,8 @@ const SeoApp = () => {
         {/* Industries We Serve */}
         <SeoIndustriesWeServe />
 
-        {/* 4. Portfolio / Success Stories Section */}
-        <section id="portfolio" className="py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-20">
-            <div className="max-w-3xl mx-auto mb-16 text-center">
-              <h2 className="text-sm uppercase tracking-[0.2em] text-[#17AA8C] font-bold mb-4">Our Portfolio</h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Proven Visibility. <span className="text-[#17AA8C]">Measurable Growth.</span>
-              </h3>
-              <p className="text-gray-200 text-xl leading-relaxed mb-4 font-semibold">
-                Real Results Across Search, Maps, Ads & AI Visibility
-              </p>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                From Google rankings and Maps visibility to lead generation and paid advertising performance, our strategies are built around one thing: helping businesses get found before their competitors. Explore real screenshots, analytics, rankings, and campaign performance from businesses we've helped grow.
-              </p>
-            </div>
-
-            {/* Placeholder for Screenshots Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden group hover:border-[#17AA8C]/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-[#17AA8C]/10">
-                  <div className="aspect-[4/3] bg-black/40 relative flex items-center justify-center border-b border-white/10">
-                    <p className="text-gray-600 font-medium tracking-widest text-sm uppercase">Screenshot Area {item}</p>
-                    <div className="absolute inset-0 bg-[#17AA8C]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay"></div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="text-white font-bold text-xl mb-2 group-hover:text-[#17AA8C] transition-colors">Performance Result {item}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Actual screenshots, analytics, and campaign performance will be populated here.</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 4. Case Study / Before & After Section */}
+        <SeoCaseStudy />
 
         {/* Awards Section */}
         <AwardsSection />
