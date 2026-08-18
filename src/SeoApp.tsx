@@ -61,7 +61,7 @@ const SeoApp = () => {
       <Seo
         title="SEO & AI Search Optimization Services"
         description="Rank higher on Google and AI search (AEO/GEO) with technical SEO, content, and authority-building from ClienTech Solutions."
-        path="/industry/seo"
+        path="/services/seo"
       />
       <HsHeader />
       <main id="main-content" tabIndex={-1} aria-label="Main content" className="bg-[#0a0a0a] text-[#eaeaea] font-sans selection:bg-[#17AA8C]/30 pt-20">

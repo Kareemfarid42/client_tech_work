@@ -39,6 +39,7 @@ export const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center"
         >
+          <p className="eyebrow mb-3">Get started</p>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
             Your Revenue Growth Starts Here
           </h2>

@@ -19,13 +19,13 @@ const servicesList = [
     icon: LayoutTemplate,
     title: "Web Development",
     description: "Build fast, secure, and conversion-optimized websites that serve as the foundation of your digital presence.",
-    link: "/industry/web-development",
+    link: "/services/web-development",
   },
   {
     icon: Search,
     title: "SEO (Search Engine Optimization)",
     description: "Increase organic visibility, outrank competitors, and drive high-intent traffic to your website consistently.",
-    link: "/industry/seo",
+    link: "/services/seo",
   },
   {
     icon: PenTool,
@@ -92,11 +92,11 @@ export const ServicesSection = () => {
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                 className="group relative bg-card rounded-2xl overflow-hidden card-hover cursor-pointer h-full border border-border/50"
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                  <service.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center transition-colors duration-300 group-hover:from-primary/30 group-hover:to-primary/10">
+                  <service.icon className="w-16 h-16 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
                 <div className="p-5 xl:p-6">
-                  <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight">{service.title}</h3>
+                  <h3 className="font-subheading font-bold text-lg xl:text-xl text-card-foreground mb-3 tracking-tight transition-colors group-hover:text-primary">{service.title}</h3>
                   <p className="text-base text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
               </motion.div>

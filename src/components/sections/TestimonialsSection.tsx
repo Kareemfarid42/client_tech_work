@@ -34,9 +34,17 @@ export const TestimonialsSection = () => {
         
         {/* Header */}
         <div className="text-center mb-20">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            className="eyebrow mb-3"
+          >
+            Client stories
+          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.05 }}
             className="text-4xl md:text-5xl font-display font-bold text-white mb-4"
           >
             What People Say

@@ -157,7 +157,12 @@
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1.5 hover:border-primary/40;
+  }
+
+  /* Consistent section eyebrow (small uppercase accent label above headings) */
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary;
   }
 
   .glow-effect {

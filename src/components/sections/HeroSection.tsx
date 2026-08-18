@@ -33,6 +33,11 @@ export const HeroSection = () => {
             className="flex flex-col gap-6 w-full lg:w-1/2 pt-10 lg:pt-10 pb-5 lg:pb-20"
           >
             <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 self-start rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Full-funnel growth partner</span>
+              </div>
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-secondary-foreground leading-tight">
                 Helping Businesses Generate More <span className="text-gradient">Leads, Visibility & Growth</span>
               </h1>
