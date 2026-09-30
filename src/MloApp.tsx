@@ -35,14 +35,14 @@ const MloApp = () => {
   const [showAllServices, setShowAllServices] = useState(false);
 
   const mloServices = [
-    { title: "Local SEO / Google Business (AEO, GEO etc.)", desc: "Dominate local searches and make your loan officer profile the top choice when borrowers search in your area.", icon: <MapPin /> },
-    { title: "Social Media Localization", desc: "Build localized brand authority across platforms with targeted content tailored for your specific market.", icon: <Share2 /> },
-    { title: "Paid Ads", desc: "Highly targeted Google and Meta campaigns delivering pre-qualified buyer and refinancer leads directly to you.", icon: <Target /> },
-    { title: "CRM Setup", desc: "Organize your contacts and track every borrower meticulously so no opportunity falls through the cracks.", icon: <Database /> },
-    { title: "Pipeline Setup", desc: "Automate your loan pipeline stages and ensure seamless tracking from application to closing.", icon: <LayoutDashboard /> },
-    { title: "AI Lead Qualification", desc: "Automated, immediate conversational AI qualification to instantly separate serious borrowers from the rest.", icon: <Bot /> },
-    { title: "Review & Reputation Management System", desc: "Automatically collect and manage five-star reviews from happy borrowers to build trust instantly.", icon: <Star /> },
-    { title: "Partnership & Referral Systems", desc: "Systematize your relationships with real estate agents and builders to ensure a steady stream of referrals.", icon: <Handshake /> }
+    { title: "Local SEO & Google Business", desc: "Get found when borrowers search for a mortgage loan officer in your area.", icon: <MapPin /> },
+    { title: "Social Media Marketing", desc: "Stay visible and build trust with consistent, localized content.", icon: <Share2 /> },
+    { title: "Google & Meta Ads", desc: "Put your mortgage offer in front of qualified borrowers actively looking for financing.", icon: <Target /> },
+    { title: "CRM Setup", desc: "Keep every lead, borrower, and past client organized in one place.", icon: <Database /> },
+    { title: "Lead Follow-Up", desc: "Make sure new leads are contacted, followed up with, and moved toward an application.", icon: <Workflow /> },
+    { title: "Lead Reactivation", desc: "Reconnect with old leads and prospects who never closed — and create new opportunities from your existing database.", icon: <Users /> },
+    { title: "Reviews & Reputation", desc: "Build the reviews and online reputation that help borrowers choose you.", icon: <Star /> },
+    { title: "Referral Marketing", desc: "Stay connected with real estate agents, builders, and past clients to generate more referrals.", icon: <Handshake /> }
   ];
 
   const displayedServices = showAllServices ? mloServices : mloServices.slice(0, 4);
@@ -65,12 +65,13 @@ const MloApp = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight">
-                Digital Systems for<br />
-                <span className="text-[#17AA8C]">Mortgage Loan Officers</span>
+                Get More Mortgage Leads.<br />
+                <span className="text-[#17AA8C]">Close More Loans.</span>
               </h1>
               <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-                Generate more qualified borrowers, nurture existing leads, and stay top of mind
-                with automated digital systems built for mortgage professionals.
+                Generate new borrower leads, reactivate your old database, and stay top of mind
+                with past clients and referral partners all with systems built specifically for
+                mortgage loan officers.
               </p>
               <div className="flex flex-wrap gap-5">
                 <MloContactModal>
@@ -92,24 +93,13 @@ const MloApp = () => {
               transition={{ duration: 1 }}
               className="relative lg:ml-10"
             >
-              <MloDemoModal>
-                <div className="relative z-10 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl group cursor-pointer overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Dashboard" className="rounded-xl w-full transition-transform duration-700 group-hover:scale-105" />
-                  
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-[#17AA8C] flex items-center justify-center shadow-[0_0_30px_rgba(23,170,140,0.4)] group-hover:scale-110 transition-transform duration-300">
-                      <Play className="w-8 h-8 text-white fill-current translate-x-1" />
-                    </div>
-                  </div>
-                  
-                  {/* Glass Label */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white font-bold text-sm">ClienTech MLO System Walkthrough</p>
-                    <p className="text-gray-300 text-xs mt-1">Click to watch the 2-minute demo</p>
-                  </div>
-                </div>
-              </MloDemoModal>
+              <div className="relative z-10 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-sm shadow-2xl overflow-hidden">
+                <img
+                  src="/mlo-hero-dashboard.png"
+                  alt="Mortgage lead generation dashboard showing pipeline stages, conversion metrics, and lead tracking"
+                  className="rounded-xl w-full"
+                />
+              </div>
               {/* Ambient Glow */}
               <div className="absolute -inset-10 bg-[#17AA8C]/10 blur-[100px] rounded-full -z-10" />
             </motion.div>
