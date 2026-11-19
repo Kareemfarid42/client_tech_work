@@ -70,6 +70,30 @@
     src="https://www.facebook.com/tr?id=1020836477391635&ev=PageView&noscript=1" /></noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <!-- LeadConnector Chat Widget -->
+  <script src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="6aedfb40e90adeca206dd01f"></script>
+  <script>
+    // Lift the chat widget above the sticky mobile CTA bar (Header.tsx, shown below lg/1024px).
+    // The widget renders in a shadow root, so page CSS can't reach it; inject the rule there.
+    (function () {
+      var css = '@media (max-width: 1023px) { #lc_text-widget, #lc_text-widget--btn { bottom: calc(92px + env(safe-area-inset-bottom, 0px)) !important; } }';
+      var tries = 0;
+      (function patch() {
+        var host = document.querySelector('chat-widget');
+        var root = host && host.shadowRoot;
+        if (root && root.querySelector('#lc_text-widget--btn')) {
+          var s = document.createElement('style');
+          s.textContent = css;
+          root.appendChild(s);
+        } else if (tries++ < 60) {
+          setTimeout(patch, 500);
+        }
+      })();
+    })();
+  </script>
+  <!-- End LeadConnector Chat Widget -->
 </body>
 
 </html>
